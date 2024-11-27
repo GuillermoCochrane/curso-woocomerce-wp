@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-11-2024 a las 06:23:56
+-- Tiempo de generación: 27-11-2024 a las 07:11:55
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -20,6 +20,288 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `woo_wp_db`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `wp_actionscheduler_actions`
+--
+
+CREATE TABLE `wp_actionscheduler_actions` (
+  `action_id` bigint(20) UNSIGNED NOT NULL,
+  `hook` varchar(191) NOT NULL,
+  `status` varchar(20) NOT NULL,
+  `scheduled_date_gmt` datetime DEFAULT '0000-00-00 00:00:00',
+  `scheduled_date_local` datetime DEFAULT '0000-00-00 00:00:00',
+  `priority` tinyint(3) UNSIGNED NOT NULL DEFAULT 10,
+  `args` varchar(191) DEFAULT NULL,
+  `schedule` longtext DEFAULT NULL,
+  `group_id` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
+  `attempts` int(11) NOT NULL DEFAULT 0,
+  `last_attempt_gmt` datetime DEFAULT '0000-00-00 00:00:00',
+  `last_attempt_local` datetime DEFAULT '0000-00-00 00:00:00',
+  `claim_id` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
+  `extended_args` varchar(8000) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+--
+-- Volcado de datos para la tabla `wp_actionscheduler_actions`
+--
+
+INSERT INTO `wp_actionscheduler_actions` (`action_id`, `hook`, `status`, `scheduled_date_gmt`, `scheduled_date_local`, `priority`, `args`, `schedule`, `group_id`, `attempts`, `last_attempt_gmt`, `last_attempt_local`, `claim_id`, `extended_args`) VALUES
+(8, 'action_scheduler/migration_hook', 'complete', '2024-11-27 04:02:26', '2024-11-27 01:02:26', 10, '[]', 'O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1732680146;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1732680146;}', 1, 1, '2024-11-27 04:04:29', '2024-11-27 01:04:29', 0, NULL),
+(9, 'woocommerce_cleanup_draft_orders', 'complete', '2024-11-27 04:01:33', '2024-11-27 01:01:33', 10, '[]', 'O:32:\"ActionScheduler_IntervalSchedule\":5:{s:22:\"\0*\0scheduled_timestamp\";i:1732680093;s:18:\"\0*\0first_timestamp\";i:1732680093;s:13:\"\0*\0recurrence\";i:86400;s:49:\"\0ActionScheduler_IntervalSchedule\0start_timestamp\";i:1732680093;s:53:\"\0ActionScheduler_IntervalSchedule\0interval_in_seconds\";i:86400;}', 2, 1, '2024-11-27 04:01:36', '2024-11-27 01:01:36', 0, NULL),
+(10, 'woocommerce_cleanup_draft_orders', 'pending', '2024-11-28 04:01:36', '2024-11-28 01:01:36', 10, '[]', 'O:32:\"ActionScheduler_IntervalSchedule\":5:{s:22:\"\0*\0scheduled_timestamp\";i:1732766496;s:18:\"\0*\0first_timestamp\";i:1732680093;s:13:\"\0*\0recurrence\";i:86400;s:49:\"\0ActionScheduler_IntervalSchedule\0start_timestamp\";i:1732766496;s:53:\"\0ActionScheduler_IntervalSchedule\0interval_in_seconds\";i:86400;}', 2, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, NULL),
+(11, 'woocommerce_install_assembler_fonts', 'complete', '2024-11-27 04:02:20', '2024-11-27 01:02:20', 10, '[]', 'O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1732680140;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1732680140;}', 2, 1, '2024-11-27 04:04:15', '2024-11-27 01:04:15', 0, NULL),
+(12, 'fetch_patterns', 'complete', '2024-11-27 04:02:20', '2024-11-27 01:02:20', 10, '[]', 'O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1732680140;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1732680140;}', 2, 1, '2024-11-27 04:04:29', '2024-11-27 01:04:29', 0, NULL),
+(13, 'woocommerce_run_product_attribute_lookup_update_callback', 'complete', '2024-11-27 04:15:36', '2024-11-27 01:15:36', 10, '[63,1]', 'O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1732680936;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1732680936;}', 3, 1, '2024-11-27 04:16:15', '2024-11-27 01:16:15', 0, NULL),
+(14, 'woocommerce_run_product_attribute_lookup_update_callback', 'complete', '2024-11-27 04:15:36', '2024-11-27 01:15:36', 10, '[64,1]', 'O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1732680936;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1732680936;}', 3, 1, '2024-11-27 04:16:15', '2024-11-27 01:16:15', 0, NULL),
+(15, 'woocommerce_run_product_attribute_lookup_update_callback', 'complete', '2024-11-27 04:15:37', '2024-11-27 01:15:37', 10, '[65,1]', 'O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1732680937;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1732680937;}', 3, 1, '2024-11-27 04:16:16', '2024-11-27 01:16:16', 0, NULL),
+(16, 'woocommerce_run_product_attribute_lookup_update_callback', 'complete', '2024-11-27 04:15:37', '2024-11-27 01:15:37', 10, '[66,1]', 'O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1732680937;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1732680937;}', 3, 1, '2024-11-27 04:16:16', '2024-11-27 01:16:16', 0, NULL),
+(17, 'woocommerce_run_product_attribute_lookup_update_callback', 'complete', '2024-11-27 04:15:37', '2024-11-27 01:15:37', 10, '[67,1]', 'O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1732680937;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1732680937;}', 3, 1, '2024-11-27 04:16:16', '2024-11-27 01:16:16', 0, NULL),
+(18, 'woocommerce_run_product_attribute_lookup_update_callback', 'complete', '2024-11-27 04:15:38', '2024-11-27 01:15:38', 10, '[68,1]', 'O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1732680938;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1732680938;}', 3, 1, '2024-11-27 04:16:16', '2024-11-27 01:16:16', 0, NULL),
+(19, 'woocommerce_run_product_attribute_lookup_update_callback', 'complete', '2024-11-27 04:15:39', '2024-11-27 01:15:39', 10, '[69,1]', 'O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1732680939;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1732680939;}', 3, 1, '2024-11-27 04:16:16', '2024-11-27 01:16:16', 0, NULL),
+(20, 'woocommerce_run_product_attribute_lookup_update_callback', 'complete', '2024-11-27 04:15:39', '2024-11-27 01:15:39', 10, '[70,1]', 'O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1732680939;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1732680939;}', 3, 1, '2024-11-27 04:16:16', '2024-11-27 01:16:16', 0, NULL),
+(21, 'woocommerce_run_product_attribute_lookup_update_callback', 'complete', '2024-11-27 04:15:39', '2024-11-27 01:15:39', 10, '[71,1]', 'O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1732680939;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1732680939;}', 3, 1, '2024-11-27 04:16:16', '2024-11-27 01:16:16', 0, NULL),
+(22, 'woocommerce_run_product_attribute_lookup_update_callback', 'complete', '2024-11-27 04:15:40', '2024-11-27 01:15:40', 10, '[72,1]', 'O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1732680940;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1732680940;}', 3, 1, '2024-11-27 04:16:16', '2024-11-27 01:16:16', 0, NULL),
+(23, 'woocommerce_run_product_attribute_lookup_update_callback', 'complete', '2024-11-27 04:15:40', '2024-11-27 01:15:40', 10, '[73,1]', 'O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1732680940;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1732680940;}', 3, 1, '2024-11-27 04:16:16', '2024-11-27 01:16:16', 0, NULL),
+(24, 'woocommerce_run_product_attribute_lookup_update_callback', 'complete', '2024-11-27 04:15:40', '2024-11-27 01:15:40', 10, '[74,1]', 'O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1732680940;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1732680940;}', 3, 1, '2024-11-27 04:16:16', '2024-11-27 01:16:16', 0, NULL),
+(25, 'woocommerce_run_product_attribute_lookup_update_callback', 'complete', '2024-11-27 04:15:40', '2024-11-27 01:15:40', 10, '[75,1]', 'O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1732680940;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1732680940;}', 3, 1, '2024-11-27 04:16:16', '2024-11-27 01:16:16', 0, NULL),
+(26, 'woocommerce_run_product_attribute_lookup_update_callback', 'complete', '2024-11-27 04:15:41', '2024-11-27 01:15:41', 10, '[76,1]', 'O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1732680941;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1732680941;}', 3, 1, '2024-11-27 04:16:16', '2024-11-27 01:16:16', 0, NULL),
+(27, 'woocommerce_run_product_attribute_lookup_update_callback', 'complete', '2024-11-27 04:15:41', '2024-11-27 01:15:41', 10, '[77,1]', 'O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1732680941;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1732680941;}', 3, 1, '2024-11-27 04:16:16', '2024-11-27 01:16:16', 0, NULL),
+(28, 'woocommerce_run_product_attribute_lookup_update_callback', 'complete', '2024-11-27 04:15:41', '2024-11-27 01:15:41', 10, '[78,1]', 'O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1732680941;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1732680941;}', 3, 1, '2024-11-27 04:16:16', '2024-11-27 01:16:16', 0, NULL),
+(29, 'woocommerce_run_product_attribute_lookup_update_callback', 'complete', '2024-11-27 04:15:42', '2024-11-27 01:15:42', 10, '[79,1]', 'O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1732680942;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1732680942;}', 3, 1, '2024-11-27 04:16:16', '2024-11-27 01:16:16', 0, NULL),
+(30, 'woocommerce_run_product_attribute_lookup_update_callback', 'complete', '2024-11-27 04:15:42', '2024-11-27 01:15:42', 10, '[80,1]', 'O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1732680942;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1732680942;}', 3, 1, '2024-11-27 04:16:16', '2024-11-27 01:16:16', 0, NULL),
+(31, 'woocommerce_run_product_attribute_lookup_update_callback', 'complete', '2024-11-27 04:15:42', '2024-11-27 01:15:42', 10, '[81,1]', 'O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1732680942;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1732680942;}', 3, 1, '2024-11-27 04:16:16', '2024-11-27 01:16:16', 0, NULL),
+(32, 'woocommerce_run_product_attribute_lookup_update_callback', 'complete', '2024-11-27 04:15:42', '2024-11-27 01:15:42', 10, '[82,1]', 'O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1732680942;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1732680942;}', 3, 1, '2024-11-27 04:16:16', '2024-11-27 01:16:16', 0, NULL),
+(33, 'woocommerce_run_product_attribute_lookup_update_callback', 'complete', '2024-11-27 04:15:43', '2024-11-27 01:15:43', 10, '[83,1]', 'O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1732680943;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1732680943;}', 3, 1, '2024-11-27 04:16:16', '2024-11-27 01:16:16', 0, NULL),
+(34, 'woocommerce_run_product_attribute_lookup_update_callback', 'complete', '2024-11-27 04:15:43', '2024-11-27 01:15:43', 10, '[84,1]', 'O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1732680943;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1732680943;}', 3, 1, '2024-11-27 04:16:16', '2024-11-27 01:16:16', 0, NULL),
+(35, 'woocommerce_run_product_attribute_lookup_update_callback', 'complete', '2024-11-27 04:15:43', '2024-11-27 01:15:43', 10, '[85,1]', 'O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1732680943;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1732680943;}', 3, 1, '2024-11-27 04:16:16', '2024-11-27 01:16:16', 0, NULL),
+(36, 'woocommerce_run_product_attribute_lookup_update_callback', 'complete', '2024-11-27 04:15:44', '2024-11-27 01:15:44', 10, '[86,1]', 'O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1732680944;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1732680944;}', 3, 1, '2024-11-27 04:16:16', '2024-11-27 01:16:16', 0, NULL),
+(37, 'woocommerce_run_product_attribute_lookup_update_callback', 'complete', '2024-11-27 04:15:44', '2024-11-27 01:15:44', 10, '[87,1]', 'O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1732680944;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1732680944;}', 3, 1, '2024-11-27 04:16:16', '2024-11-27 01:16:16', 0, NULL),
+(38, 'woocommerce_admin/stored_state_setup_for_products/async/run_remote_notifications', 'failed', '2024-11-27 04:15:46', '2024-11-27 04:15:46', 10, '[]', 'O:28:\"ActionScheduler_NullSchedule\":0:{}', 2, 1, '2024-11-27 04:16:16', '2024-11-27 01:16:16', 0, NULL),
+(39, 'woocommerce_run_product_attribute_lookup_update_callback', 'complete', '2024-11-27 04:16:18', '2024-11-27 01:16:18', 10, '[65,1]', 'O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1732680978;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1732680978;}', 3, 1, '2024-11-27 04:16:32', '2024-11-27 01:16:32', 0, NULL),
+(40, 'woocommerce_run_product_attribute_lookup_update_callback', 'complete', '2024-11-27 04:16:24', '2024-11-27 01:16:24', 10, '[66,1]', 'O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1732680984;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1732680984;}', 3, 1, '2024-11-27 04:16:32', '2024-11-27 01:16:32', 0, NULL),
+(41, 'woocommerce_run_product_attribute_lookup_update_callback', 'complete', '2024-11-27 04:16:29', '2024-11-27 01:16:29', 10, '[67,1]', 'O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1732680989;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1732680989;}', 3, 1, '2024-11-27 04:16:32', '2024-11-27 01:16:32', 0, NULL),
+(42, 'woocommerce_run_product_attribute_lookup_update_callback', 'complete', '2024-11-27 04:16:38', '2024-11-27 01:16:38', 10, '[69,1]', 'O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1732680998;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1732680998;}', 3, 1, '2024-11-27 04:17:33', '2024-11-27 01:17:33', 0, NULL),
+(43, 'woocommerce_run_product_attribute_lookup_update_callback', 'complete', '2024-11-27 04:16:50', '2024-11-27 01:16:50', 10, '[71,3]', 'O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1732681010;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1732681010;}', 3, 1, '2024-11-27 04:17:33', '2024-11-27 01:17:33', 0, NULL),
+(44, 'woocommerce_run_product_attribute_lookup_update_callback', 'complete', '2024-11-27 04:16:59', '2024-11-27 01:16:59', 10, '[73,1]', 'O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1732681019;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1732681019;}', 3, 1, '2024-11-27 04:17:33', '2024-11-27 01:17:33', 0, NULL),
+(45, 'woocommerce_run_product_attribute_lookup_update_callback', 'complete', '2024-11-27 04:17:04', '2024-11-27 01:17:04', 10, '[74,1]', 'O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1732681024;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1732681024;}', 3, 1, '2024-11-27 04:17:33', '2024-11-27 01:17:33', 0, NULL),
+(46, 'woocommerce_run_product_attribute_lookup_update_callback', 'complete', '2024-11-27 04:17:18', '2024-11-27 01:17:18', 10, '[63,1]', 'O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1732681038;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1732681038;}', 3, 1, '2024-11-27 04:17:33', '2024-11-27 01:17:33', 0, NULL),
+(47, 'woocommerce_run_product_attribute_lookup_update_callback', 'complete', '2024-11-27 04:17:18', '2024-11-27 01:17:18', 10, '[77,1]', 'O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1732681038;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1732681038;}', 3, 1, '2024-11-27 04:17:33', '2024-11-27 01:17:33', 0, NULL),
+(48, 'woocommerce_run_product_attribute_lookup_update_callback', 'complete', '2024-11-27 04:17:18', '2024-11-27 01:17:18', 10, '[78,1]', 'O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1732681038;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1732681038;}', 3, 1, '2024-11-27 04:17:34', '2024-11-27 01:17:34', 0, NULL),
+(49, 'woocommerce_run_product_attribute_lookup_update_callback', 'complete', '2024-11-27 04:17:18', '2024-11-27 01:17:18', 10, '[79,1]', 'O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1732681038;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1732681038;}', 3, 1, '2024-11-27 04:17:34', '2024-11-27 01:17:34', 0, NULL),
+(50, 'woocommerce_run_product_attribute_lookup_update_callback', 'complete', '2024-11-27 04:17:18', '2024-11-27 01:17:18', 10, '[64,1]', 'O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1732681038;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1732681038;}', 3, 1, '2024-11-27 04:17:34', '2024-11-27 01:17:34', 0, NULL),
+(51, 'woocommerce_run_product_attribute_lookup_update_callback', 'complete', '2024-11-27 04:17:18', '2024-11-27 01:17:18', 10, '[80,1]', 'O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1732681038;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1732681038;}', 3, 1, '2024-11-27 04:17:34', '2024-11-27 01:17:34', 0, NULL),
+(52, 'woocommerce_run_product_attribute_lookup_update_callback', 'complete', '2024-11-27 04:17:18', '2024-11-27 01:17:18', 10, '[81,1]', 'O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1732681038;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1732681038;}', 3, 1, '2024-11-27 04:17:34', '2024-11-27 01:17:34', 0, NULL),
+(53, 'woocommerce_run_product_attribute_lookup_update_callback', 'complete', '2024-11-27 04:17:19', '2024-11-27 01:17:19', 10, '[82,1]', 'O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1732681039;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1732681039;}', 3, 1, '2024-11-27 04:17:34', '2024-11-27 01:17:34', 0, NULL),
+(54, 'woocommerce_run_product_attribute_lookup_update_callback', 'complete', '2024-11-27 04:17:23', '2024-11-27 01:17:23', 10, '[83,1]', 'O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1732681043;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1732681043;}', 3, 1, '2024-11-27 04:17:34', '2024-11-27 01:17:34', 0, NULL),
+(55, 'woocommerce_run_product_attribute_lookup_update_callback', 'complete', '2024-11-27 04:17:28', '2024-11-27 01:17:28', 10, '[84,1]', 'O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1732681048;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1732681048;}', 3, 1, '2024-11-27 04:17:34', '2024-11-27 01:17:34', 0, NULL),
+(56, 'woocommerce_run_product_attribute_lookup_update_callback', 'complete', '2024-11-27 04:17:29', '2024-11-27 01:17:29', 10, '[63,2]', 'O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1732681049;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1732681049;}', 3, 1, '2024-11-27 04:17:34', '2024-11-27 01:17:34', 0, NULL),
+(57, 'woocommerce_run_product_attribute_lookup_update_callback', 'complete', '2024-11-27 04:17:29', '2024-11-27 01:17:29', 10, '[64,2]', 'O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1732681049;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1732681049;}', 3, 1, '2024-11-27 04:17:34', '2024-11-27 01:17:34', 0, NULL),
+(58, 'woocommerce_run_product_attribute_lookup_update_callback', 'complete', '2024-11-27 04:17:43', '2024-11-27 01:17:43', 10, '[87,1]', 'O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1732681063;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1732681063;}', 3, 1, '2024-11-27 04:18:42', '2024-11-27 01:18:42', 0, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `wp_actionscheduler_claims`
+--
+
+CREATE TABLE `wp_actionscheduler_claims` (
+  `claim_id` bigint(20) UNSIGNED NOT NULL,
+  `date_created_gmt` datetime DEFAULT '0000-00-00 00:00:00'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `wp_actionscheduler_groups`
+--
+
+CREATE TABLE `wp_actionscheduler_groups` (
+  `group_id` bigint(20) UNSIGNED NOT NULL,
+  `slug` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+--
+-- Volcado de datos para la tabla `wp_actionscheduler_groups`
+--
+
+INSERT INTO `wp_actionscheduler_groups` (`group_id`, `slug`) VALUES
+(1, 'action-scheduler-migration'),
+(2, ''),
+(3, 'woocommerce-db-updates');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `wp_actionscheduler_logs`
+--
+
+CREATE TABLE `wp_actionscheduler_logs` (
+  `log_id` bigint(20) UNSIGNED NOT NULL,
+  `action_id` bigint(20) UNSIGNED NOT NULL,
+  `message` text NOT NULL,
+  `log_date_gmt` datetime DEFAULT '0000-00-00 00:00:00',
+  `log_date_local` datetime DEFAULT '0000-00-00 00:00:00'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+--
+-- Volcado de datos para la tabla `wp_actionscheduler_logs`
+--
+
+INSERT INTO `wp_actionscheduler_logs` (`log_id`, `action_id`, `message`, `log_date_gmt`, `log_date_local`) VALUES
+(1, 8, 'action created', '2024-11-27 04:01:26', '2024-11-27 01:01:26'),
+(2, 9, 'action created', '2024-11-27 04:01:33', '2024-11-27 01:01:33'),
+(3, 9, 'action started via WP Cron', '2024-11-27 04:01:36', '2024-11-27 01:01:36'),
+(4, 9, 'action complete via WP Cron', '2024-11-27 04:01:36', '2024-11-27 01:01:36'),
+(5, 10, 'action created', '2024-11-27 04:01:36', '2024-11-27 01:01:36'),
+(6, 11, 'action created', '2024-11-27 04:02:20', '2024-11-27 01:02:20'),
+(7, 12, 'action created', '2024-11-27 04:02:20', '2024-11-27 01:02:20'),
+(8, 11, 'action started via Async Request', '2024-11-27 04:03:01', '2024-11-27 01:03:01'),
+(9, 11, 'action complete via Async Request', '2024-11-27 04:04:15', '2024-11-27 01:04:15'),
+(10, 12, 'action started via Async Request', '2024-11-27 04:04:26', '2024-11-27 01:04:26'),
+(11, 12, 'action complete via Async Request', '2024-11-27 04:04:29', '2024-11-27 01:04:29'),
+(12, 8, 'action started via Async Request', '2024-11-27 04:04:29', '2024-11-27 01:04:29'),
+(13, 8, 'action complete via Async Request', '2024-11-27 04:04:29', '2024-11-27 01:04:29'),
+(14, 13, 'action created', '2024-11-27 04:15:35', '2024-11-27 01:15:35'),
+(15, 14, 'action created', '2024-11-27 04:15:35', '2024-11-27 01:15:35'),
+(16, 15, 'action created', '2024-11-27 04:15:36', '2024-11-27 01:15:36'),
+(17, 16, 'action created', '2024-11-27 04:15:36', '2024-11-27 01:15:36'),
+(18, 17, 'action created', '2024-11-27 04:15:36', '2024-11-27 01:15:36'),
+(19, 18, 'action created', '2024-11-27 04:15:37', '2024-11-27 01:15:37'),
+(20, 19, 'action created', '2024-11-27 04:15:38', '2024-11-27 01:15:38'),
+(21, 20, 'action created', '2024-11-27 04:15:38', '2024-11-27 01:15:38'),
+(22, 21, 'action created', '2024-11-27 04:15:38', '2024-11-27 01:15:38'),
+(23, 22, 'action created', '2024-11-27 04:15:39', '2024-11-27 01:15:39'),
+(24, 23, 'action created', '2024-11-27 04:15:39', '2024-11-27 01:15:39'),
+(25, 24, 'action created', '2024-11-27 04:15:39', '2024-11-27 01:15:39'),
+(26, 25, 'action created', '2024-11-27 04:15:39', '2024-11-27 01:15:39'),
+(27, 26, 'action created', '2024-11-27 04:15:40', '2024-11-27 01:15:40'),
+(28, 27, 'action created', '2024-11-27 04:15:40', '2024-11-27 01:15:40'),
+(29, 28, 'action created', '2024-11-27 04:15:40', '2024-11-27 01:15:40'),
+(30, 29, 'action created', '2024-11-27 04:15:41', '2024-11-27 01:15:41'),
+(31, 30, 'action created', '2024-11-27 04:15:41', '2024-11-27 01:15:41'),
+(32, 31, 'action created', '2024-11-27 04:15:41', '2024-11-27 01:15:41'),
+(33, 32, 'action created', '2024-11-27 04:15:41', '2024-11-27 01:15:41'),
+(34, 33, 'action created', '2024-11-27 04:15:42', '2024-11-27 01:15:42'),
+(35, 34, 'action created', '2024-11-27 04:15:42', '2024-11-27 01:15:42'),
+(36, 35, 'action created', '2024-11-27 04:15:42', '2024-11-27 01:15:42'),
+(37, 36, 'action created', '2024-11-27 04:15:43', '2024-11-27 01:15:43'),
+(38, 37, 'action created', '2024-11-27 04:15:43', '2024-11-27 01:15:43'),
+(39, 38, 'action created', '2024-11-27 04:15:46', '2024-11-27 01:15:46'),
+(40, 13, 'action started via WP Cron', '2024-11-27 04:16:15', '2024-11-27 01:16:15'),
+(41, 13, 'action complete via WP Cron', '2024-11-27 04:16:15', '2024-11-27 01:16:15'),
+(42, 14, 'action started via WP Cron', '2024-11-27 04:16:15', '2024-11-27 01:16:15'),
+(43, 14, 'action complete via WP Cron', '2024-11-27 04:16:15', '2024-11-27 01:16:15'),
+(44, 15, 'action started via WP Cron', '2024-11-27 04:16:15', '2024-11-27 01:16:15'),
+(45, 15, 'action complete via WP Cron', '2024-11-27 04:16:16', '2024-11-27 01:16:16'),
+(46, 16, 'action started via WP Cron', '2024-11-27 04:16:16', '2024-11-27 01:16:16'),
+(47, 16, 'action complete via WP Cron', '2024-11-27 04:16:16', '2024-11-27 01:16:16'),
+(48, 17, 'action started via WP Cron', '2024-11-27 04:16:16', '2024-11-27 01:16:16'),
+(49, 17, 'action complete via WP Cron', '2024-11-27 04:16:16', '2024-11-27 01:16:16'),
+(50, 18, 'action started via WP Cron', '2024-11-27 04:16:16', '2024-11-27 01:16:16'),
+(51, 18, 'action complete via WP Cron', '2024-11-27 04:16:16', '2024-11-27 01:16:16'),
+(52, 19, 'action started via WP Cron', '2024-11-27 04:16:16', '2024-11-27 01:16:16'),
+(53, 19, 'action complete via WP Cron', '2024-11-27 04:16:16', '2024-11-27 01:16:16'),
+(54, 20, 'action started via WP Cron', '2024-11-27 04:16:16', '2024-11-27 01:16:16'),
+(55, 20, 'action complete via WP Cron', '2024-11-27 04:16:16', '2024-11-27 01:16:16'),
+(56, 21, 'action started via WP Cron', '2024-11-27 04:16:16', '2024-11-27 01:16:16'),
+(57, 21, 'action complete via WP Cron', '2024-11-27 04:16:16', '2024-11-27 01:16:16'),
+(58, 22, 'action started via WP Cron', '2024-11-27 04:16:16', '2024-11-27 01:16:16'),
+(59, 22, 'action complete via WP Cron', '2024-11-27 04:16:16', '2024-11-27 01:16:16'),
+(60, 23, 'action started via WP Cron', '2024-11-27 04:16:16', '2024-11-27 01:16:16'),
+(61, 23, 'action complete via WP Cron', '2024-11-27 04:16:16', '2024-11-27 01:16:16'),
+(62, 24, 'action started via WP Cron', '2024-11-27 04:16:16', '2024-11-27 01:16:16'),
+(63, 24, 'action complete via WP Cron', '2024-11-27 04:16:16', '2024-11-27 01:16:16'),
+(64, 25, 'action started via WP Cron', '2024-11-27 04:16:16', '2024-11-27 01:16:16'),
+(65, 25, 'action complete via WP Cron', '2024-11-27 04:16:16', '2024-11-27 01:16:16'),
+(66, 26, 'action started via WP Cron', '2024-11-27 04:16:16', '2024-11-27 01:16:16'),
+(67, 26, 'action complete via WP Cron', '2024-11-27 04:16:16', '2024-11-27 01:16:16'),
+(68, 27, 'action started via WP Cron', '2024-11-27 04:16:16', '2024-11-27 01:16:16'),
+(69, 27, 'action complete via WP Cron', '2024-11-27 04:16:16', '2024-11-27 01:16:16'),
+(70, 28, 'action started via WP Cron', '2024-11-27 04:16:16', '2024-11-27 01:16:16'),
+(71, 28, 'action complete via WP Cron', '2024-11-27 04:16:16', '2024-11-27 01:16:16'),
+(72, 29, 'action started via WP Cron', '2024-11-27 04:16:16', '2024-11-27 01:16:16'),
+(73, 29, 'action complete via WP Cron', '2024-11-27 04:16:16', '2024-11-27 01:16:16'),
+(74, 30, 'action started via WP Cron', '2024-11-27 04:16:16', '2024-11-27 01:16:16'),
+(75, 30, 'action complete via WP Cron', '2024-11-27 04:16:16', '2024-11-27 01:16:16'),
+(76, 31, 'action started via WP Cron', '2024-11-27 04:16:16', '2024-11-27 01:16:16'),
+(77, 31, 'action complete via WP Cron', '2024-11-27 04:16:16', '2024-11-27 01:16:16'),
+(78, 32, 'action started via WP Cron', '2024-11-27 04:16:16', '2024-11-27 01:16:16'),
+(79, 32, 'action complete via WP Cron', '2024-11-27 04:16:16', '2024-11-27 01:16:16'),
+(80, 33, 'action started via WP Cron', '2024-11-27 04:16:16', '2024-11-27 01:16:16'),
+(81, 33, 'action complete via WP Cron', '2024-11-27 04:16:16', '2024-11-27 01:16:16'),
+(82, 34, 'action started via WP Cron', '2024-11-27 04:16:16', '2024-11-27 01:16:16'),
+(83, 34, 'action complete via WP Cron', '2024-11-27 04:16:16', '2024-11-27 01:16:16'),
+(84, 35, 'action started via WP Cron', '2024-11-27 04:16:16', '2024-11-27 01:16:16'),
+(85, 35, 'action complete via WP Cron', '2024-11-27 04:16:16', '2024-11-27 01:16:16'),
+(86, 36, 'action started via WP Cron', '2024-11-27 04:16:16', '2024-11-27 01:16:16'),
+(87, 36, 'action complete via WP Cron', '2024-11-27 04:16:16', '2024-11-27 01:16:16'),
+(88, 37, 'action started via WP Cron', '2024-11-27 04:16:16', '2024-11-27 01:16:16'),
+(89, 37, 'action complete via WP Cron', '2024-11-27 04:16:16', '2024-11-27 01:16:16'),
+(90, 38, 'action started via WP Cron', '2024-11-27 04:16:16', '2024-11-27 01:16:16'),
+(91, 38, 'action failed via WP Cron: Scheduled action for woocommerce_admin/stored_state_setup_for_products/async/run_remote_notifications will not be executed as no callbacks are registered.', '2024-11-27 04:16:16', '2024-11-27 01:16:16'),
+(92, 39, 'action created', '2024-11-27 04:16:17', '2024-11-27 01:16:17'),
+(93, 40, 'action created', '2024-11-27 04:16:23', '2024-11-27 01:16:23'),
+(94, 41, 'action created', '2024-11-27 04:16:28', '2024-11-27 01:16:28'),
+(95, 39, 'action started via Async Request', '2024-11-27 04:16:32', '2024-11-27 01:16:32'),
+(96, 39, 'action complete via Async Request', '2024-11-27 04:16:32', '2024-11-27 01:16:32'),
+(97, 40, 'action started via Async Request', '2024-11-27 04:16:32', '2024-11-27 01:16:32'),
+(98, 40, 'action complete via Async Request', '2024-11-27 04:16:32', '2024-11-27 01:16:32'),
+(99, 41, 'action started via Async Request', '2024-11-27 04:16:32', '2024-11-27 01:16:32'),
+(100, 41, 'action complete via Async Request', '2024-11-27 04:16:32', '2024-11-27 01:16:32'),
+(101, 42, 'action created', '2024-11-27 04:16:37', '2024-11-27 01:16:37'),
+(102, 43, 'action created', '2024-11-27 04:16:49', '2024-11-27 01:16:49'),
+(103, 44, 'action created', '2024-11-27 04:16:58', '2024-11-27 01:16:58'),
+(104, 45, 'action created', '2024-11-27 04:17:03', '2024-11-27 01:17:03'),
+(105, 46, 'action created', '2024-11-27 04:17:17', '2024-11-27 01:17:17'),
+(106, 47, 'action created', '2024-11-27 04:17:17', '2024-11-27 01:17:17'),
+(107, 48, 'action created', '2024-11-27 04:17:17', '2024-11-27 01:17:17'),
+(108, 49, 'action created', '2024-11-27 04:17:17', '2024-11-27 01:17:17'),
+(109, 50, 'action created', '2024-11-27 04:17:17', '2024-11-27 01:17:17'),
+(110, 51, 'action created', '2024-11-27 04:17:17', '2024-11-27 01:17:17'),
+(111, 52, 'action created', '2024-11-27 04:17:17', '2024-11-27 01:17:17'),
+(112, 53, 'action created', '2024-11-27 04:17:18', '2024-11-27 01:17:18'),
+(113, 54, 'action created', '2024-11-27 04:17:22', '2024-11-27 01:17:22'),
+(114, 55, 'action created', '2024-11-27 04:17:27', '2024-11-27 01:17:27'),
+(115, 56, 'action created', '2024-11-27 04:17:28', '2024-11-27 01:17:28'),
+(116, 57, 'action created', '2024-11-27 04:17:28', '2024-11-27 01:17:28'),
+(117, 42, 'action started via WP Cron', '2024-11-27 04:17:33', '2024-11-27 01:17:33'),
+(118, 42, 'action complete via WP Cron', '2024-11-27 04:17:33', '2024-11-27 01:17:33'),
+(119, 43, 'action started via WP Cron', '2024-11-27 04:17:33', '2024-11-27 01:17:33'),
+(120, 43, 'action complete via WP Cron', '2024-11-27 04:17:33', '2024-11-27 01:17:33'),
+(121, 44, 'action started via WP Cron', '2024-11-27 04:17:33', '2024-11-27 01:17:33'),
+(122, 44, 'action complete via WP Cron', '2024-11-27 04:17:33', '2024-11-27 01:17:33'),
+(123, 45, 'action started via WP Cron', '2024-11-27 04:17:33', '2024-11-27 01:17:33'),
+(124, 45, 'action complete via WP Cron', '2024-11-27 04:17:33', '2024-11-27 01:17:33'),
+(125, 46, 'action started via WP Cron', '2024-11-27 04:17:33', '2024-11-27 01:17:33'),
+(126, 46, 'action complete via WP Cron', '2024-11-27 04:17:33', '2024-11-27 01:17:33'),
+(127, 47, 'action started via WP Cron', '2024-11-27 04:17:33', '2024-11-27 01:17:33'),
+(128, 47, 'action complete via WP Cron', '2024-11-27 04:17:33', '2024-11-27 01:17:33'),
+(129, 48, 'action started via WP Cron', '2024-11-27 04:17:33', '2024-11-27 01:17:33'),
+(130, 48, 'action complete via WP Cron', '2024-11-27 04:17:33', '2024-11-27 01:17:33'),
+(131, 49, 'action started via WP Cron', '2024-11-27 04:17:34', '2024-11-27 01:17:34'),
+(132, 49, 'action complete via WP Cron', '2024-11-27 04:17:34', '2024-11-27 01:17:34'),
+(133, 50, 'action started via WP Cron', '2024-11-27 04:17:34', '2024-11-27 01:17:34'),
+(134, 50, 'action complete via WP Cron', '2024-11-27 04:17:34', '2024-11-27 01:17:34'),
+(135, 51, 'action started via WP Cron', '2024-11-27 04:17:34', '2024-11-27 01:17:34'),
+(136, 51, 'action complete via WP Cron', '2024-11-27 04:17:34', '2024-11-27 01:17:34'),
+(137, 52, 'action started via WP Cron', '2024-11-27 04:17:34', '2024-11-27 01:17:34'),
+(138, 52, 'action complete via WP Cron', '2024-11-27 04:17:34', '2024-11-27 01:17:34'),
+(139, 53, 'action started via WP Cron', '2024-11-27 04:17:34', '2024-11-27 01:17:34'),
+(140, 53, 'action complete via WP Cron', '2024-11-27 04:17:34', '2024-11-27 01:17:34'),
+(141, 54, 'action started via WP Cron', '2024-11-27 04:17:34', '2024-11-27 01:17:34'),
+(142, 54, 'action complete via WP Cron', '2024-11-27 04:17:34', '2024-11-27 01:17:34'),
+(143, 55, 'action started via WP Cron', '2024-11-27 04:17:34', '2024-11-27 01:17:34'),
+(144, 55, 'action complete via WP Cron', '2024-11-27 04:17:34', '2024-11-27 01:17:34'),
+(145, 56, 'action started via WP Cron', '2024-11-27 04:17:34', '2024-11-27 01:17:34'),
+(146, 56, 'action complete via WP Cron', '2024-11-27 04:17:34', '2024-11-27 01:17:34'),
+(147, 57, 'action started via WP Cron', '2024-11-27 04:17:34', '2024-11-27 01:17:34'),
+(148, 57, 'action complete via WP Cron', '2024-11-27 04:17:34', '2024-11-27 01:17:34'),
+(149, 58, 'action created', '2024-11-27 04:17:42', '2024-11-27 01:17:42'),
+(150, 58, 'action started via WP Cron', '2024-11-27 04:18:42', '2024-11-27 01:18:42'),
+(151, 58, 'action complete via WP Cron', '2024-11-27 04:18:42', '2024-11-27 01:18:42');
 
 -- --------------------------------------------------------
 
@@ -105,7 +387,7 @@ CREATE TABLE `wp_options` (
 --
 
 INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES
-(1, 'cron', 'a:23:{i:1732685055;a:1:{s:26:\"action_scheduler_run_queue\";a:1:{s:32:\"0d04ed39571b55704c122d726248bbac\";a:3:{s:8:\"schedule\";s:12:\"every_minute\";s:4:\"args\";a:1:{i:0;s:7:\"WP Cron\";}s:8:\"interval\";i:60;}}}i:1732686046;a:1:{s:34:\"wp_privacy_delete_old_export_files\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:6:\"hourly\";s:4:\"args\";a:0:{}s:8:\"interval\";i:3600;}}}i:1732687283;a:2:{s:20:\"jetpack_clean_nonces\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:6:\"hourly\";s:4:\"args\";a:0:{}s:8:\"interval\";i:3600;}}s:33:\"wc_admin_process_orders_milestone\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:6:\"hourly\";s:4:\"args\";a:0:{}s:8:\"interval\";i:3600;}}}i:1732687286;a:1:{s:32:\"woocommerce_cancel_unpaid_orders\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:2:{s:8:\"schedule\";b:0;s:4:\"args\";a:0:{}}}}i:1732687294;a:1:{s:29:\"wc_admin_unsnooze_admin_notes\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:6:\"hourly\";s:4:\"args\";a:0:{}s:8:\"interval\";i:3600;}}}i:1732690881;a:2:{s:24:\"woocommerce_cleanup_logs\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}s:31:\"woocommerce_cleanup_rate_limits\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1732696879;a:1:{s:21:\"wp_update_user_counts\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}}i:1732700441;a:1:{s:16:\"wp_version_check\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}}i:1732701681;a:1:{s:28:\"woocommerce_cleanup_sessions\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}}i:1732702241;a:1:{s:17:\"wp_update_plugins\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}}i:1732704041;a:1:{s:16:\"wp_update_themes\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}}i:1732740045;a:1:{s:32:\"recovery_mode_clean_expired_keys\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1732740079;a:2:{s:19:\"wp_scheduled_delete\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}s:25:\"delete_expired_transients\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1732740095;a:1:{s:30:\"wp_scheduled_auto_draft_delete\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1732762800;a:1:{s:27:\"woocommerce_scheduled_sales\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1732766481;a:1:{s:14:\"wc_admin_daily\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1732766483;a:1:{s:20:\"jetpack_v2_heartbeat\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1732766491;a:2:{s:33:\"woocommerce_cleanup_personal_data\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}s:30:\"woocommerce_tracker_send_event\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1732767236;a:1:{s:26:\"importer_scheduled_cleanup\";a:1:{s:32:\"3cba02404b28511a5438290dad5d447d\";a:2:{s:8:\"schedule\";b:0;s:4:\"args\";a:1:{i:0;i:62;}}}}i:1733258445;a:1:{s:30:\"wp_site_health_scheduled_check\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:6:\"weekly\";s:4:\"args\";a:0:{}s:8:\"interval\";i:604800;}}}i:1733282911;a:1:{s:30:\"wp_delete_temp_updater_backups\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:6:\"weekly\";s:4:\"args\";a:0:{}s:8:\"interval\";i:604800;}}}i:1733976141;a:1:{s:25:\"woocommerce_geoip_updater\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:11:\"fifteendays\";s:4:\"args\";a:0:{}s:8:\"interval\";i:1296000;}}}s:7:\"version\";i:2;}', 'on'),
+(1, 'cron', 'a:23:{i:1732687935;a:1:{s:26:\"action_scheduler_run_queue\";a:1:{s:32:\"0d04ed39571b55704c122d726248bbac\";a:3:{s:8:\"schedule\";s:12:\"every_minute\";s:4:\"args\";a:1:{i:0;s:7:\"WP Cron\";}s:8:\"interval\";i:60;}}}i:1732689646;a:1:{s:34:\"wp_privacy_delete_old_export_files\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:6:\"hourly\";s:4:\"args\";a:0:{}s:8:\"interval\";i:3600;}}}i:1732690881;a:2:{s:24:\"woocommerce_cleanup_logs\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}s:31:\"woocommerce_cleanup_rate_limits\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1732690883;a:2:{s:20:\"jetpack_clean_nonces\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:6:\"hourly\";s:4:\"args\";a:0:{}s:8:\"interval\";i:3600;}}s:33:\"wc_admin_process_orders_milestone\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:6:\"hourly\";s:4:\"args\";a:0:{}s:8:\"interval\";i:3600;}}}i:1732690894;a:1:{s:29:\"wc_admin_unsnooze_admin_notes\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:6:\"hourly\";s:4:\"args\";a:0:{}s:8:\"interval\";i:3600;}}}i:1732690941;a:1:{s:32:\"woocommerce_cancel_unpaid_orders\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:2:{s:8:\"schedule\";b:0;s:4:\"args\";a:0:{}}}}i:1732696879;a:1:{s:21:\"wp_update_user_counts\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}}i:1732700441;a:1:{s:16:\"wp_version_check\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}}i:1732701681;a:1:{s:28:\"woocommerce_cleanup_sessions\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}}i:1732702241;a:1:{s:17:\"wp_update_plugins\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}}i:1732704041;a:1:{s:16:\"wp_update_themes\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}}i:1732740045;a:1:{s:32:\"recovery_mode_clean_expired_keys\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1732740079;a:2:{s:19:\"wp_scheduled_delete\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}s:25:\"delete_expired_transients\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1732740095;a:1:{s:30:\"wp_scheduled_auto_draft_delete\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1732762800;a:1:{s:27:\"woocommerce_scheduled_sales\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1732766481;a:1:{s:14:\"wc_admin_daily\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1732766483;a:1:{s:20:\"jetpack_v2_heartbeat\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1732766491;a:2:{s:33:\"woocommerce_cleanup_personal_data\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}s:30:\"woocommerce_tracker_send_event\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1732767236;a:1:{s:26:\"importer_scheduled_cleanup\";a:1:{s:32:\"3cba02404b28511a5438290dad5d447d\";a:2:{s:8:\"schedule\";b:0;s:4:\"args\";a:1:{i:0;i:62;}}}}i:1733258445;a:1:{s:30:\"wp_site_health_scheduled_check\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:6:\"weekly\";s:4:\"args\";a:0:{}s:8:\"interval\";i:604800;}}}i:1733282911;a:1:{s:30:\"wp_delete_temp_updater_backups\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:6:\"weekly\";s:4:\"args\";a:0:{}s:8:\"interval\";i:604800;}}}i:1733976141;a:1:{s:25:\"woocommerce_geoip_updater\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:11:\"fifteendays\";s:4:\"args\";a:0:{}s:8:\"interval\";i:1296000;}}}s:7:\"version\";i:2;}', 'on'),
 (2, 'siteurl', 'http://localhost/curso-woocomerce-wp', 'on'),
 (3, 'home', 'http://localhost/curso-woocomerce-wp', 'on'),
 (4, 'blogname', 'WooWP Shop', 'on'),
@@ -191,7 +473,7 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (84, 'default_post_format', '0', 'on'),
 (85, 'link_manager_enabled', '0', 'on'),
 (86, 'finished_splitting_shared_terms', '1', 'on'),
-(87, 'site_icon', '0', 'on'),
+(87, 'site_icon', '122', 'on'),
 (88, 'medium_large_size_w', '768', 'on'),
 (89, 'medium_large_size_h', '0', 'on'),
 (90, 'wp_page_for_privacy_policy', '3', 'on'),
@@ -237,7 +519,7 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (158, 'finished_updating_comment_type', '1', 'auto'),
 (172, 'https_detection_errors', 'a:1:{s:23:\"ssl_verification_failed\";a:1:{i:0;s:28:\"Falló la verificación SSL.\";}}', 'off'),
 (173, '_transient_health-check-site-status-result', '{\"good\":14,\"recommended\":7,\"critical\":2}', 'on'),
-(174, '_site_transient_timeout_community-events-d41d8cd98f00b204e9800998ecf8427e', '1732725658', 'off'),
+(174, '_site_transient_timeout_community-events-d41d8cd98f00b204e9800998ecf8427e', '1732730620', 'off'),
 (175, '_site_transient_community-events-d41d8cd98f00b204e9800998ecf8427e', 'a:4:{s:9:\"sandboxed\";b:0;s:5:\"error\";N;s:8:\"location\";a:1:{s:2:\"ip\";b:0;}s:6:\"events\";a:0:{}}', 'off'),
 (176, '_transient_timeout_feed_9bbd59226dc36b9b26cd43f15694c5c3', '1732721191', 'off');
 INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES
@@ -406,7 +688,7 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (365, '_transient_timeout__woocommerce_upload_directory_status', '1732766481', 'off'),
 (366, '_transient__woocommerce_upload_directory_status', 'protected', 'off'),
 (368, '_transient_jetpack_autoloader_plugin_paths', 'a:1:{i:0;s:29:\"{{WP_PLUGIN_DIR}}/woocommerce\";}', 'on'),
-(369, 'action_scheduler_lock_async-request-runner', '6746acc1138b92.96464229|1732685053', 'no'),
+(369, 'action_scheduler_lock_async-request-runner', '6746b82b38b661.10227596|1732687975', 'no'),
 (370, 'woocommerce_admin_notices', 'a:1:{i:0;s:20:\"no_secure_connection\";}', 'auto'),
 (371, 'wc_blocks_version', '11.8.0-dev', 'auto'),
 (372, 'woocommerce_maxmind_geolocation_settings', 'a:1:{s:15:\"database_prefix\";s:32:\"VXqHfHvazN1W11oXx0L7q0OCD7RCmhsM\";}', 'on'),
@@ -468,7 +750,7 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (438, 'woocommerce_share_key', 'lwRRl0N1SzgowX1sW0a8iDVUtoGs0WZX', 'auto'),
 (439, '_site_transient_timeout_woocommerce_new_version', '1733285017', 'off'),
 (440, '_site_transient_woocommerce_new_version', '', 'off'),
-(441, '_transient_timeout_woocommerce_admin_payment_method_promotion_specs', '1732695652', 'off'),
+(441, '_transient_timeout_woocommerce_admin_payment_method_promotion_specs', '1732698484', 'off'),
 (442, '_transient_woocommerce_admin_payment_method_promotion_specs', 'a:1:{s:5:\"es_AR\";a:2:{i:0;a:7:{s:2:\"id\";s:27:\"woocommerce_payments:woopay\";s:5:\"title\";s:11:\"WooPayments\";s:7:\"content\";s:75:\"Pagos más sencillos, incluyendo WooPay, una nueva función de pago express\";s:5:\"image\";s:102:\"http://localhost/curso-woocomerce-wp/wp-content/plugins/woocommerce/assets/images/onboarding/wcpay.svg\";s:7:\"plugins\";a:1:{i:0;s:20:\"woocommerce-payments\";}s:10:\"is_visible\";a:2:{i:0;O:8:\"stdClass\":6:{s:4:\"type\";s:6:\"option\";s:12:\"transformers\";a:2:{i:0;O:8:\"stdClass\":2:{s:3:\"use\";s:12:\"dot_notation\";s:9:\"arguments\";O:8:\"stdClass\":1:{s:4:\"path\";s:8:\"industry\";}}i:1;O:8:\"stdClass\":2:{s:3:\"use\";s:12:\"array_column\";s:9:\"arguments\";O:8:\"stdClass\":1:{s:3:\"key\";s:4:\"slug\";}}}s:11:\"option_name\";s:30:\"woocommerce_onboarding_profile\";s:9:\"operation\";s:9:\"!contains\";s:5:\"value\";s:31:\"cbd-other-hemp-derived-products\";s:7:\"default\";a:0:{}}i:1;O:8:\"stdClass\":2:{s:4:\"type\";s:2:\"or\";s:8:\"operands\";a:1:{i:0;O:8:\"stdClass\":3:{s:4:\"type\";s:21:\"base_location_country\";s:5:\"value\";s:2:\"US\";s:9:\"operation\";s:1:\"=\";}}}}s:9:\"sub_title\";s:865:\"<img class=\"wcpay-visa-icon wcpay-icon\" src=\"http://localhost/curso-woocomerce-wp/wp-content/plugins/woocommerce/assets/images/payment-methods/visa.svg\" alt=\"Visa\"><img class=\"wcpay-mastercard-icon wcpay-icon\" src=\"http://localhost/curso-woocomerce-wp/wp-content/plugins/woocommerce/assets/images/payment-methods/mastercard.svg\" alt=\"Mastercard\"><img class=\"wcpay-amex-icon wcpay-icon\" src=\"http://localhost/curso-woocomerce-wp/wp-content/plugins/woocommerce/assets/images/payment-methods/amex.svg\" alt=\"Amex\"><img class=\"wcpay-googlepay-icon wcpay-icon\" src=\"http://localhost/curso-woocomerce-wp/wp-content/plugins/woocommerce/assets/images/payment-methods/googlepay.svg\" alt=\"Googlepay\"><img class=\"wcpay-applepay-icon wcpay-icon\" src=\"http://localhost/curso-woocomerce-wp/wp-content/plugins/woocommerce/assets/images/payment-methods/applepay.svg\" alt=\"Applepay\">\";}i:1;a:7:{s:2:\"id\";s:20:\"woocommerce_payments\";s:5:\"title\";s:11:\"WooPayments\";s:7:\"content\";s:172:\"Pagos sencillos, sin cuotas mensuales, diseñados en exclusiva para tiendas WooCommerce. Aceptá tarjetas de crédito, tarjetas de débito y otros métodos de pago comunes.\";s:5:\"image\";s:102:\"http://localhost/curso-woocomerce-wp/wp-content/plugins/woocommerce/assets/images/onboarding/wcpay.svg\";s:7:\"plugins\";a:1:{i:0;s:20:\"woocommerce-payments\";}s:10:\"is_visible\";a:2:{i:0;O:8:\"stdClass\":6:{s:4:\"type\";s:6:\"option\";s:12:\"transformers\";a:2:{i:0;O:8:\"stdClass\":2:{s:3:\"use\";s:12:\"dot_notation\";s:9:\"arguments\";O:8:\"stdClass\":1:{s:4:\"path\";s:8:\"industry\";}}i:1;O:8:\"stdClass\":2:{s:3:\"use\";s:12:\"array_column\";s:9:\"arguments\";O:8:\"stdClass\":1:{s:3:\"key\";s:4:\"slug\";}}}s:11:\"option_name\";s:30:\"woocommerce_onboarding_profile\";s:9:\"operation\";s:9:\"!contains\";s:5:\"value\";s:31:\"cbd-other-hemp-derived-products\";s:7:\"default\";a:0:{}}i:1;O:8:\"stdClass\":2:{s:4:\"type\";s:2:\"or\";s:8:\"operands\";a:39:{i:0;O:8:\"stdClass\":3:{s:4:\"type\";s:21:\"base_location_country\";s:5:\"value\";s:2:\"US\";s:9:\"operation\";s:1:\"=\";}i:1;O:8:\"stdClass\":3:{s:4:\"type\";s:21:\"base_location_country\";s:5:\"value\";s:2:\"PR\";s:9:\"operation\";s:1:\"=\";}i:2;O:8:\"stdClass\":3:{s:4:\"type\";s:21:\"base_location_country\";s:5:\"value\";s:2:\"AU\";s:9:\"operation\";s:1:\"=\";}i:3;O:8:\"stdClass\":3:{s:4:\"type\";s:21:\"base_location_country\";s:5:\"value\";s:2:\"CA\";s:9:\"operation\";s:1:\"=\";}i:4;O:8:\"stdClass\":3:{s:4:\"type\";s:21:\"base_location_country\";s:5:\"value\";s:2:\"CY\";s:9:\"operation\";s:1:\"=\";}i:5;O:8:\"stdClass\":3:{s:4:\"type\";s:21:\"base_location_country\";s:5:\"value\";s:2:\"DE\";s:9:\"operation\";s:1:\"=\";}i:6;O:8:\"stdClass\":3:{s:4:\"type\";s:21:\"base_location_country\";s:5:\"value\";s:2:\"DK\";s:9:\"operation\";s:1:\"=\";}i:7;O:8:\"stdClass\":3:{s:4:\"type\";s:21:\"base_location_country\";s:5:\"value\";s:2:\"EE\";s:9:\"operation\";s:1:\"=\";}i:8;O:8:\"stdClass\":3:{s:4:\"type\";s:21:\"base_location_country\";s:5:\"value\";s:2:\"ES\";s:9:\"operation\";s:1:\"=\";}i:9;O:8:\"stdClass\":3:{s:4:\"type\";s:21:\"base_location_country\";s:5:\"value\";s:2:\"FI\";s:9:\"operation\";s:1:\"=\";}i:10;O:8:\"stdClass\":3:{s:4:\"type\";s:21:\"base_location_country\";s:5:\"value\";s:2:\"FR\";s:9:\"operation\";s:1:\"=\";}i:11;O:8:\"stdClass\":3:{s:4:\"type\";s:21:\"base_location_country\";s:5:\"value\";s:2:\"GB\";s:9:\"operation\";s:1:\"=\";}i:12;O:8:\"stdClass\":3:{s:4:\"type\";s:21:\"base_location_country\";s:5:\"value\";s:2:\"GR\";s:9:\"operation\";s:1:\"=\";}i:13;O:8:\"stdClass\":3:{s:4:\"type\";s:21:\"base_location_country\";s:5:\"value\";s:2:\"IE\";s:9:\"operation\";s:1:\"=\";}i:14;O:8:\"stdClass\":3:{s:4:\"type\";s:21:\"base_location_country\";s:5:\"value\";s:2:\"IT\";s:9:\"operation\";s:1:\"=\";}i:15;O:8:\"stdClass\":3:{s:4:\"type\";s:21:\"base_location_country\";s:5:\"value\";s:2:\"LU\";s:9:\"operation\";s:1:\"=\";}i:16;O:8:\"stdClass\":3:{s:4:\"type\";s:21:\"base_location_country\";s:5:\"value\";s:2:\"LT\";s:9:\"operation\";s:1:\"=\";}i:17;O:8:\"stdClass\":3:{s:4:\"type\";s:21:\"base_location_country\";s:5:\"value\";s:2:\"LV\";s:9:\"operation\";s:1:\"=\";}i:18;O:8:\"stdClass\":3:{s:4:\"type\";s:21:\"base_location_country\";s:5:\"value\";s:2:\"NO\";s:9:\"operation\";s:1:\"=\";}i:19;O:8:\"stdClass\":3:{s:4:\"type\";s:21:\"base_location_country\";s:5:\"value\";s:2:\"NZ\";s:9:\"operation\";s:1:\"=\";}i:20;O:8:\"stdClass\":3:{s:4:\"type\";s:21:\"base_location_country\";s:5:\"value\";s:2:\"MT\";s:9:\"operation\";s:1:\"=\";}i:21;O:8:\"stdClass\":3:{s:4:\"type\";s:21:\"base_location_country\";s:5:\"value\";s:2:\"AT\";s:9:\"operation\";s:1:\"=\";}i:22;O:8:\"stdClass\":3:{s:4:\"type\";s:21:\"base_location_country\";s:5:\"value\";s:2:\"BE\";s:9:\"operation\";s:1:\"=\";}i:23;O:8:\"stdClass\":3:{s:4:\"type\";s:21:\"base_location_country\";s:5:\"value\";s:2:\"NL\";s:9:\"operation\";s:1:\"=\";}i:24;O:8:\"stdClass\":3:{s:4:\"type\";s:21:\"base_location_country\";s:5:\"value\";s:2:\"PL\";s:9:\"operation\";s:1:\"=\";}i:25;O:8:\"stdClass\":3:{s:4:\"type\";s:21:\"base_location_country\";s:5:\"value\";s:2:\"PT\";s:9:\"operation\";s:1:\"=\";}i:26;O:8:\"stdClass\":3:{s:4:\"type\";s:21:\"base_location_country\";s:5:\"value\";s:2:\"CH\";s:9:\"operation\";s:1:\"=\";}i:27;O:8:\"stdClass\":3:{s:4:\"type\";s:21:\"base_location_country\";s:5:\"value\";s:2:\"HK\";s:9:\"operation\";s:1:\"=\";}i:28;O:8:\"stdClass\":3:{s:4:\"type\";s:21:\"base_location_country\";s:5:\"value\";s:2:\"SI\";s:9:\"operation\";s:1:\"=\";}i:29;O:8:\"stdClass\":3:{s:4:\"type\";s:21:\"base_location_country\";s:5:\"value\";s:2:\"SK\";s:9:\"operation\";s:1:\"=\";}i:30;O:8:\"stdClass\":3:{s:4:\"type\";s:21:\"base_location_country\";s:5:\"value\";s:2:\"SG\";s:9:\"operation\";s:1:\"=\";}i:31;O:8:\"stdClass\":3:{s:4:\"type\";s:21:\"base_location_country\";s:5:\"value\";s:2:\"BG\";s:9:\"operation\";s:1:\"=\";}i:32;O:8:\"stdClass\":3:{s:4:\"type\";s:21:\"base_location_country\";s:5:\"value\";s:2:\"CZ\";s:9:\"operation\";s:1:\"=\";}i:33;O:8:\"stdClass\":3:{s:4:\"type\";s:21:\"base_location_country\";s:5:\"value\";s:2:\"HR\";s:9:\"operation\";s:1:\"=\";}i:34;O:8:\"stdClass\":3:{s:4:\"type\";s:21:\"base_location_country\";s:5:\"value\";s:2:\"HU\";s:9:\"operation\";s:1:\"=\";}i:35;O:8:\"stdClass\":3:{s:4:\"type\";s:21:\"base_location_country\";s:5:\"value\";s:2:\"RO\";s:9:\"operation\";s:1:\"=\";}i:36;O:8:\"stdClass\":3:{s:4:\"type\";s:21:\"base_location_country\";s:5:\"value\";s:2:\"SE\";s:9:\"operation\";s:1:\"=\";}i:37;O:8:\"stdClass\":3:{s:4:\"type\";s:21:\"base_location_country\";s:5:\"value\";s:2:\"JP\";s:9:\"operation\";s:1:\"=\";}i:38;O:8:\"stdClass\":3:{s:4:\"type\";s:21:\"base_location_country\";s:5:\"value\";s:2:\"AE\";s:9:\"operation\";s:1:\"=\";}}}}s:9:\"sub_title\";s:865:\"<img class=\"wcpay-visa-icon wcpay-icon\" src=\"http://localhost/curso-woocomerce-wp/wp-content/plugins/woocommerce/assets/images/payment-methods/visa.svg\" alt=\"Visa\"><img class=\"wcpay-mastercard-icon wcpay-icon\" src=\"http://localhost/curso-woocomerce-wp/wp-content/plugins/woocommerce/assets/images/payment-methods/mastercard.svg\" alt=\"Mastercard\"><img class=\"wcpay-amex-icon wcpay-icon\" src=\"http://localhost/curso-woocomerce-wp/wp-content/plugins/woocommerce/assets/images/payment-methods/amex.svg\" alt=\"Amex\"><img class=\"wcpay-googlepay-icon wcpay-icon\" src=\"http://localhost/curso-woocomerce-wp/wp-content/plugins/woocommerce/assets/images/payment-methods/googlepay.svg\" alt=\"Googlepay\"><img class=\"wcpay-applepay-icon wcpay-icon\" src=\"http://localhost/curso-woocomerce-wp/wp-content/plugins/woocommerce/assets/images/payment-methods/applepay.svg\" alt=\"Applepay\">\";}}}', 'off'),
 (445, '_transient_timeout_wc_report_orders_stats_5aa7db153dc0c374bd40707a2ed2e218', '1733285037', 'off'),
 (446, '_transient_wc_report_orders_stats_5aa7db153dc0c374bd40707a2ed2e218', 'a:2:{s:7:\"version\";s:10:\"1732680191\";s:5:\"value\";O:8:\"stdClass\":5:{s:6:\"totals\";O:8:\"stdClass\":15:{s:12:\"orders_count\";i:0;s:14:\"num_items_sold\";i:0;s:11:\"gross_sales\";d:0;s:11:\"total_sales\";d:0;s:7:\"coupons\";d:0;s:13:\"coupons_count\";i:0;s:7:\"refunds\";d:0;s:5:\"taxes\";d:0;s:8:\"shipping\";d:0;s:11:\"net_revenue\";d:0;s:19:\"avg_items_per_order\";d:0;s:15:\"avg_order_value\";d:0;s:15:\"total_customers\";i:0;s:8:\"products\";i:0;s:8:\"segments\";a:0:{}}s:9:\"intervals\";a:1:{i:0;a:6:{s:8:\"interval\";s:7:\"2024-48\";s:10:\"date_start\";s:19:\"2024-11-27 00:00:00\";s:14:\"date_start_gmt\";s:19:\"2024-11-27 03:00:00\";s:8:\"date_end\";s:19:\"2024-11-27 01:03:44\";s:12:\"date_end_gmt\";s:19:\"2024-11-27 04:03:44\";s:9:\"subtotals\";O:8:\"stdClass\":14:{s:12:\"orders_count\";i:0;s:14:\"num_items_sold\";i:0;s:11:\"gross_sales\";d:0;s:11:\"total_sales\";d:0;s:7:\"coupons\";d:0;s:13:\"coupons_count\";i:0;s:7:\"refunds\";d:0;s:5:\"taxes\";d:0;s:8:\"shipping\";d:0;s:11:\"net_revenue\";d:0;s:19:\"avg_items_per_order\";d:0;s:15:\"avg_order_value\";d:0;s:15:\"total_customers\";i:0;s:8:\"segments\";a:0:{}}}}s:5:\"total\";i:1;s:5:\"pages\";i:1;s:7:\"page_no\";i:1;}}', 'off'),
@@ -524,7 +806,7 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (549, '_transient_timeout_wc_report_orders_stats_f2ea1a6dc811ed5b5b4bda8de284dc57', '1733286328', 'off'),
 (550, '_transient_wc_report_orders_stats_f2ea1a6dc811ed5b5b4bda8de284dc57', 'a:2:{s:7:\"version\";s:10:\"1732680191\";s:5:\"value\";O:8:\"stdClass\":5:{s:6:\"totals\";O:8:\"stdClass\":15:{s:12:\"orders_count\";i:0;s:14:\"num_items_sold\";i:0;s:11:\"gross_sales\";d:0;s:11:\"total_sales\";d:0;s:7:\"coupons\";d:0;s:13:\"coupons_count\";i:0;s:7:\"refunds\";d:0;s:5:\"taxes\";d:0;s:8:\"shipping\";d:0;s:11:\"net_revenue\";d:0;s:19:\"avg_items_per_order\";d:0;s:15:\"avg_order_value\";d:0;s:15:\"total_customers\";i:0;s:8:\"products\";i:0;s:8:\"segments\";a:0:{}}s:9:\"intervals\";a:1:{i:0;a:6:{s:8:\"interval\";s:7:\"2024-48\";s:10:\"date_start\";s:19:\"2024-11-27 00:00:00\";s:14:\"date_start_gmt\";s:19:\"2024-11-27 03:00:00\";s:8:\"date_end\";s:19:\"2024-11-27 01:25:25\";s:12:\"date_end_gmt\";s:19:\"2024-11-27 04:25:25\";s:9:\"subtotals\";O:8:\"stdClass\":14:{s:12:\"orders_count\";i:0;s:14:\"num_items_sold\";i:0;s:11:\"gross_sales\";d:0;s:11:\"total_sales\";d:0;s:7:\"coupons\";d:0;s:13:\"coupons_count\";i:0;s:7:\"refunds\";d:0;s:5:\"taxes\";d:0;s:8:\"shipping\";d:0;s:11:\"net_revenue\";d:0;s:19:\"avg_items_per_order\";d:0;s:15:\"avg_order_value\";d:0;s:15:\"total_customers\";i:0;s:8:\"segments\";a:0:{}}}}s:5:\"total\";i:1;s:5:\"pages\";i:1;s:7:\"page_no\";i:1;}}', 'off'),
 (563, 'current_theme', 'Storefront', 'auto'),
-(564, 'theme_mods_storefront', 'a:6:{i:0;b:0;s:18:\"nav_menu_locations\";a:0:{}s:18:\"custom_css_post_id\";i:-1;s:28:\"storefront_header_text_color\";s:7:\"#1e73be\";s:28:\"storefront_header_link_color\";s:7:\"#8224e3\";s:12:\"header_image\";s:13:\"remove-header\";}', 'on'),
+(564, 'theme_mods_storefront', 'a:7:{i:0;b:0;s:18:\"nav_menu_locations\";a:0:{}s:18:\"custom_css_post_id\";i:-1;s:28:\"storefront_header_text_color\";s:7:\"#1e73be\";s:28:\"storefront_header_link_color\";s:7:\"#8224e3\";s:12:\"header_image\";s:13:\"remove-header\";s:11:\"custom_logo\";i:119;}', 'on'),
 (565, 'theme_switched', '', 'auto'),
 (568, 'storefront_nux_fresh_site', '0', 'auto'),
 (569, 'woocommerce_catalog_rows', '4', 'auto'),
@@ -574,11 +856,7 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (679, '_transient_timeout_wc_report_orders_stats_1c0a774b1d195caa9ae03a912551552f', '1733288218', 'off'),
 (680, '_transient_wc_report_orders_stats_1c0a774b1d195caa9ae03a912551552f', 'a:2:{s:7:\"version\";s:10:\"1732682924\";s:5:\"value\";O:8:\"stdClass\":5:{s:6:\"totals\";O:8:\"stdClass\":15:{s:12:\"orders_count\";i:0;s:14:\"num_items_sold\";i:0;s:11:\"gross_sales\";d:0;s:11:\"total_sales\";d:0;s:7:\"coupons\";d:0;s:13:\"coupons_count\";i:0;s:7:\"refunds\";d:0;s:5:\"taxes\";d:0;s:8:\"shipping\";d:0;s:11:\"net_revenue\";d:0;s:19:\"avg_items_per_order\";d:0;s:15:\"avg_order_value\";d:0;s:15:\"total_customers\";i:0;s:8:\"products\";i:0;s:8:\"segments\";a:0:{}}s:9:\"intervals\";a:1:{i:0;a:6:{s:8:\"interval\";s:7:\"2024-48\";s:10:\"date_start\";s:19:\"2024-11-27 00:00:00\";s:14:\"date_start_gmt\";s:19:\"2024-11-27 03:00:00\";s:8:\"date_end\";s:19:\"2024-11-27 01:56:49\";s:12:\"date_end_gmt\";s:19:\"2024-11-27 04:56:49\";s:9:\"subtotals\";O:8:\"stdClass\":14:{s:12:\"orders_count\";i:0;s:14:\"num_items_sold\";i:0;s:11:\"gross_sales\";d:0;s:11:\"total_sales\";d:0;s:7:\"coupons\";d:0;s:13:\"coupons_count\";i:0;s:7:\"refunds\";d:0;s:5:\"taxes\";d:0;s:8:\"shipping\";d:0;s:11:\"net_revenue\";d:0;s:19:\"avg_items_per_order\";d:0;s:15:\"avg_order_value\";d:0;s:15:\"total_customers\";i:0;s:8:\"segments\";a:0:{}}}}s:5:\"total\";i:1;s:5:\"pages\";i:1;s:7:\"page_no\";i:1;}}', 'off'),
 (682, 'storefront_nux_guided_tour', '1', 'auto'),
-(696, '_site_transient_timeout_wp_theme_files_patterns-9db88df3de8f761921ab242cddb26b8b', '1732685809', 'off'),
-(697, '_site_transient_wp_theme_files_patterns-9db88df3de8f761921ab242cddb26b8b', 'a:2:{s:7:\"version\";s:5:\"4.6.0\";s:8:\"patterns\";a:0:{}}', 'off'),
 (699, 'woocommerce_admin_customize_store_completed', 'yes', 'auto'),
-(706, '_site_transient_timeout_theme_roots', '1732686216', 'off'),
-(707, '_site_transient_theme_roots', 'a:1:{s:10:\"storefront\";s:7:\"/themes\";}', 'off'),
 (708, '_site_transient_timeout_wp_remote_block_patterns_7f2a62bccc84e62f95e638a64ae176e9', '1732688035', 'off');
 INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES
 (709, '_site_transient_wp_remote_block_patterns_7f2a62bccc84e62f95e638a64ae176e9', 'a:27:{i:0;O:8:\"stdClass\":7:{s:2:\"id\";i:5546;s:5:\"title\";O:8:\"stdClass\":1:{s:8:\"rendered\";s:30:\"Llamada a la acción sencilla.\";}s:7:\"content\";O:8:\"stdClass\":2:{s:8:\"rendered\";s:994:\"\n<div class=\"wp-block-group alignfull has-text-color has-background is-layout-flow wp-block-group-is-layout-flow\" style=\"background-color:#ffffff;color:#000000\">\n<div style=\"height:64px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n\n\n\n<p class=\"has-text-align-center has-small-font-size\" style=\"line-height:.9\"><strong>Ponete en contacto</strong></p>\n\n\n\n<h2 class=\"has-text-align-center wp-block-heading\" id=\"schedule-a-visit\" style=\"font-size:59px;line-height:1.15\"><strong>Programa una visita</strong></h2>\n\n\n\n<div class=\"wp-block-buttons is-horizontal is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-1 wp-block-buttons-is-layout-flex\">\n<div class=\"wp-block-button has-custom-width wp-block-button__width-50\"><a class=\"wp-block-button__link has-text-color has-background\" style=\"border-radius:50px;background-color:#000000;color:#ffffff\">Contactanos</a></div>\n</div>\n\n\n\n<div style=\"height:64px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n</div>\n\";s:9:\"protected\";b:0;}s:4:\"meta\";O:8:\"stdClass\":8:{s:13:\"wpop_keywords\";s:0:\"\";s:16:\"wpop_description\";s:91:\"Un contenedor con fondo blanco. Dentro hay un párrafo centrado, un encabezado y un botón.\";s:19:\"wpop_viewport_width\";i:800;s:16:\"wpop_block_types\";a:1:{i:0;s:0:\"\";}s:11:\"wpop_locale\";s:5:\"es_AR\";s:15:\"wpop_wp_version\";s:0:\"\";s:25:\"wpop_contains_block_types\";s:75:\"core/button,core/buttons,core/group,core/heading,core/paragraph,core/spacer\";s:9:\"footnotes\";s:0:\"\";}s:14:\"category_slugs\";a:1:{i:0;s:7:\"buttons\";}s:13:\"keyword_slugs\";a:1:{i:0;s:8:\"featured\";}s:15:\"pattern_content\";s:1516:\"<!-- wp:group {\"align\":\"full\",\"style\":{\"color\":{\"text\":\"#000000\",\"background\":\"#ffffff\"}}} -->\n<div class=\"wp-block-group alignfull has-text-color has-background\" style=\"background-color:#ffffff;color:#000000\"><!-- wp:spacer {\"height\":64} -->\n<div style=\"height:64px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n<!-- /wp:spacer -->\n\n<!-- wp:paragraph {\"align\":\"center\",\"style\":{\"typography\":{\"lineHeight\":\".9\"}},\"fontSize\":\"small\"} -->\n<p class=\"has-text-align-center has-small-font-size\" style=\"line-height:.9\"><strong>Ponete en contacto</strong></p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading {\"textAlign\":\"center\",\"style\":{\"typography\":{\"fontSize\":59,\"lineHeight\":\"1.15\"}}} -->\n<h2 class=\"has-text-align-center\" id=\"schedule-a-visit\" style=\"font-size:59px;line-height:1.15\"><strong>Programa una visita</strong></h2>\n<!-- /wp:heading -->\n\n<!-- wp:buttons {\"layout\":{\"type\":\"flex\",\"justifyContent\":\"center\",\"orientation\":\"horizontal\"}} -->\n<div class=\"wp-block-buttons\"><!-- wp:button {\"width\":50,\"style\":{\"color\":{\"background\":\"#000000\",\"text\":\"#ffffff\"},\"border\":{\"radius\":\"50px\"}}} -->\n<div class=\"wp-block-button has-custom-width wp-block-button__width-50\"><a class=\"wp-block-button__link has-text-color has-background\" style=\"border-radius:50px;background-color:#000000;color:#ffffff\">Contactanos</a></div>\n<!-- /wp:button --></div>\n<!-- /wp:buttons -->\n\n<!-- wp:spacer {\"height\":64} -->\n<div style=\"height:64px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n<!-- /wp:spacer --></div>\n<!-- /wp:group -->\";}i:1;O:8:\"stdClass\":7:{s:2:\"id\";i:5554;s:5:\"title\";O:8:\"stdClass\":1:{s:8:\"rendered\";s:26:\"Three column pricing table\";}s:7:\"content\";O:8:\"stdClass\":2:{s:8:\"rendered\";s:3952:\"\n<div class=\"wp-block-columns alignwide is-layout-flex wp-container-core-columns-is-layout-1 wp-block-columns-is-layout-flex\" style=\"margin-bottom:0\">\n<div class=\"wp-block-column has-text-color has-background has-link-color wp-elements-ee292d96428093f38996f2c1070a48f9 is-layout-flow wp-block-column-is-layout-flow\" style=\"color:#000000;background-color:#ffe97d;padding-top:2em;padding-right:2em;padding-bottom:2em;padding-left:2em\">\n<h2 class=\"wp-block-heading\" id=\"single\" style=\"font-size:40px\"><strong>Individual</strong></h2>\n\n\n\n<p class=\"has-normal-font-size\" style=\"line-height:1.5\"><strong>Enriquece nuestra creciente comunidad.</strong> </p>\n\n\n\n<hr class=\"wp-block-separator has-text-color has-css-opacity has-background is-style-wide\" style=\"background-color:#000000;color:#000000\" />\n\n\n\n<ul class=\"has-normal-font-size wp-block-list\">\n<li>Entrada general y descuentos de miembro para un adulto</li>\n\n\n\n<li>Una entrada gratuita por exposición especial</li>\n\n\n\n<li>Dos pases de un solo uso para invitados por año</li>\n</ul>\n\n\n\n<div class=\"wp-block-buttons alignfull is-horizontal is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-2 wp-block-buttons-is-layout-flex\">\n<div class=\"wp-block-button has-custom-width wp-block-button__width-100\"><a class=\"wp-block-button__link has-white-color has-text-color has-background no-border-radius wp-element-button\" style=\"background-color:#000000\">$110 / año</a></div>\n</div>\n</div>\n\n\n\n<div class=\"wp-block-column has-text-color has-background has-link-color wp-elements-4047e03052ef46222a4ef6f90d9a6d5e is-layout-flow wp-block-column-is-layout-flow\" style=\"color:#000000;background-color:#d1d1e1;padding-top:2em;padding-right:2em;padding-bottom:2em;padding-left:2em\">\n<h2 class=\"wp-block-heading\" id=\"family\" style=\"font-size:40px\"><strong>Familiar</strong></h2>\n\n\n\n<p class=\"has-normal-font-size\" style=\"line-height:1.5\"><strong>Apoya las exposiciones especiales.</strong></p>\n\n\n\n<hr class=\"wp-block-separator has-css-opacity is-style-wide\" />\n\n\n\n<ul class=\"has-normal-font-size wp-block-list\">\n<li>Entrada general y descuentos de miembro para dos adultos</li>\n\n\n\n<li>Cuatro entradas gratuitas por exposición especial</li>\n\n\n\n<li>Cuatro pases de un solo uso para invitados por año</li>\n</ul>\n\n\n\n<div class=\"wp-block-buttons alignfull is-horizontal is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-3 wp-block-buttons-is-layout-flex\">\n<div class=\"wp-block-button has-custom-width wp-block-button__width-100 is-style-fill\"><a class=\"wp-block-button__link has-white-color has-text-color has-background no-border-radius wp-element-button\" style=\"background-color:#000000\">$200 / año</a></div>\n</div>\n</div>\n\n\n\n<div class=\"wp-block-column has-text-color has-background has-link-color wp-elements-157b64840719bbbef82ff356a020585f is-layout-flow wp-block-column-is-layout-flow\" style=\"color:#000000;background-color:#c0ebf1;padding-top:2em;padding-right:2em;padding-bottom:2em;padding-left:2em\">\n<h2 class=\"wp-block-heading\" id=\"patron\" style=\"font-size:40px\"><strong>Patrocinador</strong></h2>\n\n\n\n<p class=\"has-normal-font-size\"><strong>Lleva el apoyo al siguiente nivel.</strong></p>\n\n\n\n<hr class=\"wp-block-separator has-css-opacity is-style-wide\" />\n\n\n\n<ul class=\"has-normal-font-size wp-block-list\">\n<li>Entrada general y descuentos de miembro para dos adultos</li>\n\n\n\n<li>Cinco entradas gratuitas por exposición especial</li>\n\n\n\n<li>Seis pases de un solo uso para invitados por año</li>\n</ul>\n\n\n\n<div class=\"wp-block-buttons alignfull is-horizontal is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-4 wp-block-buttons-is-layout-flex\">\n<div class=\"wp-block-button has-custom-width wp-block-button__width-100\"><a class=\"wp-block-button__link has-white-color has-text-color has-background no-border-radius wp-element-button\" style=\"background-color:#000000\">$400 / año</a></div>\n</div>\n</div>\n</div>\n\";s:9:\"protected\";b:0;}s:4:\"meta\";O:8:\"stdClass\":8:{s:13:\"wpop_keywords\";s:0:\"\";s:16:\"wpop_description\";s:300:\"Tres columnas de igual anchura configuradas como una tabla de precios. La columna de la izquierda tiene un fondo amarillo, la del medio tiene un fondo púrpura claro y la de la derecha tiene un fondo azul claro. Cada columna contiene un encabezado, un subtítulo, un separador, una lista y un botón.\";s:19:\"wpop_viewport_width\";i:1200;s:16:\"wpop_block_types\";a:1:{i:0;s:0:\"\";}s:11:\"wpop_locale\";s:5:\"es_AR\";s:15:\"wpop_wp_version\";s:0:\"\";s:25:\"wpop_contains_block_types\";s:117:\"core/button,core/buttons,core/column,core/columns,core/heading,core/list,core/list-item,core/paragraph,core/separator\";s:9:\"footnotes\";s:0:\"\";}s:14:\"category_slugs\";a:1:{i:0;s:14:\"call-to-action\";}s:13:\"keyword_slugs\";a:1:{i:0;s:8:\"featured\";}s:15:\"pattern_content\";s:6228:\"<!-- wp:columns {\"align\":\"wide\",\"style\":{\"spacing\":{\"margin\":{\"bottom\":\"0\"}}}} -->\n<div class=\"wp-block-columns alignwide\" style=\"margin-bottom:0\"><!-- wp:column {\"style\":{\"color\":{\"background\":\"#ffe97d\",\"text\":\"#000000\"},\"elements\":{\"link\":{\"color\":{\"text\":\"#000000\"}}},\"spacing\":{\"padding\":{\"top\":\"2em\",\"right\":\"2em\",\"bottom\":\"2em\",\"left\":\"2em\"}}}} -->\n<div class=\"wp-block-column has-text-color has-background has-link-color\" style=\"color:#000000;background-color:#ffe97d;padding-top:2em;padding-right:2em;padding-bottom:2em;padding-left:2em\"><!-- wp:heading {\"style\":{\"typography\":{\"fontSize\":\"40px\"}},\"anchor\":\"single\"} -->\n<h2 class=\"wp-block-heading\" id=\"single\" style=\"font-size:40px\"><strong>Individual</strong></h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph {\"style\":{\"typography\":{\"lineHeight\":\"1.5\"}},\"fontSize\":\"normal\"} -->\n<p class=\"has-normal-font-size\" style=\"line-height:1.5\"><strong>Enriquece nuestra creciente comunidad.</strong> </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:separator {\"opacity\":\"css\",\"style\":{\"color\":{\"background\":\"#000000\"}},\"className\":\"is-style-wide\"} -->\n<hr class=\"wp-block-separator has-text-color has-css-opacity has-background is-style-wide\" style=\"background-color:#000000;color:#000000\" />\n<!-- /wp:separator -->\n\n<!-- wp:list {\"fontSize\":\"normal\"} -->\n<ul class=\"has-normal-font-size\"><!-- wp:list-item -->\n<li>Entrada general y descuentos de miembro para un adulto</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Una entrada gratuita por exposición especial</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Dos pases de un solo uso para invitados por año</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:buttons {\"align\":\"full\",\"layout\":{\"type\":\"flex\",\"justifyContent\":\"center\",\"orientation\":\"horizontal\"}} -->\n<div class=\"wp-block-buttons alignfull\"><!-- wp:button {\"textColor\":\"white\",\"width\":100,\"style\":{\"color\":{\"background\":\"#000000\"},\"border\":{\"radius\":0}}} -->\n<div class=\"wp-block-button has-custom-width wp-block-button__width-100\"><a class=\"wp-block-button__link has-white-color has-text-color has-background no-border-radius wp-element-button\" style=\"background-color:#000000\">$110 / año</a></div>\n<!-- /wp:button --></div>\n<!-- /wp:buttons --></div>\n<!-- /wp:column -->\n\n<!-- wp:column {\"style\":{\"color\":{\"background\":\"#d1d1e1\",\"text\":\"#000000\"},\"elements\":{\"link\":{\"color\":{\"text\":\"#000000\"}}},\"spacing\":{\"padding\":{\"top\":\"2em\",\"right\":\"2em\",\"bottom\":\"2em\",\"left\":\"2em\"}}}} -->\n<div class=\"wp-block-column has-text-color has-background has-link-color\" style=\"color:#000000;background-color:#d1d1e1;padding-top:2em;padding-right:2em;padding-bottom:2em;padding-left:2em\"><!-- wp:heading {\"style\":{\"typography\":{\"fontSize\":\"40px\"}},\"anchor\":\"family\"} -->\n<h2 class=\"wp-block-heading\" id=\"family\" style=\"font-size:40px\"><strong>Familiar</strong></h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph {\"style\":{\"typography\":{\"lineHeight\":\"1.5\"}},\"fontSize\":\"normal\"} -->\n<p class=\"has-normal-font-size\" style=\"line-height:1.5\"><strong>Apoya las exposiciones especiales.</strong></p>\n<!-- /wp:paragraph -->\n\n<!-- wp:separator {\"opacity\":\"css\",\"className\":\"is-style-wide\"} -->\n<hr class=\"wp-block-separator has-css-opacity is-style-wide\" />\n<!-- /wp:separator -->\n\n<!-- wp:list {\"fontSize\":\"normal\"} -->\n<ul class=\"has-normal-font-size\"><!-- wp:list-item -->\n<li>Entrada general y descuentos de miembro para dos adultos</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Cuatro entradas gratuitas por exposición especial</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Cuatro pases de un solo uso para invitados por año</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:buttons {\"align\":\"full\",\"layout\":{\"type\":\"flex\",\"justifyContent\":\"center\",\"orientation\":\"horizontal\"}} -->\n<div class=\"wp-block-buttons alignfull\"><!-- wp:button {\"textColor\":\"white\",\"width\":100,\"style\":{\"color\":{\"background\":\"#000000\"},\"border\":{\"radius\":0}},\"className\":\"is-style-fill\"} -->\n<div class=\"wp-block-button has-custom-width wp-block-button__width-100 is-style-fill\"><a class=\"wp-block-button__link has-white-color has-text-color has-background no-border-radius wp-element-button\" style=\"background-color:#000000\">$200 / año</a></div>\n<!-- /wp:button --></div>\n<!-- /wp:buttons --></div>\n<!-- /wp:column -->\n\n<!-- wp:column {\"style\":{\"color\":{\"background\":\"#c0ebf1\",\"text\":\"#000000\"},\"elements\":{\"link\":{\"color\":{\"text\":\"#000000\"}}},\"spacing\":{\"padding\":{\"top\":\"2em\",\"right\":\"2em\",\"bottom\":\"2em\",\"left\":\"2em\"}}}} -->\n<div class=\"wp-block-column has-text-color has-background has-link-color\" style=\"color:#000000;background-color:#c0ebf1;padding-top:2em;padding-right:2em;padding-bottom:2em;padding-left:2em\"><!-- wp:heading {\"style\":{\"typography\":{\"fontSize\":\"40px\"}},\"anchor\":\"patron\"} -->\n<h2 class=\"wp-block-heading\" id=\"patron\" style=\"font-size:40px\"><strong>Patrocinador</strong></h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph {\"fontSize\":\"normal\"} -->\n<p class=\"has-normal-font-size\"><strong>Lleva el apoyo al siguiente nivel.</strong></p>\n<!-- /wp:paragraph -->\n\n<!-- wp:separator {\"opacity\":\"css\",\"className\":\"is-style-wide\"} -->\n<hr class=\"wp-block-separator has-css-opacity is-style-wide\" />\n<!-- /wp:separator -->\n\n<!-- wp:list {\"fontSize\":\"normal\"} -->\n<ul class=\"has-normal-font-size\"><!-- wp:list-item -->\n<li>Entrada general y descuentos de miembro para dos adultos</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Cinco entradas gratuitas por exposición especial</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Seis pases de un solo uso para invitados por año</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:buttons {\"align\":\"full\",\"layout\":{\"type\":\"flex\",\"justifyContent\":\"center\",\"orientation\":\"horizontal\"}} -->\n<div class=\"wp-block-buttons alignfull\"><!-- wp:button {\"textColor\":\"white\",\"width\":100,\"style\":{\"color\":{\"background\":\"#000000\"},\"border\":{\"radius\":0}}} -->\n<div class=\"wp-block-button has-custom-width wp-block-button__width-100\"><a class=\"wp-block-button__link has-white-color has-text-color has-background no-border-radius wp-element-button\" style=\"background-color:#000000\">$400 / año</a></div>\n<!-- /wp:button --></div>\n<!-- /wp:buttons --></div>\n<!-- /wp:column --></div>\n<!-- /wp:columns -->\";}i:2;O:8:\"stdClass\":7:{s:2:\"id\";i:5555;s:5:\"title\";O:8:\"stdClass\":1:{s:8:\"rendered\";s:25:\"Imagen y cita en un fondo\";}s:7:\"content\";O:8:\"stdClass\":2:{s:8:\"rendered\";s:2298:\"\n<div class=\"wp-block-media-text alignwide has-media-on-the-right is-stacked-on-mobile is-vertically-aligned-center has-background\" style=\"background-color:#f1f5c7\"><figure class=\"wp-block-media-text__media\"><img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"1024\" src=\"https://s.w.org/patterns/files/2021/06/pear-1-1024x1024.png\" alt=\"\" class=\"wp-image-5263 size-full\" srcset=\"https://s.w.org/patterns/files/2021/06/pear-1-1024x1024.png 1024w, https://s.w.org/patterns/files/2021/06/pear-1-300x300.png 300w, https://s.w.org/patterns/files/2021/06/pear-1-150x150.png 150w, https://s.w.org/patterns/files/2021/06/pear-1-768x768.png 768w, https://s.w.org/patterns/files/2021/06/pear-1.png 1300w\" sizes=\"auto, (max-width: 1024px) 100vw, 1024px\" /></figure><div class=\"wp-block-media-text__content\">\n<div class=\"wp-block-group is-layout-flow wp-block-group-is-layout-flow\" style=\"padding-top:2em;padding-right:2em;padding-bottom:2em;padding-left:2em\">\n<p style=\"font-size:36px;line-height:1.2\"><strong>Hasta la fruta más amarga tiene azúcar.</strong></p>\n\n\n\n<p class=\"has-extra-small-font-size\">– Terry a O&#8217;Neal</p>\n</div>\n</div></div>\n\n\n\n<div class=\"wp-block-media-text alignwide is-stacked-on-mobile is-vertically-aligned-center has-background\" style=\"background-color:#fffdea\"><figure class=\"wp-block-media-text__media\"><img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"1024\" src=\"https://s.w.org/patterns/files/2021/06/pear-half-1024x1024.png\" alt=\"\" class=\"wp-image-673 size-full\" srcset=\"https://s.w.org/patterns/files/2021/06/pear-half-1024x1024.png 1024w, https://s.w.org/patterns/files/2021/06/pear-half-300x300.png 300w, https://s.w.org/patterns/files/2021/06/pear-half-150x150.png 150w, https://s.w.org/patterns/files/2021/06/pear-half-768x768.png 768w, https://s.w.org/patterns/files/2021/06/pear-half.png 1300w\" sizes=\"auto, (max-width: 1024px) 100vw, 1024px\" /></figure><div class=\"wp-block-media-text__content\">\n<div class=\"wp-block-group is-layout-flow wp-block-group-is-layout-flow\" style=\"padding-top:2em;padding-right:2em;padding-bottom:2em;padding-left:2em\">\n<p style=\"font-size:36px;line-height:1.2\"><strong>Los árboles que tardan en crecer dan los mejores frutos.</strong></p>\n\n\n\n<p class=\"has-extra-small-font-size\">– Molière</p>\n</div>\n</div></div>\n\";s:9:\"protected\";b:0;}s:4:\"meta\";O:8:\"stdClass\":8:{s:13:\"wpop_keywords\";s:0:\"\";s:16:\"wpop_description\";s:240:\"Dos bloques de medios y texto. El de arriba tiene un fondo verde pálido. El texto está a la izquierda y contiene una cita, y la imagen está a la derecha. El siguiente bloque, debajo, tiene la imagen a la izquierda y la cita a la derecha.\";s:19:\"wpop_viewport_width\";i:800;s:16:\"wpop_block_types\";a:1:{i:0;s:0:\"\";}s:11:\"wpop_locale\";s:5:\"es_AR\";s:15:\"wpop_wp_version\";s:0:\"\";s:25:\"wpop_contains_block_types\";s:41:\"core/group,core/media-text,core/paragraph\";s:9:\"footnotes\";s:0:\"\";}s:14:\"category_slugs\";a:2:{i:0;s:6:\"images\";i:1;s:4:\"text\";}s:13:\"keyword_slugs\";a:1:{i:0;s:8:\"featured\";}s:15:\"pattern_content\";s:2409:\"<!-- wp:media-text {\"mediaPosition\":\"right\",\"mediaId\":5263,\"mediaLink\":\"https://wordpress.org/patterns/pattern/image-and-quote-on-a-background/pear-3/\",\"mediaType\":\"image\",\"verticalAlignment\":\"center\",\"style\":{\"color\":{\"background\":\"#f1f5c7\"}}} -->\n<div class=\"wp-block-media-text alignwide has-media-on-the-right is-stacked-on-mobile is-vertically-aligned-center has-background\" style=\"background-color:#f1f5c7\"><figure class=\"wp-block-media-text__media\"><img src=\"https://s.w.org/patterns/files/2021/06/pear-1-1024x1024.png\" alt=\"\" class=\"wp-image-5263 size-full\" /></figure><div class=\"wp-block-media-text__content\"><!-- wp:group {\"style\":{\"spacing\":{\"padding\":{\"top\":\"2em\",\"right\":\"2em\",\"bottom\":\"2em\",\"left\":\"2em\"}}}} -->\n<div class=\"wp-block-group\" style=\"padding-top:2em;padding-right:2em;padding-bottom:2em;padding-left:2em\"><!-- wp:paragraph {\"style\":{\"typography\":{\"lineHeight\":\"1.2\",\"fontSize\":\"36px\"}}} -->\n<p style=\"font-size:36px;line-height:1.2\"><strong>Hasta la fruta más amarga tiene azúcar.</strong></p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph {\"fontSize\":\"extra-small\"} -->\n<p class=\"has-extra-small-font-size\">– Terry a O\'Neal</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:group --></div></div>\n<!-- /wp:media-text -->\n\n<!-- wp:media-text {\"mediaId\":673,\"mediaLink\":\"https://wordpress.org/patterns/pear-half/\",\"mediaType\":\"image\",\"verticalAlignment\":\"center\",\"style\":{\"color\":{\"background\":\"#fffdea\"}}} -->\n<div class=\"wp-block-media-text alignwide is-stacked-on-mobile is-vertically-aligned-center has-background\" style=\"background-color:#fffdea\"><figure class=\"wp-block-media-text__media\"><img src=\"https://s.w.org/patterns/files/2021/06/pear-half-1024x1024.png\" alt=\"\" class=\"wp-image-673 size-full\" /></figure><div class=\"wp-block-media-text__content\"><!-- wp:group {\"style\":{\"spacing\":{\"padding\":{\"top\":\"2em\",\"right\":\"2em\",\"bottom\":\"2em\",\"left\":\"2em\"}}}} -->\n<div class=\"wp-block-group\" style=\"padding-top:2em;padding-right:2em;padding-bottom:2em;padding-left:2em\"><!-- wp:paragraph {\"style\":{\"typography\":{\"lineHeight\":\"1.2\",\"fontSize\":\"36px\"}}} -->\n<p style=\"font-size:36px;line-height:1.2\"><strong>Los árboles que tardan en crecer dan los mejores frutos.</strong></p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph {\"fontSize\":\"extra-small\"} -->\n<p class=\"has-extra-small-font-size\">– Molière</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:group --></div></div>\n<!-- /wp:media-text -->\";}i:3;O:8:\"stdClass\":7:{s:2:\"id\";i:5564;s:5:\"title\";O:8:\"stdClass\":1:{s:8:\"rendered\";s:6:\"evento\";}s:7:\"content\";O:8:\"stdClass\":2:{s:8:\"rendered\";s:1760:\"\n<div class=\"wp-block-media-text alignfull has-media-on-the-right is-stacked-on-mobile is-vertically-aligned-top has-text-color has-background has-link-color wp-elements-862b33ce33dbb8311161bb4657134546\" style=\"color:#fffdc7;background-color:#121c1c;grid-template-columns:auto 60%\"><div class=\"wp-block-media-text__content\">\n<div class=\"wp-block-group has-link-color wp-elements-04e70f5896cca33d56069146f7caa029 is-layout-flow wp-block-group-is-layout-flow\" style=\"padding-top:2em;padding-right:2em;padding-bottom:2em;padding-left:2em\">\n<h2 class=\"wp-block-heading\" style=\"font-size:48px;font-weight:700;line-height:1.15\">Fiesta de <br>inauguración</h2>\n\n\n\n<p class=\"has-text-color has-link-color wp-elements-0860918d5b16b9e1778b1966b333b980\" style=\"color:#fffdc7\"><strong><a href=\"#\">RSVP <span aria-hidden=\"true\" class=\"wp-exclude-emoji\">→</span></a></strong></p>\n</div>\n</div><figure class=\"wp-block-media-text__media\"><img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"1024\" src=\"https://s.w.org/patterns/files/2021/06/image-from-rawpixel-id-430289-jpeg-1-1024x1024.jpg\" alt=\"\" class=\"wp-image-590 size-full\" srcset=\"https://s.w.org/patterns/files/2021/06/image-from-rawpixel-id-430289-jpeg-1-1024x1024.jpg 1024w, https://s.w.org/patterns/files/2021/06/image-from-rawpixel-id-430289-jpeg-1-300x300.jpg 300w, https://s.w.org/patterns/files/2021/06/image-from-rawpixel-id-430289-jpeg-1-150x150.jpg 150w, https://s.w.org/patterns/files/2021/06/image-from-rawpixel-id-430289-jpeg-1-768x768.jpg 768w, https://s.w.org/patterns/files/2021/06/image-from-rawpixel-id-430289-jpeg-1-1536x1536.jpg 1536w, https://s.w.org/patterns/files/2021/06/image-from-rawpixel-id-430289-jpeg-1.jpg 1572w\" sizes=\"auto, (max-width: 1024px) 100vw, 1024px\" /></figure></div>\n\";s:9:\"protected\";b:0;}s:4:\"meta\";O:8:\"stdClass\":8:{s:13:\"wpop_keywords\";s:0:\"\";s:16:\"wpop_description\";s:0:\"\";s:19:\"wpop_viewport_width\";i:800;s:16:\"wpop_block_types\";a:1:{i:0;s:0:\"\";}s:11:\"wpop_locale\";s:5:\"es_AR\";s:15:\"wpop_wp_version\";s:0:\"\";s:25:\"wpop_contains_block_types\";s:54:\"core/group,core/heading,core/media-text,core/paragraph\";s:9:\"footnotes\";s:0:\"\";}s:14:\"category_slugs\";a:2:{i:0;s:6:\"banner\";i:1;s:6:\"images\";}s:13:\"keyword_slugs\";a:1:{i:0;s:8:\"featured\";}s:15:\"pattern_content\";s:1627:\"<!-- wp:media-text {\"align\":\"full\",\"mediaPosition\":\"right\",\"mediaId\":590,\"mediaLink\":\"https://wordpress.org/patterns/image-from-rawpixel-id-430289-jpeg-1/\",\"mediaType\":\"image\",\"mediaWidth\":60,\"verticalAlignment\":\"top\",\"style\":{\"color\":{\"background\":\"#121c1c\",\"text\":\"#fffdc7\"},\"elements\":{\"link\":{\"color\":{\"text\":\"#fffdc7\"}}}}} -->\n<div class=\"wp-block-media-text alignfull has-media-on-the-right is-stacked-on-mobile is-vertically-aligned-top has-text-color has-background has-link-color\" style=\"color:#fffdc7;background-color:#121c1c;grid-template-columns:auto 60%\"><div class=\"wp-block-media-text__content\"><!-- wp:group {\"style\":{\"spacing\":{\"padding\":{\"top\":\"2em\",\"right\":\"2em\",\"bottom\":\"2em\",\"left\":\"2em\"}},\"elements\":{\"link\":{\"color\":{\"text\":\"#fffdc7\"}}}}} -->\n<div class=\"wp-block-group has-link-color\" style=\"padding-top:2em;padding-right:2em;padding-bottom:2em;padding-left:2em\"><!-- wp:heading {\"style\":{\"typography\":{\"fontWeight\":\"700\",\"fontSize\":\"48px\",\"lineHeight\":\"1.15\"}}} -->\n<h2 class=\"wp-block-heading\" style=\"font-size:48px;font-weight:700;line-height:1.15\">Fiesta de <br>inauguración</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph {\"style\":{\"elements\":{\"link\":{\"color\":{\"text\":\"#fffdc7\"}}},\"color\":{\"text\":\"#fffdc7\"}}} -->\n<p class=\"has-text-color has-link-color\" style=\"color:#fffdc7\"><strong><a href=\"#\">RSVP →</a></strong></p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:group --></div><figure class=\"wp-block-media-text__media\"><img src=\"https://s.w.org/patterns/files/2021/06/image-from-rawpixel-id-430289-jpeg-1-1024x1024.jpg\" alt=\"\" class=\"wp-image-590 size-full\" /></figure></div>\n<!-- /wp:media-text -->\";}i:4;O:8:\"stdClass\":7:{s:2:\"id\";i:5567;s:5:\"title\";O:8:\"stdClass\":1:{s:8:\"rendered\";s:29:\"Anuncio y detalles del evento\";}s:7:\"content\";O:8:\"stdClass\":2:{s:8:\"rendered\";s:1884:\"\n<div class=\"wp-block-group alignfull has-black-color has-text-color has-background has-link-color wp-elements-11d9915e6eb36d92cdf4f618360848e0 is-layout-flow wp-block-group-is-layout-flow\" style=\"background-color:#d2cdc7\">\n<div style=\"height:50px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n\n\n\n<h2 class=\"alignwide wp-block-heading\" style=\"font-size:46px;font-weight:400;line-height:1.1\">HÉLÈNE DUMAS<br><em>FRAGMENTOS</em></h2>\n\n\n\n<h3 class=\"alignwide wp-block-heading\" style=\"font-size:46px;font-weight:400;line-height:1.1\">20/4 — 9/9/2021<br>SOUTH LONDON ART GALLERY</h3>\n\n\n\n<div style=\"height:50px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n\n\n\n<div class=\"wp-block-columns alignwide is-layout-flex wp-container-core-columns-is-layout-2 wp-block-columns-is-layout-flex\">\n<div class=\"wp-block-column is-layout-flow wp-block-column-is-layout-flow\" style=\"flex-basis:25%\"></div>\n\n\n\n<div class=\"wp-block-column is-layout-flow wp-block-column-is-layout-flow\" style=\"flex-basis:75%\">\n<figure class=\"wp-block-image size-full\"><img decoding=\"async\" src=\"https://mywptesting.site/wp-content/uploads/2021/06/Histoire_naturelle_..._-fragments-_-_Upper_cover_C108eee15-1.jpg\" alt=\"\" class=\"wp-image-3173\" /></figure>\n</div>\n</div>\n\n\n\n<div style=\"height:50px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n\n\n\n<div class=\"wp-block-columns alignwide is-layout-flex wp-container-core-columns-is-layout-3 wp-block-columns-is-layout-flex\">\n<div class=\"wp-block-column is-layout-flow wp-block-column-is-layout-flow\">\n<p style=\"font-size:25px\">MÁS INFORMACIÓN EN: WP.ORG · +44 21 1234 5678</p>\n</div>\n\n\n\n<div class=\"wp-block-column is-layout-flow wp-block-column-is-layout-flow\">\n<p class=\"has-text-align-right\" style=\"font-size:25px\">INSTAGRAM · <a href=\"#\">TIQUES</a></p>\n</div>\n</div>\n\n\n\n<div style=\"height:50px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n</div>\n\";s:9:\"protected\";b:0;}s:4:\"meta\";O:8:\"stdClass\":8:{s:13:\"wpop_keywords\";s:0:\"\";s:16:\"wpop_description\";s:0:\"\";s:19:\"wpop_viewport_width\";i:800;s:16:\"wpop_block_types\";a:1:{i:0;s:0:\"\";}s:11:\"wpop_locale\";s:5:\"es_AR\";s:15:\"wpop_wp_version\";s:0:\"\";s:25:\"wpop_contains_block_types\";s:86:\"core/column,core/columns,core/group,core/heading,core/image,core/paragraph,core/spacer\";s:9:\"footnotes\";s:0:\"\";}s:14:\"category_slugs\";a:2:{i:0;s:6:\"images\";i:1;s:4:\"text\";}s:13:\"keyword_slugs\";a:1:{i:0;s:8:\"featured\";}s:15:\"pattern_content\";s:2630:\"<!-- wp:group {\"align\":\"full\",\"style\":{\"color\":{\"background\":\"#d2cdc7\"},\"elements\":{\"link\":{\"color\":{\"text\":\"var:preset|color|black\"}}}},\"textColor\":\"black\"} -->\n<div class=\"wp-block-group alignfull has-black-color has-text-color has-background has-link-color\" style=\"background-color:#d2cdc7\"><!-- wp:spacer {\"height\":50} -->\n<div style=\"height:50px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n<!-- /wp:spacer -->\n\n<!-- wp:heading {\"align\":\"wide\",\"style\":{\"typography\":{\"fontSize\":\"46px\",\"lineHeight\":\"1.1\",\"fontWeight\":\"400\"}}} -->\n<h2 class=\"alignwide\" style=\"font-size:46px;font-weight:400;line-height:1.1\">HÉLÈNE DUMAS<br><em>FRAGMENTOS</em></h2>\n<!-- /wp:heading -->\n\n<!-- wp:heading {\"level\":3,\"align\":\"wide\",\"style\":{\"typography\":{\"fontSize\":\"46px\",\"lineHeight\":\"1.1\",\"fontWeight\":\"400\"}}} -->\n<h3 class=\"alignwide\" style=\"font-size:46px;font-weight:400;line-height:1.1\">20/4 — 9/9/2021<br>SOUTH LONDON ART GALLERY</h3>\n<!-- /wp:heading -->\n\n<!-- wp:spacer {\"height\":50} -->\n<div style=\"height:50px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n<!-- /wp:spacer -->\n\n<!-- wp:columns {\"align\":\"wide\"} -->\n<div class=\"wp-block-columns alignwide\"><!-- wp:column {\"width\":\"25%\"} -->\n<div class=\"wp-block-column\" style=\"flex-basis:25%\"></div>\n<!-- /wp:column -->\n\n<!-- wp:column {\"width\":\"75%\"} -->\n<div class=\"wp-block-column\" style=\"flex-basis:75%\"><!-- wp:image {\"id\":3173,\"sizeSlug\":\"full\",\"linkDestination\":\"none\"} -->\n<figure class=\"wp-block-image size-full\"><img src=\"https://mywptesting.site/wp-content/uploads/2021/06/Histoire_naturelle_..._-fragments-_-_Upper_cover_C108eee15-1.jpg\" alt=\"\" class=\"wp-image-3173\" /></figure>\n<!-- /wp:image --></div>\n<!-- /wp:column --></div>\n<!-- /wp:columns -->\n\n<!-- wp:spacer {\"height\":50} -->\n<div style=\"height:50px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n<!-- /wp:spacer -->\n\n<!-- wp:columns {\"align\":\"wide\"} -->\n<div class=\"wp-block-columns alignwide\"><!-- wp:column -->\n<div class=\"wp-block-column\"><!-- wp:paragraph {\"style\":{\"typography\":{\"fontSize\":\"25px\"}}} -->\n<p style=\"font-size:25px\">MÁS INFORMACIÓN EN: WP.ORG · +44 21 1234 5678</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:column -->\n\n<!-- wp:column -->\n<div class=\"wp-block-column\"><!-- wp:paragraph {\"align\":\"right\",\"style\":{\"typography\":{\"fontSize\":\"25px\"}}} -->\n<p class=\"has-text-align-right\" style=\"font-size:25px\">INSTAGRAM · <a href=\"#\">TIQUES</a></p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:column --></div>\n<!-- /wp:columns -->\n\n<!-- wp:spacer {\"height\":50} -->\n<div style=\"height:50px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n<!-- /wp:spacer --></div>\n<!-- /wp:group -->\";}i:5;O:8:\"stdClass\":7:{s:2:\"id\";i:5571;s:5:\"title\";O:8:\"stdClass\":1:{s:8:\"rendered\";s:40:\"Imagen en color sólido con descripción\";}s:7:\"content\";O:8:\"stdClass\":2:{s:8:\"rendered\";s:1930:\"\n<div class=\"wp-block-columns alignfull is-layout-flex wp-container-core-columns-is-layout-5 wp-block-columns-is-layout-flex\">\n<div class=\"wp-block-column is-layout-flow wp-block-column-is-layout-flow\" style=\"flex-basis:50%\">\n<div class=\"wp-block-cover has-background-dim\" style=\"background-color:#f6f6f6;min-height:600px;aspect-ratio:unset;aspect-ratio:unset;\"><div class=\"wp-block-cover__inner-container is-layout-flow wp-block-cover-is-layout-flow\">\n<div class=\"wp-block-image\"><figure class=\"aligncenter size-medium\"><img loading=\"lazy\" decoding=\"async\" width=\"263\" height=\"300\" src=\"https://s.w.org/patterns/files/2021/06/wire-sculpture-263x300.jpg\" alt=\"\" class=\"wp-image-571\" srcset=\"https://s.w.org/patterns/files/2021/06/wire-sculpture-263x300.jpg 263w, https://s.w.org/patterns/files/2021/06/wire-sculpture-898x1024.jpg 898w, https://s.w.org/patterns/files/2021/06/wire-sculpture-768x875.jpg 768w, https://s.w.org/patterns/files/2021/06/wire-sculpture-1347x1536.jpg 1347w, https://s.w.org/patterns/files/2021/06/wire-sculpture.jpg 1658w\" sizes=\"auto, (max-width: 263px) 100vw, 263px\" /></figure></div>\n</div></div>\n</div>\n\n\n\n<div class=\"wp-block-column is-vertically-aligned-center is-layout-flow wp-block-column-is-layout-flow\" style=\"padding-top:1em;padding-right:1em;padding-bottom:1em;padding-left:1em\">\n<div class=\"wp-block-columns is-layout-flex wp-container-core-columns-is-layout-4 wp-block-columns-is-layout-flex\">\n<div class=\"wp-block-column is-layout-flow wp-block-column-is-layout-flow\" style=\"flex-basis:320px\">\n<p class=\"has-small-font-size\" style=\"line-height:1.6\"><strong>Avión</strong></p>\n\n\n\n<p class=\"has-small-font-size\" style=\"line-height:1.6\">Alambre de cobre, base de madera. Creé esta pieza a finales de 2008. Para este trabajo, quise transmitir la pesadez industrial de un avión, así como la sensación de flotar en una nube que sientes cuando estás en uno.</p>\n</div>\n</div>\n</div>\n</div>\n\";s:9:\"protected\";b:0;}s:4:\"meta\";O:8:\"stdClass\":8:{s:13:\"wpop_keywords\";s:0:\"\";s:16:\"wpop_description\";s:41:\"Imagen en color sólido con descripción.\";s:19:\"wpop_viewport_width\";i:1200;s:16:\"wpop_block_types\";a:1:{i:0;s:0:\"\";}s:11:\"wpop_locale\";s:5:\"es_AR\";s:15:\"wpop_wp_version\";s:0:\"\";s:25:\"wpop_contains_block_types\";s:61:\"core/column,core/columns,core/cover,core/image,core/paragraph\";s:9:\"footnotes\";s:0:\"\";}s:14:\"category_slugs\";a:2:{i:0;s:6:\"images\";i:1;s:4:\"text\";}s:13:\"keyword_slugs\";a:1:{i:0;s:8:\"featured\";}s:15:\"pattern_content\";s:1837:\"<!-- wp:columns {\"align\":\"full\"} -->\n<div class=\"wp-block-columns alignfull\"><!-- wp:column {\"width\":\"50%\"} -->\n<div class=\"wp-block-column\" style=\"flex-basis:50%\"><!-- wp:cover {\"customOverlayColor\":\"#f6f6f6\",\"minHeight\":600} -->\n<div class=\"wp-block-cover has-background-dim\" style=\"background-color:#f6f6f6;min-height:600px\"><div class=\"wp-block-cover__inner-container\"><!-- wp:image {\"align\":\"center\",\"id\":571,\"sizeSlug\":\"medium\",\"linkDestination\":\"none\"} -->\n<div class=\"wp-block-image\"><figure class=\"aligncenter size-medium\"><img src=\"https://s.w.org/patterns/files/2021/06/wire-sculpture-263x300.jpg\" alt=\"\" class=\"wp-image-571\" /></figure></div>\n<!-- /wp:image --></div></div>\n<!-- /wp:cover --></div>\n<!-- /wp:column -->\n\n<!-- wp:column {\"verticalAlignment\":\"center\",\"style\":{\"spacing\":{\"padding\":{\"top\":\"1em\",\"right\":\"1em\",\"bottom\":\"1em\",\"left\":\"1em\"}}}} -->\n<div class=\"wp-block-column is-vertically-aligned-center\" style=\"padding-top:1em;padding-right:1em;padding-bottom:1em;padding-left:1em\"><!-- wp:columns -->\n<div class=\"wp-block-columns\"><!-- wp:column {\"width\":\"320px\"} -->\n<div class=\"wp-block-column\" style=\"flex-basis:320px\"><!-- wp:paragraph {\"style\":{\"typography\":{\"lineHeight\":\"1.6\"}},\"fontSize\":\"small\"} -->\n<p class=\"has-small-font-size\" style=\"line-height:1.6\"><strong>Avión</strong></p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph {\"style\":{\"typography\":{\"lineHeight\":\"1.6\"}},\"fontSize\":\"small\"} -->\n<p class=\"has-small-font-size\" style=\"line-height:1.6\">Alambre de cobre, base de madera. Creé esta pieza a finales de 2008. Para este trabajo, quise transmitir la pesadez industrial de un avión, así como la sensación de flotar en una nube que sientes cuando estás en uno.</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:column --></div>\n<!-- /wp:columns --></div>\n<!-- /wp:column --></div>\n<!-- /wp:columns -->\";}i:6;O:8:\"stdClass\":7:{s:2:\"id\";i:5577;s:5:\"title\";O:8:\"stdClass\":1:{s:8:\"rendered\";s:40:\"Imágenes desplazadas con descripciones.\";}s:7:\"content\";O:8:\"stdClass\":2:{s:8:\"rendered\";s:1884:\"\n<div class=\"wp-block-columns is-layout-flex wp-container-core-columns-is-layout-6 wp-block-columns-is-layout-flex\">\n<div class=\"wp-block-column is-layout-flow wp-block-column-is-layout-flow\">\n<figure class=\"wp-block-image size-large\"><img loading=\"lazy\" decoding=\"async\" width=\"793\" height=\"1024\" src=\"https://s.w.org/patterns/files/2021/06/Iris-793x1024.jpg\" alt=\"\" class=\"wp-image-525\" srcset=\"https://s.w.org/patterns/files/2021/06/Iris-793x1024.jpg 793w, https://s.w.org/patterns/files/2021/06/Iris-232x300.jpg 232w, https://s.w.org/patterns/files/2021/06/Iris-768x992.jpg 768w, https://s.w.org/patterns/files/2021/06/Iris-1189x1536.jpg 1189w, https://s.w.org/patterns/files/2021/06/Iris-1586x2048.jpg 1586w, https://s.w.org/patterns/files/2021/06/Iris.jpg 1920w\" sizes=\"auto, (max-width: 793px) 100vw, 793px\" /></figure>\n\n\n\n<p style=\"font-size:14px\"><strong>Lirios blancos</strong><br>Ogawa Kazumasa</p>\n</div>\n\n\n\n<div class=\"wp-block-column is-layout-flow wp-block-column-is-layout-flow\">\n<div style=\"height:100px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n\n\n\n<p style=\"font-size:14px\"><strong>Flor de cerezo</strong><br>Ogawa Kazumasa</p>\n\n\n\n<figure class=\"wp-block-image size-large\"><img loading=\"lazy\" decoding=\"async\" width=\"707\" height=\"1024\" src=\"https://s.w.org/patterns/files/2021/06/Cherry-Blossom-707x1024.jpg\" alt=\"\" class=\"wp-image-524\" srcset=\"https://s.w.org/patterns/files/2021/06/Cherry-Blossom-707x1024.jpg 707w, https://s.w.org/patterns/files/2021/06/Cherry-Blossom-207x300.jpg 207w, https://s.w.org/patterns/files/2021/06/Cherry-Blossom-768x1112.jpg 768w, https://s.w.org/patterns/files/2021/06/Cherry-Blossom-1061x1536.jpg 1061w, https://s.w.org/patterns/files/2021/06/Cherry-Blossom-1414x2048.jpg 1414w, https://s.w.org/patterns/files/2021/06/Cherry-Blossom-scaled.jpg 1768w\" sizes=\"auto, (max-width: 707px) 100vw, 707px\" /></figure>\n</div>\n</div>\n\";s:9:\"protected\";b:0;}s:4:\"meta\";O:8:\"stdClass\":8:{s:13:\"wpop_keywords\";s:0:\"\";s:16:\"wpop_description\";s:40:\"Imágenes desplazadas con descripciones.\";s:19:\"wpop_viewport_width\";i:1200;s:16:\"wpop_block_types\";a:1:{i:0;s:0:\"\";}s:11:\"wpop_locale\";s:5:\"es_AR\";s:15:\"wpop_wp_version\";s:0:\"\";s:25:\"wpop_contains_block_types\";s:62:\"core/column,core/columns,core/image,core/paragraph,core/spacer\";s:9:\"footnotes\";s:0:\"\";}s:14:\"category_slugs\";a:2:{i:0;s:7:\"gallery\";i:1;s:6:\"images\";}s:13:\"keyword_slugs\";a:1:{i:0;s:8:\"featured\";}s:15:\"pattern_content\";s:1177:\"<!-- wp:columns -->\n<div class=\"wp-block-columns\"><!-- wp:column -->\n<div class=\"wp-block-column\"><!-- wp:image {\"id\":525,\"sizeSlug\":\"large\",\"linkDestination\":\"none\"} -->\n<figure class=\"wp-block-image size-large\"><img src=\"https://s.w.org/patterns/files/2021/06/Iris-793x1024.jpg\" alt=\"\" class=\"wp-image-525\" /></figure>\n<!-- /wp:image -->\n\n<!-- wp:paragraph {\"style\":{\"typography\":{\"fontSize\":\"14px\"}}} -->\n<p style=\"font-size:14px\"><strong>Lirios blancos</strong><br>Ogawa Kazumasa</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:column -->\n\n<!-- wp:column -->\n<div class=\"wp-block-column\"><!-- wp:spacer -->\n<div style=\"height:100px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n<!-- /wp:spacer -->\n\n<!-- wp:paragraph {\"style\":{\"typography\":{\"fontSize\":\"14px\"}}} -->\n<p style=\"font-size:14px\"><strong>Flor de cerezo</strong><br>Ogawa Kazumasa</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:image {\"id\":524,\"sizeSlug\":\"large\",\"linkDestination\":\"none\"} -->\n<figure class=\"wp-block-image size-large\"><img src=\"https://s.w.org/patterns/files/2021/06/Cherry-Blossom-707x1024.jpg\" alt=\"\" class=\"wp-image-524\" /></figure>\n<!-- /wp:image --></div>\n<!-- /wp:column --></div>\n<!-- /wp:columns -->\";}i:7;O:8:\"stdClass\":7:{s:2:\"id\";i:5578;s:5:\"title\";O:8:\"stdClass\":1:{s:8:\"rendered\";s:44:\"Imagen con descripción abajo y a la derecha\";}s:7:\"content\";O:8:\"stdClass\":2:{s:8:\"rendered\";s:1738:\"\n<div class=\"wp-block-columns is-layout-flex wp-container-core-columns-is-layout-7 wp-block-columns-is-layout-flex\">\n<div class=\"wp-block-column is-layout-flow wp-block-column-is-layout-flow\" style=\"flex-basis:10%\"></div>\n\n\n\n<div class=\"wp-block-column is-layout-flow wp-block-column-is-layout-flow\">\n<figure class=\"wp-block-image size-large\"><img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"1024\" src=\"https://s.w.org/patterns/files/2021/06/image-from-rawpixel-id-539759-jpeg-1-1024x1024.jpg\" alt=\"Ilustración clásica de Cupido\" class=\"wp-image-522\" srcset=\"https://s.w.org/patterns/files/2021/06/image-from-rawpixel-id-539759-jpeg-1-1024x1024.jpg 1024w, https://s.w.org/patterns/files/2021/06/image-from-rawpixel-id-539759-jpeg-1-300x300.jpg 300w, https://s.w.org/patterns/files/2021/06/image-from-rawpixel-id-539759-jpeg-1-150x150.jpg 150w, https://s.w.org/patterns/files/2021/06/image-from-rawpixel-id-539759-jpeg-1-768x768.jpg 768w, https://s.w.org/patterns/files/2021/06/image-from-rawpixel-id-539759-jpeg-1.jpg 1510w\" sizes=\"auto, (max-width: 1024px) 100vw, 1024px\" /></figure>\n</div>\n\n\n\n<div class=\"wp-block-column is-layout-flow wp-block-column-is-layout-flow\"></div>\n\n\n\n<div class=\"wp-block-column is-layout-flow wp-block-column-is-layout-flow\" style=\"flex-basis:10%\"></div>\n</div>\n\n\n\n<div class=\"wp-block-columns is-layout-flex wp-container-core-columns-is-layout-8 wp-block-columns-is-layout-flex\">\n<div class=\"wp-block-column is-layout-flow wp-block-column-is-layout-flow\"></div>\n\n\n\n<div class=\"wp-block-column is-layout-flow wp-block-column-is-layout-flow\">\n<p style=\"font-size:14px\"><strong>Cupido volando</strong><br>Impresión giclée de 48&#8243; x 48&#8243; en papel de archivo.</p>\n</div>\n</div>\n\n\n\n<p></p>\n\";s:9:\"protected\";b:0;}s:4:\"meta\";O:8:\"stdClass\":8:{s:13:\"wpop_keywords\";s:0:\"\";s:16:\"wpop_description\";s:45:\"Imagen con descripción abajo y a la derecha.\";s:19:\"wpop_viewport_width\";i:1200;s:16:\"wpop_block_types\";a:1:{i:0;s:0:\"\";}s:11:\"wpop_locale\";s:5:\"es_AR\";s:15:\"wpop_wp_version\";s:0:\"\";s:25:\"wpop_contains_block_types\";s:50:\"core/column,core/columns,core/image,core/paragraph\";s:9:\"footnotes\";s:0:\"\";}s:14:\"category_slugs\";a:1:{i:0;s:6:\"images\";}s:13:\"keyword_slugs\";a:1:{i:0;s:8:\"featured\";}s:15:\"pattern_content\";s:1252:\"<!-- wp:columns -->\n<div class=\"wp-block-columns\"><!-- wp:column {\"width\":\"10%\"} -->\n<div class=\"wp-block-column\" style=\"flex-basis:10%\"></div>\n<!-- /wp:column -->\n\n<!-- wp:column -->\n<div class=\"wp-block-column\"><!-- wp:image {\"id\":522,\"sizeSlug\":\"large\",\"linkDestination\":\"none\"} -->\n<figure class=\"wp-block-image size-large\"><img src=\"https://s.w.org/patterns/files/2021/06/image-from-rawpixel-id-539759-jpeg-1-1024x1024.jpg\" alt=\"Ilustración clásica de Cupido\" class=\"wp-image-522\" /></figure>\n<!-- /wp:image --></div>\n<!-- /wp:column -->\n\n<!-- wp:column -->\n<div class=\"wp-block-column\"></div>\n<!-- /wp:column -->\n\n<!-- wp:column {\"width\":\"10%\"} -->\n<div class=\"wp-block-column\" style=\"flex-basis:10%\"></div>\n<!-- /wp:column --></div>\n<!-- /wp:columns -->\n\n<!-- wp:columns -->\n<div class=\"wp-block-columns\"><!-- wp:column -->\n<div class=\"wp-block-column\"></div>\n<!-- /wp:column -->\n\n<!-- wp:column -->\n<div class=\"wp-block-column\"><!-- wp:paragraph {\"style\":{\"typography\":{\"fontSize\":\"14px\"}}} -->\n<p style=\"font-size:14px\"><strong>Cupido volando</strong><br>Impresión giclée de 48\" x 48\" en papel de archivo.</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:column --></div>\n<!-- /wp:columns -->\n\n<!-- wp:paragraph -->\n<p></p>\n<!-- /wp:paragraph -->\";}i:8;O:8:\"stdClass\":7:{s:2:\"id\";i:5584;s:5:\"title\";O:8:\"stdClass\":1:{s:8:\"rendered\";s:19:\"Detalles del evento\";}s:7:\"content\";O:8:\"stdClass\":2:{s:8:\"rendered\";s:1719:\"\n<figure class=\"wp-block-image alignwide size-full\"><img loading=\"lazy\" decoding=\"async\" width=\"2560\" height=\"1227\" src=\"https://s.w.org/patterns/files/2021/06/Group-17-scaled.jpg\" alt=\"Imagen de una mujer llevada por el aire por cisnes.\" class=\"wp-image-501\" srcset=\"https://s.w.org/patterns/files/2021/06/Group-17-scaled.jpg 2560w, https://s.w.org/patterns/files/2021/06/Group-17-300x144.jpg 300w, https://s.w.org/patterns/files/2021/06/Group-17-1024x491.jpg 1024w, https://s.w.org/patterns/files/2021/06/Group-17-768x368.jpg 768w, https://s.w.org/patterns/files/2021/06/Group-17-1536x736.jpg 1536w, https://s.w.org/patterns/files/2021/06/Group-17-2048x981.jpg 2048w\" sizes=\"auto, (max-width: 2560px) 100vw, 2560px\" /></figure>\n\n\n\n<div class=\"wp-block-columns alignwide are-vertically-aligned-center is-layout-flex wp-container-core-columns-is-layout-9 wp-block-columns-is-layout-flex\">\n<div class=\"wp-block-column is-vertically-aligned-center is-layout-flow wp-block-column-is-layout-flow\">\n<p style=\"line-height:2\"><strong>Ubicación:</strong><br>Paseo de la Castellana 82, MAD</p>\n</div>\n\n\n\n<div class=\"wp-block-column is-vertically-aligned-center is-layout-flow wp-block-column-is-layout-flow\">\n<p style=\"line-height:2\"><strong>Fecha:</strong><br>24 de octubre de 2021</p>\n</div>\n\n\n\n<div class=\"wp-block-column is-vertically-aligned-center is-layout-flow wp-block-column-is-layout-flow\">\n<div class=\"wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex\">\n<div class=\"wp-block-button has-custom-width wp-block-button__width-100\"><a class=\"wp-block-button__link has-text-color has-background wp-element-button\" style=\"color:#efefef;background-color:#262626\">Comprar tiques</a></div>\n</div>\n</div>\n</div>\n\";s:9:\"protected\";b:0;}s:4:\"meta\";O:8:\"stdClass\":8:{s:13:\"wpop_keywords\";s:0:\"\";s:16:\"wpop_description\";s:20:\"Detalles del evento.\";s:19:\"wpop_viewport_width\";i:1200;s:16:\"wpop_block_types\";a:1:{i:0;s:0:\"\";}s:11:\"wpop_locale\";s:5:\"es_AR\";s:15:\"wpop_wp_version\";s:0:\"\";s:25:\"wpop_contains_block_types\";s:75:\"core/button,core/buttons,core/column,core/columns,core/image,core/paragraph\";s:9:\"footnotes\";s:0:\"\";}s:14:\"category_slugs\";a:1:{i:0;s:14:\"call-to-action\";}s:13:\"keyword_slugs\";a:1:{i:0;s:8:\"featured\";}s:15:\"pattern_content\";s:1649:\"<!-- wp:image {\"align\":\"wide\",\"id\":501,\"sizeSlug\":\"full\",\"linkDestination\":\"none\"} -->\n<figure class=\"wp-block-image alignwide size-full\"><img src=\"https://s.w.org/patterns/files/2021/06/Group-17-scaled.jpg\" alt=\"Imagen de una mujer llevada por el aire por cisnes.\" class=\"wp-image-501\" /></figure>\n<!-- /wp:image -->\n\n<!-- wp:columns {\"verticalAlignment\":\"center\",\"align\":\"wide\"} -->\n<div class=\"wp-block-columns alignwide are-vertically-aligned-center\"><!-- wp:column {\"verticalAlignment\":\"center\"} -->\n<div class=\"wp-block-column is-vertically-aligned-center\"><!-- wp:paragraph {\"style\":{\"typography\":{\"lineHeight\":\"2\"}}} -->\n<p style=\"line-height:2\"><strong>Ubicación:</strong><br>Paseo de la Castellana 82, MAD</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:column -->\n\n<!-- wp:column {\"verticalAlignment\":\"center\"} -->\n<div class=\"wp-block-column is-vertically-aligned-center\"><!-- wp:paragraph {\"style\":{\"typography\":{\"lineHeight\":\"2\"}}} -->\n<p style=\"line-height:2\"><strong>Fecha:</strong><br>24 de octubre de 2021</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:column -->\n\n<!-- wp:column {\"verticalAlignment\":\"center\"} -->\n<div class=\"wp-block-column is-vertically-aligned-center\"><!-- wp:buttons -->\n<div class=\"wp-block-buttons\"><!-- wp:button {\"width\":100,\"style\":{\"color\":{\"background\":\"#262626\",\"text\":\"#efefef\"}}} -->\n<div class=\"wp-block-button has-custom-width wp-block-button__width-100\"><a class=\"wp-block-button__link has-text-color has-background wp-element-button\" style=\"color:#efefef;background-color:#262626\">Comprar tiques</a></div>\n<!-- /wp:button --></div>\n<!-- /wp:buttons --></div>\n<!-- /wp:column --></div>\n<!-- /wp:columns -->\";}i:9;O:8:\"stdClass\":7:{s:2:\"id\";i:5594;s:5:\"title\";O:8:\"stdClass\":1:{s:8:\"rendered\";s:22:\"Tres columnas de texto\";}s:7:\"content\";O:8:\"stdClass\":2:{s:8:\"rendered\";s:1326:\"\n<div class=\"wp-block-columns alignfull has-text-color has-background is-layout-flex wp-container-core-columns-is-layout-10 wp-block-columns-is-layout-flex\" style=\"background-color:#ffffff;color:#000000\">\n<div class=\"wp-block-column is-layout-flow wp-block-column-is-layout-flow\">\n<h3 class=\"wp-block-heading\" style=\"font-size:24px;line-height:1.3\"><strong><a href=\"https://es-ar.wordpress.org\">Visita virtual <span aria-hidden=\"true\" class=\"wp-exclude-emoji\">↗</span></a></strong></h3>\n\n\n\n<p>Hacé una visita virtual al museo. Ideal para colegios y eventos.</p>\n</div>\n\n\n\n<div class=\"wp-block-column is-layout-flow wp-block-column-is-layout-flow\">\n<h3 class=\"wp-block-heading\" style=\"font-size:24px;line-height:1.3\"><strong><a href=\"https://es-ar.wordpress.org\">Eventos en curso <span aria-hidden=\"true\" class=\"wp-exclude-emoji\">↗</span></a></strong></h3>\n\n\n\n<p>Mantenete al día y consultá aquí nuestras exposiciones actuales.</p>\n</div>\n\n\n\n<div class=\"wp-block-column is-layout-flow wp-block-column-is-layout-flow\">\n<h3 class=\"wp-block-heading\" style=\"font-size:24px;line-height:1.3\"><strong><a href=\"https://es-ar.wordpress.org\">Información útil <span aria-hidden=\"true\" class=\"wp-exclude-emoji\">↗</span></a></strong></h3>\n\n\n\n<p>Conocé nuestros horarios, precios de las entradas y descuentos.</p>\n</div>\n</div>\n\";s:9:\"protected\";b:0;}s:4:\"meta\";O:8:\"stdClass\":8:{s:13:\"wpop_keywords\";s:0:\"\";s:16:\"wpop_description\";s:23:\"Tres columnas de texto.\";s:19:\"wpop_viewport_width\";i:1200;s:16:\"wpop_block_types\";a:1:{i:0;s:0:\"\";}s:11:\"wpop_locale\";s:5:\"es_AR\";s:15:\"wpop_wp_version\";s:0:\"\";s:25:\"wpop_contains_block_types\";s:52:\"core/column,core/columns,core/heading,core/paragraph\";s:9:\"footnotes\";s:0:\"\";}s:14:\"category_slugs\";a:2:{i:0;s:7:\"columns\";i:1;s:4:\"text\";}s:13:\"keyword_slugs\";a:2:{i:0;s:4:\"core\";i:1;s:8:\"featured\";}s:15:\"pattern_content\";s:1551:\"<!-- wp:columns {\"align\":\"full\",\"style\":{\"color\":{\"text\":\"#000000\",\"background\":\"#ffffff\"}}} -->\n<div class=\"wp-block-columns alignfull has-text-color has-background\" style=\"background-color:#ffffff;color:#000000\"><!-- wp:column -->\n<div class=\"wp-block-column\"><!-- wp:heading {\"level\":3,\"style\":{\"typography\":{\"fontSize\":\"24px\",\"lineHeight\":\"1.3\"}}} -->\n<h3 style=\"font-size:24px;line-height:1.3\"><strong><a href=\"https://es-ar.wordpress.org\">Visita virtual ↗</a></strong></h3>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Hacé una visita virtual al museo. Ideal para colegios y eventos.</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:column -->\n\n<!-- wp:column -->\n<div class=\"wp-block-column\"><!-- wp:heading {\"level\":3,\"style\":{\"typography\":{\"fontSize\":\"24px\",\"lineHeight\":\"1.3\"}}} -->\n<h3 style=\"font-size:24px;line-height:1.3\"><strong><a href=\"https://es-ar.wordpress.org\">Eventos en curso ↗</a></strong></h3>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Mantenete al día y consultá aquí nuestras exposiciones actuales.</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:column -->\n\n<!-- wp:column -->\n<div class=\"wp-block-column\"><!-- wp:heading {\"level\":3,\"style\":{\"typography\":{\"fontSize\":\"24px\",\"lineHeight\":\"1.3\"}}} -->\n<h3 style=\"font-size:24px;line-height:1.3\"><strong><a href=\"https://es-ar.wordpress.org\">Información útil ↗</a></strong></h3>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Conocé nuestros horarios, precios de las entradas y descuentos.</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:column --></div>\n<!-- /wp:columns -->\";}i:10;O:8:\"stdClass\":7:{s:2:\"id\";i:5595;s:5:\"title\";O:8:\"stdClass\":1:{s:8:\"rendered\";s:35:\"Tres columnas con imágenes y texto\";}s:7:\"content\";O:8:\"stdClass\":2:{s:8:\"rendered\";s:3631:\"\n<div class=\"wp-block-group alignfull has-background is-layout-flow wp-block-group-is-layout-flow\" style=\"background-color:#f5eac1;padding-top:6vw;padding-right:6vw;padding-bottom:6vw;padding-left:6vw\">\n<div class=\"wp-block-group is-vertical is-nowrap is-layout-flex wp-container-core-group-is-layout-6 wp-block-group-is-layout-flex\" style=\"padding-right:0;padding-left:0\">\n<h6 class=\"wp-block-heading has-text-color\" id=\"ecosystem\" style=\"color:#000000;font-size:16px\">ECOSISTEMA</h6>\n\n\n\n<p class=\"has-text-color\" style=\"color:#000000;font-size:6vw;font-style:normal;font-weight:700;letter-spacing:0px;line-height:0.9;text-decoration:none;text-transform:none\">Positive growth.</p>\n</div>\n\n\n\n<div style=\"height:1vw\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n\n\n\n<div class=\"wp-block-group alignwide is-vertical is-nowrap is-layout-flex wp-container-core-group-is-layout-7 wp-block-group-is-layout-flex\" style=\"padding-top:0;padding-right:0;padding-bottom:0;padding-left:0\">\n<div class=\"wp-block-columns alignwide is-layout-flex wp-container-core-columns-is-layout-11 wp-block-columns-is-layout-flex\">\n<div class=\"wp-block-column is-layout-flow wp-block-column-is-layout-flow\" style=\"flex-basis:33.38%\">\n<p class=\"has-text-color\" style=\"color:#000000;font-size:17px\"><em>Nature</em>, in the common sense, refers to essences unchanged by man; space, the air, the river, the leaf.&nbsp;<em>Art</em>&nbsp;is applied to the mixture of his will with the same things, as in a house, a canal, a statue, a picture. </p>\n\n\n\n<p class=\"has-text-color\" style=\"color:#000000;font-size:17px\">But his operations taken together are so insignificant, a little chipping, baking, patching, and washing, that in an impression so grand as that of the world on the human mind, they do not vary the result.</p>\n</div>\n\n\n\n<div class=\"wp-block-column is-layout-flow wp-block-column-is-layout-flow\" style=\"flex-basis:33%\">\n<div style=\"height:2vw\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n\n\n\n<figure class=\"wp-block-image size-large\"><img decoding=\"async\" src=\"https://s.w.org/images/core/5.8/outside-01.jpg\" alt=\"The sun setting through a dense forest.\" /></figure>\n</div>\n\n\n\n<div class=\"wp-block-column is-layout-flow wp-block-column-is-layout-flow\" style=\"flex-basis:33.62%\">\n<figure class=\"wp-block-image size-large\"><img decoding=\"async\" src=\"https://s.w.org/images/core/5.8/outside-02.jpg\" alt=\"Aerogeneradores en una llanura de hierba, con un cielo azul.\" /></figure>\n</div>\n</div>\n\n\n\n<div class=\"wp-block-columns alignwide is-layout-flex wp-container-core-columns-is-layout-12 wp-block-columns-is-layout-flex\">\n<div class=\"wp-block-column is-layout-flow wp-block-column-is-layout-flow\" style=\"flex-basis:69%\">\n<figure class=\"wp-block-image size-large\"><img decoding=\"async\" src=\"https://s.w.org/images/core/5.8/outside-03.jpg\" alt=\"El sol brilla sobre una cresta que desciende hacia la costa. A lo lejos, un coche circula por una carretera.\" /></figure>\n</div>\n\n\n\n<div class=\"wp-block-column is-vertically-aligned-center is-layout-flow wp-block-column-is-layout-flow\" style=\"flex-basis:33%\">\n<div style=\"height:2vw\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n\n\n\n<p class=\"has-text-color\" style=\"color:#000000;font-size:17px\">Sin duda, no tenemos que hacer preguntas que no tengan respuesta. Debemos confiar en la perfección de la creación hasta el punto de creer que cualquier curiosidad que el orden de las cosas haya despertado en nuestra mente, el orden de las cosas puede satisfacerla. La condición de todo hombre es una solución en jeroglífico a las preguntas que él mismo se plantea.</p>\n</div>\n</div>\n</div>\n</div>\n\";s:9:\"protected\";b:0;}s:4:\"meta\";O:8:\"stdClass\":8:{s:13:\"wpop_keywords\";s:0:\"\";s:16:\"wpop_description\";s:87:\"Tres columnas con imágenes y texto, con espaciado vertical para un aspecto desplazado.\";s:19:\"wpop_viewport_width\";i:1200;s:16:\"wpop_block_types\";a:1:{i:0;s:0:\"\";}s:11:\"wpop_locale\";s:5:\"es_AR\";s:15:\"wpop_wp_version\";s:0:\"\";s:25:\"wpop_contains_block_types\";s:86:\"core/column,core/columns,core/group,core/heading,core/image,core/paragraph,core/spacer\";s:9:\"footnotes\";s:0:\"\";}s:14:\"category_slugs\";a:4:{i:0;s:7:\"columns\";i:1;s:7:\"gallery\";i:2;s:6:\"images\";i:3;s:4:\"text\";}s:13:\"keyword_slugs\";a:2:{i:0;s:4:\"core\";i:1;s:8:\"featured\";}s:15:\"pattern_content\";s:5183:\"<!-- wp:group {\"align\":\"full\",\"style\":{\"color\":{\"background\":\"#f5eac1\"},\"spacing\":{\"padding\":{\"top\":\"6vw\",\"bottom\":\"6vw\",\"left\":\"6vw\",\"right\":\"6vw\"}}},\"layout\":{\"type\":\"default\"}} -->\n<div class=\"wp-block-group alignfull has-background\" style=\"background-color:#f5eac1;padding-top:6vw;padding-right:6vw;padding-bottom:6vw;padding-left:6vw\"><!-- wp:group {\"style\":{\"spacing\":{\"blockGap\":\"16px\",\"padding\":{\"right\":\"0\",\"left\":\"0\"}}},\"layout\":{\"type\":\"flex\",\"orientation\":\"vertical\",\"flexWrap\":\"nowrap\"}} -->\n<div class=\"wp-block-group\" style=\"padding-right:0;padding-left:0\"><!-- wp:heading {\"level\":6,\"style\":{\"color\":{\"text\":\"#000000\"},\"typography\":{\"fontSize\":\"16px\"}},\"anchor\":\"ecosystem\"} -->\n<h6 class=\"wp-block-heading has-text-color\" id=\"ecosystem\" style=\"color:#000000;font-size:16px\">ECOSISTEMA</h6>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph {\"style\":{\"typography\":{\"lineHeight\":\"0.9\",\"fontSize\":\"6vw\",\"fontStyle\":\"normal\",\"fontWeight\":\"700\",\"textTransform\":\"none\",\"textDecoration\":\"none\",\"letterSpacing\":\"0px\"},\"color\":{\"text\":\"#000000\"}}} -->\n<p class=\"has-text-color\" style=\"color:#000000;font-size:6vw;font-style:normal;font-weight:700;letter-spacing:0px;line-height:0.9;text-decoration:none;text-transform:none\">Positive growth.</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:group -->\n\n<!-- wp:spacer {\"height\":\"1vw\"} -->\n<div style=\"height:1vw\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n<!-- /wp:spacer -->\n\n<!-- wp:group {\"align\":\"wide\",\"style\":{\"spacing\":{\"blockGap\":\"3vw\",\"padding\":{\"top\":\"0\",\"bottom\":\"0\",\"left\":\"0\",\"right\":\"0\"}}},\"layout\":{\"type\":\"flex\",\"orientation\":\"vertical\",\"flexWrap\":\"nowrap\"}} -->\n<div class=\"wp-block-group alignwide\" style=\"padding-top:0;padding-right:0;padding-bottom:0;padding-left:0\"><!-- wp:columns {\"align\":\"wide\",\"style\":{\"spacing\":{\"blockGap\":{\"top\":\"3vw\",\"left\":\"3vw\"}}}} -->\n<div class=\"wp-block-columns alignwide\"><!-- wp:column {\"width\":\"33.38%\"} -->\n<div class=\"wp-block-column\" style=\"flex-basis:33.38%\"><!-- wp:paragraph {\"style\":{\"color\":{\"text\":\"#000000\"},\"typography\":{\"fontSize\":\"17px\"}}} -->\n<p class=\"has-text-color\" style=\"color:#000000;font-size:17px\"><em>Nature</em>, in the common sense, refers to essences unchanged by man; space, the air, the river, the leaf.&nbsp;<em>Art</em>&nbsp;is applied to the mixture of his will with the same things, as in a house, a canal, a statue, a picture. </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph {\"style\":{\"color\":{\"text\":\"#000000\"},\"typography\":{\"fontSize\":\"17px\"}}} -->\n<p class=\"has-text-color\" style=\"color:#000000;font-size:17px\">But his operations taken together are so insignificant, a little chipping, baking, patching, and washing, that in an impression so grand as that of the world on the human mind, they do not vary the result.</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:column -->\n\n<!-- wp:column {\"width\":\"33%\"} -->\n<div class=\"wp-block-column\" style=\"flex-basis:33%\"><!-- wp:spacer {\"height\":\"2vw\"} -->\n<div style=\"height:2vw\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n<!-- /wp:spacer -->\n\n<!-- wp:image {\"sizeSlug\":\"large\",\"linkDestination\":\"none\"} -->\n<figure class=\"wp-block-image size-large\"><img src=\"https://s.w.org/images/core/5.8/outside-01.jpg\" alt=\"The sun setting through a dense forest.\" /></figure>\n<!-- /wp:image --></div>\n<!-- /wp:column -->\n\n<!-- wp:column {\"width\":\"33.62%\"} -->\n<div class=\"wp-block-column\" style=\"flex-basis:33.62%\"><!-- wp:image {\"sizeSlug\":\"large\",\"linkDestination\":\"none\"} -->\n<figure class=\"wp-block-image size-large\"><img src=\"https://s.w.org/images/core/5.8/outside-02.jpg\" alt=\"Aerogeneradores en una llanura de hierba, con un cielo azul.\" /></figure>\n<!-- /wp:image --></div>\n<!-- /wp:column --></div>\n<!-- /wp:columns -->\n\n<!-- wp:columns {\"align\":\"wide\",\"style\":{\"spacing\":{\"blockGap\":{\"left\":\"3vw\"}}}} -->\n<div class=\"wp-block-columns alignwide\"><!-- wp:column {\"width\":\"69%\"} -->\n<div class=\"wp-block-column\" style=\"flex-basis:69%\"><!-- wp:image {\"sizeSlug\":\"large\",\"linkDestination\":\"none\"} -->\n<figure class=\"wp-block-image size-large\"><img src=\"https://s.w.org/images/core/5.8/outside-03.jpg\" alt=\"El sol brilla sobre una cresta que desciende hacia la costa. A lo lejos, un coche circula por una carretera.\" /></figure>\n<!-- /wp:image --></div>\n<!-- /wp:column -->\n\n<!-- wp:column {\"verticalAlignment\":\"center\",\"width\":\"33%\"} -->\n<div class=\"wp-block-column is-vertically-aligned-center\" style=\"flex-basis:33%\"><!-- wp:spacer {\"height\":\"2vw\"} -->\n<div style=\"height:2vw\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n<!-- /wp:spacer -->\n\n<!-- wp:paragraph {\"style\":{\"color\":{\"text\":\"#000000\"},\"typography\":{\"fontSize\":\"17px\"}}} -->\n<p class=\"has-text-color\" style=\"color:#000000;font-size:17px\">Sin duda, no tenemos que hacer preguntas que no tengan respuesta. Debemos confiar en la perfección de la creación hasta el punto de creer que cualquier curiosidad que el orden de las cosas haya despertado en nuestra mente, el orden de las cosas puede satisfacerla. La condición de todo hombre es una solución en jeroglífico a las preguntas que él mismo se plantea.</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:column --></div>\n<!-- /wp:columns --></div>\n<!-- /wp:group --></div>\n<!-- /wp:group -->\";}i:11;O:8:\"stdClass\":7:{s:2:\"id\";i:5599;s:5:\"title\";O:8:\"stdClass\":1:{s:8:\"rendered\";s:40:\"Medios y texto con imagen a la izquierda\";}s:7:\"content\";O:8:\"stdClass\":2:{s:8:\"rendered\";s:628:\"\n<div class=\"wp-block-media-text alignfull is-stacked-on-mobile is-vertically-aligned-center\"><figure class=\"wp-block-media-text__media\"><img decoding=\"async\" src=\"https://s.w.org/images/core/5.8/architecture-04.jpg\" alt=\"Primer plano, vista abstracta de arquitectura.\" /></figure><div class=\"wp-block-media-text__content\">\n<h3 class=\"wp-block-heading has-text-align-center has-text-color\" style=\"color:#000000\"><strong>Espacios abiertos</strong></h3>\n\n\n\n<p class=\"has-text-align-center has-extra-small-font-size\"><a href=\"#\">Ver estudio de caso <span aria-hidden=\"true\" class=\"wp-exclude-emoji\">↗</span></a></p>\n</div></div>\n\";s:9:\"protected\";b:0;}s:4:\"meta\";O:8:\"stdClass\":8:{s:13:\"wpop_keywords\";s:0:\"\";s:16:\"wpop_description\";s:73:\"Bloque multimedia y texto con imagen a la izquierda y texto a la derecha.\";s:19:\"wpop_viewport_width\";i:1200;s:16:\"wpop_block_types\";a:1:{i:0;s:0:\"\";}s:11:\"wpop_locale\";s:5:\"es_AR\";s:15:\"wpop_wp_version\";s:0:\"\";s:25:\"wpop_contains_block_types\";s:43:\"core/heading,core/media-text,core/paragraph\";s:9:\"footnotes\";s:0:\"\";}s:14:\"category_slugs\";a:1:{i:0;s:6:\"banner\";}s:13:\"keyword_slugs\";a:2:{i:0;s:4:\"core\";i:1;s:8:\"featured\";}s:15:\"pattern_content\";s:861:\"<!-- wp:media-text {\"align\":\"full\",\"mediaType\":\"image\",\"verticalAlignment\":\"center\"} -->\n<div class=\"wp-block-media-text alignfull is-stacked-on-mobile is-vertically-aligned-center\"><figure class=\"wp-block-media-text__media\"><img src=\"https://s.w.org/images/core/5.8/architecture-04.jpg\" alt=\"Primer plano, vista abstracta de arquitectura.\" /></figure><div class=\"wp-block-media-text__content\"><!-- wp:heading {\"textAlign\":\"center\",\"level\":3,\"style\":{\"color\":{\"text\":\"#000000\"}}} -->\n<h3 class=\"wp-block-heading has-text-align-center has-text-color\" style=\"color:#000000\"><strong>Espacios abiertos</strong></h3>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph {\"align\":\"center\",\"fontSize\":\"extra-small\"} -->\n<p class=\"has-text-align-center has-extra-small-font-size\"><a href=\"#\">Ver estudio de caso ↗</a></p>\n<!-- /wp:paragraph --></div></div>\n<!-- /wp:media-text -->\";}i:12;O:8:\"stdClass\":7:{s:2:\"id\";i:5601;s:5:\"title\";O:8:\"stdClass\":1:{s:8:\"rendered\";s:51:\"Encabezado grande con texto alineado a la izquierda\";}s:7:\"content\";O:8:\"stdClass\":2:{s:8:\"rendered\";s:1434:\"\n<div class=\"wp-block-cover alignfull\" style=\"min-height:800px;aspect-ratio:unset;aspect-ratio:unset;\"><span aria-hidden=\"true\" class=\"wp-block-cover__background has-background-dim-60 has-background-dim\"></span><img decoding=\"async\" class=\"wp-block-cover__image-background\" alt=\"\" src=\"https://s.w.org/images/core/5.8/forest.jpg\" data-object-fit=\"cover\" /><div class=\"wp-block-cover__inner-container is-layout-flow wp-block-cover-is-layout-flow\">\n<h2 class=\"wp-block-heading alignwide has-text-color\" style=\"color:#ffe074;font-size:64px\">Bosque.</h2>\n\n\n\n<div class=\"wp-block-columns alignwide is-layout-flex wp-container-core-columns-is-layout-13 wp-block-columns-is-layout-flex\">\n<div class=\"wp-block-column is-layout-flow wp-block-column-is-layout-flow\" style=\"flex-basis:55%\">\n<div style=\"height:330px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n\n\n\n<p class=\"has-text-color\" style=\"color:#ffe074;font-size:12px;line-height:1.3\"><em>Hasta un niño sabe lo valioso que es el bosque. El fresco e impresionante olor de los árboles. El eco de los pájaros volando por encima de esa densa magnitud. Un clima estable, una vida diversa y sostenible y una fuente de cultura. Sin embargo, los bosques y otros ecosistemas penden de un hilo, amenazados de convertirse en tierras de cultivo, pastos y plantaciones.</em></p>\n</div>\n\n\n\n<div class=\"wp-block-column is-layout-flow wp-block-column-is-layout-flow\"></div>\n</div>\n</div></div>\n\";s:9:\"protected\";b:0;}s:4:\"meta\";O:8:\"stdClass\":8:{s:13:\"wpop_keywords\";s:0:\"\";s:16:\"wpop_description\";s:35:\"Imagen de fondo con cita sobre ella\";s:19:\"wpop_viewport_width\";i:1200;s:16:\"wpop_block_types\";a:1:{i:0;s:0:\"\";}s:11:\"wpop_locale\";s:5:\"es_AR\";s:15:\"wpop_wp_version\";s:0:\"\";s:25:\"wpop_contains_block_types\";s:75:\"core/column,core/columns,core/cover,core/heading,core/paragraph,core/spacer\";s:9:\"footnotes\";s:0:\"\";}s:14:\"category_slugs\";a:1:{i:0;s:6:\"banner\";}s:13:\"keyword_slugs\";a:2:{i:0;s:4:\"core\";i:1;s:8:\"featured\";}s:15:\"pattern_content\";s:1750:\"<!-- wp:cover {\"url\":\"https://s.w.org/images/core/5.8/forest.jpg\",\"dimRatio\":60,\"minHeight\":800,\"align\":\"full\"} -->\n<div class=\"wp-block-cover alignfull\" style=\"min-height:800px\"><span aria-hidden=\"true\" class=\"wp-block-cover__background has-background-dim-60 has-background-dim\"></span><img class=\"wp-block-cover__image-background\" alt=\"\" src=\"https://s.w.org/images/core/5.8/forest.jpg\" data-object-fit=\"cover\" /><div class=\"wp-block-cover__inner-container\"><!-- wp:heading {\"align\":\"wide\",\"style\":{\"color\":{\"text\":\"#ffe074\"},\"typography\":{\"fontSize\":\"64px\"}}} -->\n<h2 class=\"wp-block-heading alignwide has-text-color\" style=\"color:#ffe074;font-size:64px\">Bosque.</h2>\n<!-- /wp:heading -->\n\n<!-- wp:columns {\"align\":\"wide\"} -->\n<div class=\"wp-block-columns alignwide\"><!-- wp:column {\"width\":\"55%\"} -->\n<div class=\"wp-block-column\" style=\"flex-basis:55%\"><!-- wp:spacer {\"height\":\"330px\"} -->\n<div style=\"height:330px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n<!-- /wp:spacer -->\n\n<!-- wp:paragraph {\"style\":{\"color\":{\"text\":\"#ffe074\"},\"typography\":{\"lineHeight\":\"1.3\",\"fontSize\":\"12px\"}}} -->\n<p class=\"has-text-color\" style=\"color:#ffe074;font-size:12px;line-height:1.3\"><em>Hasta un niño sabe lo valioso que es el bosque. El fresco e impresionante olor de los árboles. El eco de los pájaros volando por encima de esa densa magnitud. Un clima estable, una vida diversa y sostenible y una fuente de cultura. Sin embargo, los bosques y otros ecosistemas penden de un hilo, amenazados de convertirse en tierras de cultivo, pastos y plantaciones.</em></p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:column -->\n\n<!-- wp:column -->\n<div class=\"wp-block-column\"></div>\n<!-- /wp:column --></div>\n<!-- /wp:columns --></div></div>\n<!-- /wp:cover -->\";}i:13;O:8:\"stdClass\":7:{s:2:\"id\";i:5602;s:5:\"title\";O:8:\"stdClass\":1:{s:8:\"rendered\";s:7:\"Título\";}s:7:\"content\";O:8:\"stdClass\":2:{s:8:\"rendered\";s:545:\"\n<h2 class=\"alignwide wp-block-heading\" id=\"we-re-a-studio-in-berlin-with-an-international-practice-in-architecture-urban-planning-and-interior-design-we-believe-in-sharing-knowledge-and-promoting-dialogue-to-increase-the-creative-potential-of-collaboration\" style=\"font-size:48px;line-height:1.1\">Somos un estudio de Buenos Aires con práctica internacional en arquitectura, urbanismo y diseño de interiores. Creemos en el intercambio de conocimientos y en el fomento del diálogo para aumentar el potencial creativo de la colaboración.</h2>\n\";s:9:\"protected\";b:0;}s:4:\"meta\";O:8:\"stdClass\":8:{s:13:\"wpop_keywords\";s:17:\"large text, title\";s:16:\"wpop_description\";s:20:\"Texto del encabezado\";s:19:\"wpop_viewport_width\";i:1200;s:16:\"wpop_block_types\";a:1:{i:0;s:12:\"core/heading\";}s:11:\"wpop_locale\";s:5:\"es_AR\";s:15:\"wpop_wp_version\";s:0:\"\";s:25:\"wpop_contains_block_types\";s:12:\"core/heading\";s:9:\"footnotes\";s:0:\"\";}s:14:\"category_slugs\";a:1:{i:0;s:4:\"text\";}s:13:\"keyword_slugs\";a:2:{i:0;s:4:\"core\";i:1;s:8:\"featured\";}s:15:\"pattern_content\";s:646:\"<!-- wp:heading {\"align\":\"wide\",\"style\":{\"typography\":{\"fontSize\":\"48px\",\"lineHeight\":\"1.1\"}}} -->\n<h2 class=\"alignwide\" id=\"we-re-a-studio-in-berlin-with-an-international-practice-in-architecture-urban-planning-and-interior-design-we-believe-in-sharing-knowledge-and-promoting-dialogue-to-increase-the-creative-potential-of-collaboration\" style=\"font-size:48px;line-height:1.1\">Somos un estudio de Buenos Aires con práctica internacional en arquitectura, urbanismo y diseño de interiores. Creemos en el intercambio de conocimientos y en el fomento del diálogo para aumentar el potencial creativo de la colaboración.</h2>\n<!-- /wp:heading -->\";}i:14;O:8:\"stdClass\":7:{s:2:\"id\";i:207567;s:5:\"title\";O:8:\"stdClass\":1:{s:8:\"rendered\";s:11:\"Link in Bio\";}s:7:\"content\";O:8:\"stdClass\":2:{s:8:\"rendered\";s:6666:\"\n<div class=\"wp-block-group has-white-background-color has-background is-layout-flow wp-block-group-is-layout-flow\" style=\"padding-top:var(--wp--preset--spacing--80);padding-right:0;padding-bottom:var(--wp--preset--spacing--80);padding-left:0\"><h1 style=\"font-style:normal;font-weight:700;\" class=\"has-text-align-center wp-block-site-title has-medium-font-size\"><a href=\"https://wordpress.org/patterns\" target=\"_self\" rel=\"home\">Patrones</a></h1>\n\n<p class=\"has-text-align-center wp-block-site-tagline\">Beautifully designed patterns ready to go with a simple copy/paste</p>\n\n\n<div style=\"height:20px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n\n\n\n<div class=\"wp-block-buttons is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-6 wp-block-buttons-is-layout-flex\">\n<div class=\"wp-block-button has-custom-width wp-block-button__width-100\"><a class=\"wp-block-button__link wp-element-button\">Watch my latest videos</a></div>\n\n\n\n<div class=\"wp-block-button has-custom-width wp-block-button__width-100\"><a class=\"wp-block-button__link wp-element-button\">Buy merch</a></div>\n\n\n\n<div class=\"wp-block-button has-custom-width wp-block-button__width-100\"><a class=\"wp-block-button__link wp-element-button\">Support me on Patreon</a></div>\n\n\n\n<div class=\"wp-block-button has-custom-width wp-block-button__width-100 is-style-fill\"><a class=\"wp-block-button__link wp-element-button\">Get tickets for my show</a></div>\n</div>\n\n\n\n<ul class=\"wp-block-social-links has-normal-icon-size has-icon-color has-icon-background-color is-content-justification-center is-layout-flex wp-container-core-social-links-is-layout-1 wp-block-social-links-is-layout-flex\" style=\"padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60)\"><li style=\"color: #000000; background-color: #ffffff; \" class=\"wp-social-link wp-social-link-instagram has-black-color has-white-background-color wp-block-social-link\"><a href=\"https://wordpress.org/patterns/\" class=\"wp-block-social-link-anchor\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M12,4.622c2.403,0,2.688,0.009,3.637,0.052c0.877,0.04,1.354,0.187,1.671,0.31c0.42,0.163,0.72,0.358,1.035,0.673 c0.315,0.315,0.51,0.615,0.673,1.035c0.123,0.317,0.27,0.794,0.31,1.671c0.043,0.949,0.052,1.234,0.052,3.637 s-0.009,2.688-0.052,3.637c-0.04,0.877-0.187,1.354-0.31,1.671c-0.163,0.42-0.358,0.72-0.673,1.035 c-0.315,0.315-0.615,0.51-1.035,0.673c-0.317,0.123-0.794,0.27-1.671,0.31c-0.949,0.043-1.233,0.052-3.637,0.052 s-2.688-0.009-3.637-0.052c-0.877-0.04-1.354-0.187-1.671-0.31c-0.42-0.163-0.72-0.358-1.035-0.673 c-0.315-0.315-0.51-0.615-0.673-1.035c-0.123-0.317-0.27-0.794-0.31-1.671C4.631,14.688,4.622,14.403,4.622,12 s0.009-2.688,0.052-3.637c0.04-0.877,0.187-1.354,0.31-1.671c0.163-0.42,0.358-0.72,0.673-1.035 c0.315-0.315,0.615-0.51,1.035-0.673c0.317-0.123,0.794-0.27,1.671-0.31C9.312,4.631,9.597,4.622,12,4.622 M12,3 C9.556,3,9.249,3.01,8.289,3.054C7.331,3.098,6.677,3.25,6.105,3.472C5.513,3.702,5.011,4.01,4.511,4.511 c-0.5,0.5-0.808,1.002-1.038,1.594C3.25,6.677,3.098,7.331,3.054,8.289C3.01,9.249,3,9.556,3,12c0,2.444,0.01,2.751,0.054,3.711 c0.044,0.958,0.196,1.612,0.418,2.185c0.23,0.592,0.538,1.094,1.038,1.594c0.5,0.5,1.002,0.808,1.594,1.038 c0.572,0.222,1.227,0.375,2.185,0.418C9.249,20.99,9.556,21,12,21s2.751-0.01,3.711-0.054c0.958-0.044,1.612-0.196,2.185-0.418 c0.592-0.23,1.094-0.538,1.594-1.038c0.5-0.5,0.808-1.002,1.038-1.594c0.222-0.572,0.375-1.227,0.418-2.185 C20.99,14.751,21,14.444,21,12s-0.01-2.751-0.054-3.711c-0.044-0.958-0.196-1.612-0.418-2.185c-0.23-0.592-0.538-1.094-1.038-1.594 c-0.5-0.5-1.002-0.808-1.594-1.038c-0.572-0.222-1.227-0.375-2.185-0.418C14.751,3.01,14.444,3,12,3L12,3z M12,7.378 c-2.552,0-4.622,2.069-4.622,4.622S9.448,16.622,12,16.622s4.622-2.069,4.622-4.622S14.552,7.378,12,7.378z M12,15 c-1.657,0-3-1.343-3-3s1.343-3,3-3s3,1.343,3,3S13.657,15,12,15z M16.804,6.116c-0.596,0-1.08,0.484-1.08,1.08 s0.484,1.08,1.08,1.08c0.596,0,1.08-0.484,1.08-1.08S17.401,6.116,16.804,6.116z\"></path></svg><span class=\"wp-block-social-link-label screen-reader-text\">Instagram</span></a></li>\n\n<li style=\"color: #000000; background-color: #ffffff; \" class=\"wp-social-link wp-social-link-bandcamp has-black-color has-white-background-color wp-block-social-link\"><a href=\"https://wordpress.org/patterns/\" class=\"wp-block-social-link-anchor\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M15.27 17.289 3 17.289 8.73 6.711 21 6.711 15.27 17.289\"></path></svg><span class=\"wp-block-social-link-label screen-reader-text\">Bandcamp</span></a></li>\n\n<li style=\"color: #000000; background-color: #ffffff; \" class=\"wp-social-link wp-social-link-twitter has-black-color has-white-background-color wp-block-social-link\"><a href=\"https://wordpress.org/patterns/\" class=\"wp-block-social-link-anchor\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M22.23,5.924c-0.736,0.326-1.527,0.547-2.357,0.646c0.847-0.508,1.498-1.312,1.804-2.27 c-0.793,0.47-1.671,0.812-2.606,0.996C18.324,4.498,17.257,4,16.077,4c-2.266,0-4.103,1.837-4.103,4.103 c0,0.322,0.036,0.635,0.106,0.935C8.67,8.867,5.647,7.234,3.623,4.751C3.27,5.357,3.067,6.062,3.067,6.814 c0,1.424,0.724,2.679,1.825,3.415c-0.673-0.021-1.305-0.206-1.859-0.513c0,0.017,0,0.034,0,0.052c0,1.988,1.414,3.647,3.292,4.023 c-0.344,0.094-0.707,0.144-1.081,0.144c-0.264,0-0.521-0.026-0.772-0.074c0.522,1.63,2.038,2.816,3.833,2.85 c-1.404,1.1-3.174,1.756-5.096,1.756c-0.331,0-0.658-0.019-0.979-0.057c1.816,1.164,3.973,1.843,6.29,1.843 c7.547,0,11.675-6.252,11.675-11.675c0-0.178-0.004-0.355-0.012-0.531C20.985,7.47,21.68,6.747,22.23,5.924z\"></path></svg><span class=\"wp-block-social-link-label screen-reader-text\">Twitter</span></a></li>\n\n<li style=\"color: #000000; background-color: #ffffff; \" class=\"wp-social-link wp-social-link-twitch has-black-color has-white-background-color wp-block-social-link\"><a href=\"https://wordpress.org/patterns/\" class=\"wp-block-social-link-anchor\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M16.499,8.089h-1.636v4.91h1.636V8.089z M12,8.089h-1.637v4.91H12V8.089z M4.228,3.178L3,6.451v13.092h4.499V22h2.456 l2.454-2.456h3.681L21,14.636V3.178H4.228z M19.364,13.816l-2.864,2.865H12l-2.453,2.453V16.68H5.863V4.814h13.501V13.816z\"></path></svg><span class=\"wp-block-social-link-label screen-reader-text\">Twitch</span></a></li></ul>\n</div>\n\";s:9:\"protected\";b:0;}s:4:\"meta\";O:8:\"stdClass\":8:{s:13:\"wpop_keywords\";s:0:\"\";s:16:\"wpop_description\";s:0:\"\";s:19:\"wpop_viewport_width\";i:800;s:16:\"wpop_block_types\";a:0:{}s:11:\"wpop_locale\";s:5:\"en_US\";s:15:\"wpop_wp_version\";s:3:\"6.1\";s:25:\"wpop_contains_block_types\";s:116:\"core/button,core/buttons,core/group,core/site-tagline,core/site-title,core/social-link,core/social-links,core/spacer\";s:9:\"footnotes\";s:0:\"\";}s:14:\"category_slugs\";a:1:{i:0;s:14:\"call-to-action\";}s:13:\"keyword_slugs\";a:1:{i:0;s:8:\"featured\";}s:15:\"pattern_content\";s:2665:\"<!-- wp:group {\"style\":{\"spacing\":{\"padding\":{\"top\":\"var:preset|spacing|80\",\"right\":\"0\",\"bottom\":\"var:preset|spacing|80\",\"left\":\"0\"}}},\"backgroundColor\":\"white\",\"layout\":{\"type\":\"default\"}} -->\n<div class=\"wp-block-group has-white-background-color has-background\" style=\"padding-top:var(--wp--preset--spacing--80);padding-right:0;padding-bottom:var(--wp--preset--spacing--80);padding-left:0\"><!-- wp:site-title {\"textAlign\":\"center\",\"style\":{\"typography\":{\"fontStyle\":\"normal\",\"fontWeight\":\"700\"}},\"fontSize\":\"medium\"} /-->\n\n<!-- wp:site-tagline {\"textAlign\":\"center\"} /-->\n\n<!-- wp:spacer {\"height\":\"20px\"} -->\n<div style=\"height:20px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n<!-- /wp:spacer -->\n\n<!-- wp:buttons {\"layout\":{\"type\":\"flex\",\"justifyContent\":\"center\"}} -->\n<div class=\"wp-block-buttons\"><!-- wp:button {\"width\":100} -->\n<div class=\"wp-block-button has-custom-width wp-block-button__width-100\"><a class=\"wp-block-button__link wp-element-button\">Watch my latest videos</a></div>\n<!-- /wp:button -->\n\n<!-- wp:button {\"width\":100} -->\n<div class=\"wp-block-button has-custom-width wp-block-button__width-100\"><a class=\"wp-block-button__link wp-element-button\">Buy merch</a></div>\n<!-- /wp:button -->\n\n<!-- wp:button {\"width\":100} -->\n<div class=\"wp-block-button has-custom-width wp-block-button__width-100\"><a class=\"wp-block-button__link wp-element-button\">Support me on Patreon</a></div>\n<!-- /wp:button -->\n\n<!-- wp:button {\"width\":100,\"className\":\"is-style-fill\"} -->\n<div class=\"wp-block-button has-custom-width wp-block-button__width-100 is-style-fill\"><a class=\"wp-block-button__link wp-element-button\">Get tickets for my show</a></div>\n<!-- /wp:button --></div>\n<!-- /wp:buttons -->\n\n<!-- wp:social-links {\"iconColor\":\"black\",\"iconColorValue\":\"#000000\",\"iconBackgroundColor\":\"white\",\"iconBackgroundColorValue\":\"#ffffff\",\"size\":\"has-normal-icon-size\",\"style\":{\"spacing\":{\"blockGap\":{\"top\":\"0\",\"left\":\"0\"},\"padding\":{\"top\":\"var:preset|spacing|60\",\"bottom\":\"var:preset|spacing|60\"}}},\"layout\":{\"type\":\"flex\",\"justifyContent\":\"center\"}} -->\n<ul class=\"wp-block-social-links has-normal-icon-size has-icon-color has-icon-background-color\" style=\"padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60)\"><!-- wp:social-link {\"url\":\"https://wordpress.org/patterns/\",\"service\":\"instagram\"} /-->\n\n<!-- wp:social-link {\"url\":\"https://wordpress.org/patterns/\",\"service\":\"bandcamp\"} /-->\n\n<!-- wp:social-link {\"url\":\"https://wordpress.org/patterns/\",\"service\":\"twitter\"} /-->\n\n<!-- wp:social-link {\"url\":\"https://wordpress.org/patterns/\",\"service\":\"twitch\"} /--></ul>\n<!-- /wp:social-links --></div>\n<!-- /wp:group -->\";}i:15;O:8:\"stdClass\":7:{s:2:\"id\";i:732;s:5:\"title\";O:8:\"stdClass\":1:{s:8:\"rendered\";s:21:\"Simple call to action\";}s:7:\"content\";O:8:\"stdClass\":2:{s:8:\"rendered\";s:984:\"\n<div class=\"wp-block-group alignfull has-text-color has-background is-layout-flow wp-block-group-is-layout-flow\" style=\"background-color:#ffffff;color:#000000\">\n<div style=\"height:64px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n\n\n\n<p class=\"has-text-align-center has-small-font-size\" style=\"line-height:.9\"><strong>GET IN TOUCH</strong></p>\n\n\n\n<h2 class=\"has-text-align-center wp-block-heading\" id=\"schedule-a-visit\" style=\"font-size:59px;line-height:1.15\"><strong>Schedule a Visit</strong></h2>\n\n\n\n<div class=\"wp-block-buttons is-horizontal is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-7 wp-block-buttons-is-layout-flex\">\n<div class=\"wp-block-button has-custom-width wp-block-button__width-50\"><a class=\"wp-block-button__link has-text-color has-background\" style=\"border-radius:50px;background-color:#000000;color:#ffffff\">Contact us</a></div>\n</div>\n\n\n\n<div style=\"height:64px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n</div>\n\";s:9:\"protected\";b:0;}s:4:\"meta\";O:8:\"stdClass\":8:{s:13:\"wpop_keywords\";s:0:\"\";s:16:\"wpop_description\";s:89:\"A container with a white background. Inside is a centered paragraph, heading, and button.\";s:19:\"wpop_viewport_width\";i:800;s:16:\"wpop_block_types\";a:0:{}s:11:\"wpop_locale\";s:5:\"en_US\";s:15:\"wpop_wp_version\";s:0:\"\";s:25:\"wpop_contains_block_types\";s:75:\"core/button,core/buttons,core/group,core/heading,core/paragraph,core/spacer\";s:9:\"footnotes\";s:0:\"\";}s:14:\"category_slugs\";a:1:{i:0;s:7:\"buttons\";}s:13:\"keyword_slugs\";a:1:{i:0;s:8:\"featured\";}s:15:\"pattern_content\";s:1506:\"<!-- wp:group {\"align\":\"full\",\"style\":{\"color\":{\"text\":\"#000000\",\"background\":\"#ffffff\"}}} -->\n<div class=\"wp-block-group alignfull has-text-color has-background\" style=\"background-color:#ffffff;color:#000000\"><!-- wp:spacer {\"height\":64} -->\n<div style=\"height:64px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n<!-- /wp:spacer -->\n\n<!-- wp:paragraph {\"align\":\"center\",\"style\":{\"typography\":{\"lineHeight\":\".9\"}},\"fontSize\":\"small\"} -->\n<p class=\"has-text-align-center has-small-font-size\" style=\"line-height:.9\"><strong>GET IN TOUCH</strong></p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading {\"textAlign\":\"center\",\"style\":{\"typography\":{\"fontSize\":59,\"lineHeight\":\"1.15\"}}} -->\n<h2 class=\"has-text-align-center\" id=\"schedule-a-visit\" style=\"font-size:59px;line-height:1.15\"><strong>Schedule a Visit</strong></h2>\n<!-- /wp:heading -->\n\n<!-- wp:buttons {\"layout\":{\"type\":\"flex\",\"justifyContent\":\"center\",\"orientation\":\"horizontal\"}} -->\n<div class=\"wp-block-buttons\"><!-- wp:button {\"width\":50,\"style\":{\"color\":{\"background\":\"#000000\",\"text\":\"#ffffff\"},\"border\":{\"radius\":\"50px\"}}} -->\n<div class=\"wp-block-button has-custom-width wp-block-button__width-50\"><a class=\"wp-block-button__link has-text-color has-background\" style=\"border-radius:50px;background-color:#000000;color:#ffffff\">Contact us</a></div>\n<!-- /wp:button --></div>\n<!-- /wp:buttons -->\n\n<!-- wp:spacer {\"height\":64} -->\n<div style=\"height:64px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n<!-- /wp:spacer --></div>\n<!-- /wp:group -->\";}i:16;O:8:\"stdClass\":7:{s:2:\"id\";i:678;s:5:\"title\";O:8:\"stdClass\":1:{s:8:\"rendered\";s:26:\"Three column pricing table\";}s:7:\"content\";O:8:\"stdClass\":2:{s:8:\"rendered\";s:3851:\"\n<div class=\"wp-block-columns alignwide is-layout-flex wp-container-core-columns-is-layout-14 wp-block-columns-is-layout-flex\" style=\"margin-bottom:0\">\n<div class=\"wp-block-column has-text-color has-background has-link-color wp-elements-2ae1b943d87d6b5cbc827b8e7de5c343 is-layout-flow wp-block-column-is-layout-flow\" style=\"color:#000000;background-color:#ffe97d;padding-top:2em;padding-right:2em;padding-bottom:2em;padding-left:2em\">\n<h2 class=\"wp-block-heading\" id=\"single\" style=\"font-size:40px\"><strong>Single</strong></h2>\n\n\n\n<p class=\"has-normal-font-size\" style=\"line-height:1.5\"><strong>Enrich our growing community.</strong> </p>\n\n\n\n<hr class=\"wp-block-separator has-text-color has-css-opacity has-background is-style-wide\" style=\"background-color:#000000;color:#000000\" />\n\n\n\n<ul class=\"has-normal-font-size wp-block-list\">\n<li>General admission and member discounts for one adult</li>\n\n\n\n<li>One free ticket per special exhibition</li>\n\n\n\n<li>Two single-use guest passes per year</li>\n</ul>\n\n\n\n<div class=\"wp-block-buttons alignfull is-horizontal is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-8 wp-block-buttons-is-layout-flex\">\n<div class=\"wp-block-button has-custom-width wp-block-button__width-100\"><a class=\"wp-block-button__link has-white-color has-text-color has-background no-border-radius wp-element-button\" style=\"background-color:#000000\">$110 / year</a></div>\n</div>\n</div>\n\n\n\n<div class=\"wp-block-column has-text-color has-background has-link-color wp-elements-c860b6260b3b3b7bae640a65db9c9aec is-layout-flow wp-block-column-is-layout-flow\" style=\"color:#000000;background-color:#d1d1e1;padding-top:2em;padding-right:2em;padding-bottom:2em;padding-left:2em\">\n<h2 class=\"wp-block-heading\" id=\"family\" style=\"font-size:40px\"><strong>Family</strong></h2>\n\n\n\n<p class=\"has-normal-font-size\" style=\"line-height:1.5\"><strong>Support special exhibitions.</strong></p>\n\n\n\n<hr class=\"wp-block-separator has-css-opacity is-style-wide\" />\n\n\n\n<ul class=\"has-normal-font-size wp-block-list\">\n<li>General admission and member discounts for two adults</li>\n\n\n\n<li>Four free tickets per special exhibition</li>\n\n\n\n<li>Four single-use guest passes per year</li>\n</ul>\n\n\n\n<div class=\"wp-block-buttons alignfull is-horizontal is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-9 wp-block-buttons-is-layout-flex\">\n<div class=\"wp-block-button has-custom-width wp-block-button__width-100 is-style-fill\"><a class=\"wp-block-button__link has-white-color has-text-color has-background no-border-radius wp-element-button\" style=\"background-color:#000000\">$200 / year</a></div>\n</div>\n</div>\n\n\n\n<div class=\"wp-block-column has-text-color has-background has-link-color wp-elements-4a86cd4fa1de9230a73a90c7ad305893 is-layout-flow wp-block-column-is-layout-flow\" style=\"color:#000000;background-color:#c0ebf1;padding-top:2em;padding-right:2em;padding-bottom:2em;padding-left:2em\">\n<h2 class=\"wp-block-heading\" id=\"patron\" style=\"font-size:40px\"><strong>Patron</strong></h2>\n\n\n\n<p class=\"has-normal-font-size\"><strong>Take support to the next level.</strong></p>\n\n\n\n<hr class=\"wp-block-separator has-css-opacity is-style-wide\" />\n\n\n\n<ul class=\"has-normal-font-size wp-block-list\">\n<li>General admission and member discounts for two adults</li>\n\n\n\n<li>Five free tickets per special exhibition</li>\n\n\n\n<li>Six single-use guest passes per year</li>\n</ul>\n\n\n\n<div class=\"wp-block-buttons alignfull is-horizontal is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-10 wp-block-buttons-is-layout-flex\">\n<div class=\"wp-block-button has-custom-width wp-block-button__width-100\"><a class=\"wp-block-button__link has-white-color has-text-color has-background no-border-radius wp-element-button\" style=\"background-color:#000000\">$400 / year</a></div>\n</div>\n</div>\n</div>\n\";s:9:\"protected\";b:0;}s:4:\"meta\";O:8:\"stdClass\":8:{s:13:\"wpop_keywords\";s:0:\"\";s:16:\"wpop_description\";s:272:\"Three equal-width columns set up as a pricing table. The left column has a yellow background, the middle column has a light purple background, and the right column has a light blue background. Each column contains a heading, subheading, separator, list, and then a button.\";s:19:\"wpop_viewport_width\";i:1200;s:16:\"wpop_block_types\";a:0:{}s:11:\"wpop_locale\";s:5:\"en_US\";s:15:\"wpop_wp_version\";s:0:\"\";s:25:\"wpop_contains_block_types\";s:117:\"core/button,core/buttons,core/column,core/columns,core/heading,core/list,core/list-item,core/paragraph,core/separator\";s:9:\"footnotes\";s:0:\"\";}s:14:\"category_slugs\";a:1:{i:0;s:14:\"call-to-action\";}s:13:\"keyword_slugs\";a:1:{i:0;s:8:\"featured\";}s:15:\"pattern_content\";s:6125:\"<!-- wp:columns {\"align\":\"wide\",\"style\":{\"spacing\":{\"margin\":{\"bottom\":\"0\"}}}} -->\n<div class=\"wp-block-columns alignwide\" style=\"margin-bottom:0\"><!-- wp:column {\"style\":{\"color\":{\"background\":\"#ffe97d\",\"text\":\"#000000\"},\"elements\":{\"link\":{\"color\":{\"text\":\"#000000\"}}},\"spacing\":{\"padding\":{\"top\":\"2em\",\"right\":\"2em\",\"bottom\":\"2em\",\"left\":\"2em\"}}}} -->\n<div class=\"wp-block-column has-text-color has-background has-link-color\" style=\"color:#000000;background-color:#ffe97d;padding-top:2em;padding-right:2em;padding-bottom:2em;padding-left:2em\"><!-- wp:heading {\"style\":{\"typography\":{\"fontSize\":\"40px\"}},\"anchor\":\"single\"} -->\n<h2 class=\"wp-block-heading\" id=\"single\" style=\"font-size:40px\"><strong>Single</strong></h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph {\"style\":{\"typography\":{\"lineHeight\":\"1.5\"}},\"fontSize\":\"normal\"} -->\n<p class=\"has-normal-font-size\" style=\"line-height:1.5\"><strong>Enrich our growing community.</strong> </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:separator {\"opacity\":\"css\",\"style\":{\"color\":{\"background\":\"#000000\"}},\"className\":\"is-style-wide\"} -->\n<hr class=\"wp-block-separator has-text-color has-css-opacity has-background is-style-wide\" style=\"background-color:#000000;color:#000000\" />\n<!-- /wp:separator -->\n\n<!-- wp:list {\"fontSize\":\"normal\"} -->\n<ul class=\"has-normal-font-size\"><!-- wp:list-item -->\n<li>General admission and member discounts for one adult</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>One free ticket per special exhibition</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Two single-use guest passes per year</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:buttons {\"align\":\"full\",\"layout\":{\"type\":\"flex\",\"justifyContent\":\"center\",\"orientation\":\"horizontal\"}} -->\n<div class=\"wp-block-buttons alignfull\"><!-- wp:button {\"textColor\":\"white\",\"width\":100,\"style\":{\"color\":{\"background\":\"#000000\"},\"border\":{\"radius\":0}}} -->\n<div class=\"wp-block-button has-custom-width wp-block-button__width-100\"><a class=\"wp-block-button__link has-white-color has-text-color has-background no-border-radius wp-element-button\" style=\"background-color:#000000\">$110 / year</a></div>\n<!-- /wp:button --></div>\n<!-- /wp:buttons --></div>\n<!-- /wp:column -->\n\n<!-- wp:column {\"style\":{\"color\":{\"background\":\"#d1d1e1\",\"text\":\"#000000\"},\"elements\":{\"link\":{\"color\":{\"text\":\"#000000\"}}},\"spacing\":{\"padding\":{\"top\":\"2em\",\"right\":\"2em\",\"bottom\":\"2em\",\"left\":\"2em\"}}}} -->\n<div class=\"wp-block-column has-text-color has-background has-link-color\" style=\"color:#000000;background-color:#d1d1e1;padding-top:2em;padding-right:2em;padding-bottom:2em;padding-left:2em\"><!-- wp:heading {\"style\":{\"typography\":{\"fontSize\":\"40px\"}},\"anchor\":\"family\"} -->\n<h2 class=\"wp-block-heading\" id=\"family\" style=\"font-size:40px\"><strong>Family</strong></h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph {\"style\":{\"typography\":{\"lineHeight\":\"1.5\"}},\"fontSize\":\"normal\"} -->\n<p class=\"has-normal-font-size\" style=\"line-height:1.5\"><strong>Support special exhibitions.</strong></p>\n<!-- /wp:paragraph -->\n\n<!-- wp:separator {\"opacity\":\"css\",\"className\":\"is-style-wide\"} -->\n<hr class=\"wp-block-separator has-css-opacity is-style-wide\" />\n<!-- /wp:separator -->\n\n<!-- wp:list {\"fontSize\":\"normal\"} -->\n<ul class=\"has-normal-font-size\"><!-- wp:list-item -->\n<li>General admission and member discounts for two adults</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Four free tickets per special exhibition</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Four single-use guest passes per year</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:buttons {\"align\":\"full\",\"layout\":{\"type\":\"flex\",\"justifyContent\":\"center\",\"orientation\":\"horizontal\"}} -->\n<div class=\"wp-block-buttons alignfull\"><!-- wp:button {\"textColor\":\"white\",\"width\":100,\"style\":{\"color\":{\"background\":\"#000000\"},\"border\":{\"radius\":0}},\"className\":\"is-style-fill\"} -->\n<div class=\"wp-block-button has-custom-width wp-block-button__width-100 is-style-fill\"><a class=\"wp-block-button__link has-white-color has-text-color has-background no-border-radius wp-element-button\" style=\"background-color:#000000\">$200 / year</a></div>\n<!-- /wp:button --></div>\n<!-- /wp:buttons --></div>\n<!-- /wp:column -->\n\n<!-- wp:column {\"style\":{\"color\":{\"background\":\"#c0ebf1\",\"text\":\"#000000\"},\"elements\":{\"link\":{\"color\":{\"text\":\"#000000\"}}},\"spacing\":{\"padding\":{\"top\":\"2em\",\"right\":\"2em\",\"bottom\":\"2em\",\"left\":\"2em\"}}}} -->\n<div class=\"wp-block-column has-text-color has-background has-link-color\" style=\"color:#000000;background-color:#c0ebf1;padding-top:2em;padding-right:2em;padding-bottom:2em;padding-left:2em\"><!-- wp:heading {\"style\":{\"typography\":{\"fontSize\":\"40px\"}},\"anchor\":\"patron\"} -->\n<h2 class=\"wp-block-heading\" id=\"patron\" style=\"font-size:40px\"><strong>Patron</strong></h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph {\"fontSize\":\"normal\"} -->\n<p class=\"has-normal-font-size\"><strong>Take support to the next level.</strong></p>\n<!-- /wp:paragraph -->\n\n<!-- wp:separator {\"opacity\":\"css\",\"className\":\"is-style-wide\"} -->\n<hr class=\"wp-block-separator has-css-opacity is-style-wide\" />\n<!-- /wp:separator -->\n\n<!-- wp:list {\"fontSize\":\"normal\"} -->\n<ul class=\"has-normal-font-size\"><!-- wp:list-item -->\n<li>General admission and member discounts for two adults</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Five free tickets per special exhibition</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Six single-use guest passes per year</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:buttons {\"align\":\"full\",\"layout\":{\"type\":\"flex\",\"justifyContent\":\"center\",\"orientation\":\"horizontal\"}} -->\n<div class=\"wp-block-buttons alignfull\"><!-- wp:button {\"textColor\":\"white\",\"width\":100,\"style\":{\"color\":{\"background\":\"#000000\"},\"border\":{\"radius\":0}}} -->\n<div class=\"wp-block-button has-custom-width wp-block-button__width-100\"><a class=\"wp-block-button__link has-white-color has-text-color has-background no-border-radius wp-element-button\" style=\"background-color:#000000\">$400 / year</a></div>\n<!-- /wp:button --></div>\n<!-- /wp:buttons --></div>\n<!-- /wp:column --></div>\n<!-- /wp:columns -->\";}i:17;O:8:\"stdClass\":7:{s:2:\"id\";i:669;s:5:\"title\";O:8:\"stdClass\":1:{s:8:\"rendered\";s:31:\"Image and quote on a background\";}s:7:\"content\";O:8:\"stdClass\":2:{s:8:\"rendered\";s:2293:\"\n<div class=\"wp-block-media-text alignwide has-media-on-the-right is-stacked-on-mobile is-vertically-aligned-center has-background\" style=\"background-color:#f1f5c7\"><figure class=\"wp-block-media-text__media\"><img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"1024\" src=\"https://s.w.org/patterns/files/2021/06/pear-1-1024x1024.png\" alt=\"\" class=\"wp-image-5263 size-full\" srcset=\"https://s.w.org/patterns/files/2021/06/pear-1-1024x1024.png 1024w, https://s.w.org/patterns/files/2021/06/pear-1-300x300.png 300w, https://s.w.org/patterns/files/2021/06/pear-1-150x150.png 150w, https://s.w.org/patterns/files/2021/06/pear-1-768x768.png 768w, https://s.w.org/patterns/files/2021/06/pear-1.png 1300w\" sizes=\"auto, (max-width: 1024px) 100vw, 1024px\" /></figure><div class=\"wp-block-media-text__content\">\n<div class=\"wp-block-group is-layout-flow wp-block-group-is-layout-flow\" style=\"padding-top:2em;padding-right:2em;padding-bottom:2em;padding-left:2em\">\n<p style=\"font-size:36px;line-height:1.2\"><strong>Even the bitterest fruit has sugar in it.</strong></p>\n\n\n\n<p class=\"has-extra-small-font-size\">– Terry a O&#8217;Neal</p>\n</div>\n</div></div>\n\n\n\n<div class=\"wp-block-media-text alignwide is-stacked-on-mobile is-vertically-aligned-center has-background\" style=\"background-color:#fffdea\"><figure class=\"wp-block-media-text__media\"><img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"1024\" src=\"https://s.w.org/patterns/files/2021/06/pear-half-1024x1024.png\" alt=\"\" class=\"wp-image-673 size-full\" srcset=\"https://s.w.org/patterns/files/2021/06/pear-half-1024x1024.png 1024w, https://s.w.org/patterns/files/2021/06/pear-half-300x300.png 300w, https://s.w.org/patterns/files/2021/06/pear-half-150x150.png 150w, https://s.w.org/patterns/files/2021/06/pear-half-768x768.png 768w, https://s.w.org/patterns/files/2021/06/pear-half.png 1300w\" sizes=\"auto, (max-width: 1024px) 100vw, 1024px\" /></figure><div class=\"wp-block-media-text__content\">\n<div class=\"wp-block-group is-layout-flow wp-block-group-is-layout-flow\" style=\"padding-top:2em;padding-right:2em;padding-bottom:2em;padding-left:2em\">\n<p style=\"font-size:36px;line-height:1.2\"><strong>The trees that are slow to grow bear the best fruit.</strong></p>\n\n\n\n<p class=\"has-extra-small-font-size\">– Molière</p>\n</div>\n</div></div>\n\";s:9:\"protected\";b:0;}s:4:\"meta\";O:8:\"stdClass\":8:{s:13:\"wpop_keywords\";s:0:\"\";s:16:\"wpop_description\";s:221:\"Two media and text blocks. The top one has a pale green background. The text is on the left and contains a quote, and the image is on the right. The next block underneath has the image on the left, and quote on the right.\";s:19:\"wpop_viewport_width\";i:800;s:16:\"wpop_block_types\";a:0:{}s:11:\"wpop_locale\";s:5:\"en_US\";s:15:\"wpop_wp_version\";s:0:\"\";s:25:\"wpop_contains_block_types\";s:41:\"core/group,core/media-text,core/paragraph\";s:9:\"footnotes\";s:0:\"\";}s:14:\"category_slugs\";a:2:{i:0;s:6:\"images\";i:1;s:4:\"text\";}s:13:\"keyword_slugs\";a:1:{i:0;s:8:\"featured\";}s:15:\"pattern_content\";s:2404:\"<!-- wp:media-text {\"mediaPosition\":\"right\",\"mediaId\":5263,\"mediaLink\":\"https://wordpress.org/patterns/pattern/image-and-quote-on-a-background/pear-3/\",\"mediaType\":\"image\",\"verticalAlignment\":\"center\",\"style\":{\"color\":{\"background\":\"#f1f5c7\"}}} -->\n<div class=\"wp-block-media-text alignwide has-media-on-the-right is-stacked-on-mobile is-vertically-aligned-center has-background\" style=\"background-color:#f1f5c7\"><figure class=\"wp-block-media-text__media\"><img src=\"https://s.w.org/patterns/files/2021/06/pear-1-1024x1024.png\" alt=\"\" class=\"wp-image-5263 size-full\" /></figure><div class=\"wp-block-media-text__content\"><!-- wp:group {\"style\":{\"spacing\":{\"padding\":{\"top\":\"2em\",\"right\":\"2em\",\"bottom\":\"2em\",\"left\":\"2em\"}}}} -->\n<div class=\"wp-block-group\" style=\"padding-top:2em;padding-right:2em;padding-bottom:2em;padding-left:2em\"><!-- wp:paragraph {\"style\":{\"typography\":{\"lineHeight\":\"1.2\",\"fontSize\":\"36px\"}}} -->\n<p style=\"font-size:36px;line-height:1.2\"><strong>Even the bitterest fruit has sugar in it.</strong></p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph {\"fontSize\":\"extra-small\"} -->\n<p class=\"has-extra-small-font-size\">– Terry a O\'Neal</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:group --></div></div>\n<!-- /wp:media-text -->\n\n<!-- wp:media-text {\"mediaId\":673,\"mediaLink\":\"https://wordpress.org/patterns/pear-half/\",\"mediaType\":\"image\",\"verticalAlignment\":\"center\",\"style\":{\"color\":{\"background\":\"#fffdea\"}}} -->\n<div class=\"wp-block-media-text alignwide is-stacked-on-mobile is-vertically-aligned-center has-background\" style=\"background-color:#fffdea\"><figure class=\"wp-block-media-text__media\"><img src=\"https://s.w.org/patterns/files/2021/06/pear-half-1024x1024.png\" alt=\"\" class=\"wp-image-673 size-full\" /></figure><div class=\"wp-block-media-text__content\"><!-- wp:group {\"style\":{\"spacing\":{\"padding\":{\"top\":\"2em\",\"right\":\"2em\",\"bottom\":\"2em\",\"left\":\"2em\"}}}} -->\n<div class=\"wp-block-group\" style=\"padding-top:2em;padding-right:2em;padding-bottom:2em;padding-left:2em\"><!-- wp:paragraph {\"style\":{\"typography\":{\"lineHeight\":\"1.2\",\"fontSize\":\"36px\"}}} -->\n<p style=\"font-size:36px;line-height:1.2\"><strong>The trees that are slow to grow bear the best fruit.</strong></p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph {\"fontSize\":\"extra-small\"} -->\n<p class=\"has-extra-small-font-size\">– Molière</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:group --></div></div>\n<!-- /wp:media-text -->\";}i:18;O:8:\"stdClass\":7:{s:2:\"id\";i:591;s:5:\"title\";O:8:\"stdClass\":1:{s:8:\"rendered\";s:5:\"Event\";}s:7:\"content\";O:8:\"stdClass\":2:{s:8:\"rendered\";s:1750:\"\n<div class=\"wp-block-media-text alignfull has-media-on-the-right is-stacked-on-mobile is-vertically-aligned-top has-text-color has-background has-link-color wp-elements-5fce4e677a9b9d7d0cae0196c9d74d97\" style=\"color:#fffdc7;background-color:#121c1c;grid-template-columns:auto 60%\"><div class=\"wp-block-media-text__content\">\n<div class=\"wp-block-group has-link-color wp-elements-71b4a847bbd96313422a1303e9ba41f3 is-layout-flow wp-block-group-is-layout-flow\" style=\"padding-top:2em;padding-right:2em;padding-bottom:2em;padding-left:2em\">\n<h2 class=\"wp-block-heading\" style=\"font-size:48px;font-weight:700;line-height:1.15\">Opening <br>Party</h2>\n\n\n\n<p class=\"has-text-color has-link-color wp-elements-0860918d5b16b9e1778b1966b333b980\" style=\"color:#fffdc7\"><strong><a href=\"#\">RSVP <span aria-hidden=\"true\" class=\"wp-exclude-emoji\">→</span></a></strong></p>\n</div>\n</div><figure class=\"wp-block-media-text__media\"><img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"1024\" src=\"https://s.w.org/patterns/files/2021/06/image-from-rawpixel-id-430289-jpeg-1-1024x1024.jpg\" alt=\"\" class=\"wp-image-590 size-full\" srcset=\"https://s.w.org/patterns/files/2021/06/image-from-rawpixel-id-430289-jpeg-1-1024x1024.jpg 1024w, https://s.w.org/patterns/files/2021/06/image-from-rawpixel-id-430289-jpeg-1-300x300.jpg 300w, https://s.w.org/patterns/files/2021/06/image-from-rawpixel-id-430289-jpeg-1-150x150.jpg 150w, https://s.w.org/patterns/files/2021/06/image-from-rawpixel-id-430289-jpeg-1-768x768.jpg 768w, https://s.w.org/patterns/files/2021/06/image-from-rawpixel-id-430289-jpeg-1-1536x1536.jpg 1536w, https://s.w.org/patterns/files/2021/06/image-from-rawpixel-id-430289-jpeg-1.jpg 1572w\" sizes=\"auto, (max-width: 1024px) 100vw, 1024px\" /></figure></div>\n\";s:9:\"protected\";b:0;}s:4:\"meta\";O:8:\"stdClass\":8:{s:13:\"wpop_keywords\";s:0:\"\";s:16:\"wpop_description\";s:0:\"\";s:19:\"wpop_viewport_width\";i:800;s:16:\"wpop_block_types\";a:0:{}s:11:\"wpop_locale\";s:5:\"en_US\";s:15:\"wpop_wp_version\";s:0:\"\";s:25:\"wpop_contains_block_types\";s:54:\"core/group,core/heading,core/media-text,core/paragraph\";s:9:\"footnotes\";s:0:\"\";}s:14:\"category_slugs\";a:2:{i:0;s:6:\"banner\";i:1;s:6:\"images\";}s:13:\"keyword_slugs\";a:1:{i:0;s:8:\"featured\";}s:15:\"pattern_content\";s:1617:\"<!-- wp:media-text {\"align\":\"full\",\"mediaPosition\":\"right\",\"mediaId\":590,\"mediaLink\":\"https://wordpress.org/patterns/image-from-rawpixel-id-430289-jpeg-1/\",\"mediaType\":\"image\",\"mediaWidth\":60,\"verticalAlignment\":\"top\",\"style\":{\"color\":{\"background\":\"#121c1c\",\"text\":\"#fffdc7\"},\"elements\":{\"link\":{\"color\":{\"text\":\"#fffdc7\"}}}}} -->\n<div class=\"wp-block-media-text alignfull has-media-on-the-right is-stacked-on-mobile is-vertically-aligned-top has-text-color has-background has-link-color\" style=\"color:#fffdc7;background-color:#121c1c;grid-template-columns:auto 60%\"><div class=\"wp-block-media-text__content\"><!-- wp:group {\"style\":{\"spacing\":{\"padding\":{\"top\":\"2em\",\"right\":\"2em\",\"bottom\":\"2em\",\"left\":\"2em\"}},\"elements\":{\"link\":{\"color\":{\"text\":\"#fffdc7\"}}}}} -->\n<div class=\"wp-block-group has-link-color\" style=\"padding-top:2em;padding-right:2em;padding-bottom:2em;padding-left:2em\"><!-- wp:heading {\"style\":{\"typography\":{\"fontWeight\":\"700\",\"fontSize\":\"48px\",\"lineHeight\":\"1.15\"}}} -->\n<h2 class=\"wp-block-heading\" style=\"font-size:48px;font-weight:700;line-height:1.15\">Opening <br>Party</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph {\"style\":{\"elements\":{\"link\":{\"color\":{\"text\":\"#fffdc7\"}}},\"color\":{\"text\":\"#fffdc7\"}}} -->\n<p class=\"has-text-color has-link-color\" style=\"color:#fffdc7\"><strong><a href=\"#\">RSVP →</a></strong></p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:group --></div><figure class=\"wp-block-media-text__media\"><img src=\"https://s.w.org/patterns/files/2021/06/image-from-rawpixel-id-430289-jpeg-1-1024x1024.jpg\" alt=\"\" class=\"wp-image-590 size-full\" /></figure></div>\n<!-- /wp:media-text -->\";}i:19;O:8:\"stdClass\":7:{s:2:\"id\";i:573;s:5:\"title\";O:8:\"stdClass\":1:{s:8:\"rendered\";s:37:\"Image on solid color with description\";}s:7:\"content\";O:8:\"stdClass\":2:{s:8:\"rendered\";s:1921:\"\n<div class=\"wp-block-columns alignfull is-layout-flex wp-container-core-columns-is-layout-16 wp-block-columns-is-layout-flex\">\n<div class=\"wp-block-column is-layout-flow wp-block-column-is-layout-flow\" style=\"flex-basis:50%\">\n<div class=\"wp-block-cover has-background-dim\" style=\"background-color:#f6f6f6;min-height:600px;aspect-ratio:unset;aspect-ratio:unset;\"><div class=\"wp-block-cover__inner-container is-layout-flow wp-block-cover-is-layout-flow\">\n<div class=\"wp-block-image\"><figure class=\"aligncenter size-medium\"><img loading=\"lazy\" decoding=\"async\" width=\"263\" height=\"300\" src=\"https://s.w.org/patterns/files/2021/06/wire-sculpture-263x300.jpg\" alt=\"\" class=\"wp-image-571\" srcset=\"https://s.w.org/patterns/files/2021/06/wire-sculpture-263x300.jpg 263w, https://s.w.org/patterns/files/2021/06/wire-sculpture-898x1024.jpg 898w, https://s.w.org/patterns/files/2021/06/wire-sculpture-768x875.jpg 768w, https://s.w.org/patterns/files/2021/06/wire-sculpture-1347x1536.jpg 1347w, https://s.w.org/patterns/files/2021/06/wire-sculpture.jpg 1658w\" sizes=\"auto, (max-width: 263px) 100vw, 263px\" /></figure></div>\n</div></div>\n</div>\n\n\n\n<div class=\"wp-block-column is-vertically-aligned-center is-layout-flow wp-block-column-is-layout-flow\" style=\"padding-top:1em;padding-right:1em;padding-bottom:1em;padding-left:1em\">\n<div class=\"wp-block-columns is-layout-flex wp-container-core-columns-is-layout-15 wp-block-columns-is-layout-flex\">\n<div class=\"wp-block-column is-layout-flow wp-block-column-is-layout-flow\" style=\"flex-basis:320px\">\n<p class=\"has-small-font-size\" style=\"line-height:1.6\"><strong>Airplane</strong></p>\n\n\n\n<p class=\"has-small-font-size\" style=\"line-height:1.6\">Copper wire, wood base. I created this piece in late 2008. For this work, I aimed to convey both the industrial heaviness of an airplane, but also the cloudlike floating quality you feel when you’re in one.</p>\n</div>\n</div>\n</div>\n</div>\n\";s:9:\"protected\";b:0;}s:4:\"meta\";O:8:\"stdClass\":8:{s:13:\"wpop_keywords\";s:0:\"\";s:16:\"wpop_description\";s:38:\"Image on solid color with description.\";s:19:\"wpop_viewport_width\";i:1200;s:16:\"wpop_block_types\";a:0:{}s:11:\"wpop_locale\";s:5:\"en_US\";s:15:\"wpop_wp_version\";s:0:\"\";s:25:\"wpop_contains_block_types\";s:61:\"core/column,core/columns,core/cover,core/image,core/paragraph\";s:9:\"footnotes\";s:0:\"\";}s:14:\"category_slugs\";a:2:{i:0;s:6:\"images\";i:1;s:4:\"text\";}s:13:\"keyword_slugs\";a:1:{i:0;s:8:\"featured\";}s:15:\"pattern_content\";s:1826:\"<!-- wp:columns {\"align\":\"full\"} -->\n<div class=\"wp-block-columns alignfull\"><!-- wp:column {\"width\":\"50%\"} -->\n<div class=\"wp-block-column\" style=\"flex-basis:50%\"><!-- wp:cover {\"customOverlayColor\":\"#f6f6f6\",\"minHeight\":600} -->\n<div class=\"wp-block-cover has-background-dim\" style=\"background-color:#f6f6f6;min-height:600px\"><div class=\"wp-block-cover__inner-container\"><!-- wp:image {\"align\":\"center\",\"id\":571,\"sizeSlug\":\"medium\",\"linkDestination\":\"none\"} -->\n<div class=\"wp-block-image\"><figure class=\"aligncenter size-medium\"><img src=\"https://s.w.org/patterns/files/2021/06/wire-sculpture-263x300.jpg\" alt=\"\" class=\"wp-image-571\" /></figure></div>\n<!-- /wp:image --></div></div>\n<!-- /wp:cover --></div>\n<!-- /wp:column -->\n\n<!-- wp:column {\"verticalAlignment\":\"center\",\"style\":{\"spacing\":{\"padding\":{\"top\":\"1em\",\"right\":\"1em\",\"bottom\":\"1em\",\"left\":\"1em\"}}}} -->\n<div class=\"wp-block-column is-vertically-aligned-center\" style=\"padding-top:1em;padding-right:1em;padding-bottom:1em;padding-left:1em\"><!-- wp:columns -->\n<div class=\"wp-block-columns\"><!-- wp:column {\"width\":\"320px\"} -->\n<div class=\"wp-block-column\" style=\"flex-basis:320px\"><!-- wp:paragraph {\"style\":{\"typography\":{\"lineHeight\":\"1.6\"}},\"fontSize\":\"small\"} -->\n<p class=\"has-small-font-size\" style=\"line-height:1.6\"><strong>Airplane</strong></p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph {\"style\":{\"typography\":{\"lineHeight\":\"1.6\"}},\"fontSize\":\"small\"} -->\n<p class=\"has-small-font-size\" style=\"line-height:1.6\">Copper wire, wood base. I created this piece in late 2008. For this work, I aimed to convey both the industrial heaviness of an airplane, but also the cloudlike floating quality you feel when you’re in one.</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:column --></div>\n<!-- /wp:columns --></div>\n<!-- /wp:column --></div>\n<!-- /wp:columns -->\";}i:20;O:8:\"stdClass\":7:{s:2:\"id\";i:526;s:5:\"title\";O:8:\"stdClass\":1:{s:8:\"rendered\";s:31:\"Offset images with descriptions\";}s:7:\"content\";O:8:\"stdClass\":2:{s:8:\"rendered\";s:3023:\"\n<div class=\"wp-block-columns alignwide are-vertically-aligned-top is-layout-flex wp-container-core-columns-is-layout-17 wp-block-columns-is-layout-flex\">\n<div class=\"wp-block-column is-vertically-aligned-top is-layout-flow wp-block-column-is-layout-flow\">\n<div class=\"wp-block-group wp-container-content-2 is-vertical is-content-justification-left is-nowrap is-layout-flex wp-container-core-group-is-layout-15 wp-block-group-is-layout-flex\" style=\"margin-top:0;margin-bottom:0\">\n<figure class=\"wp-block-image size-large wp-container-content-1\"><img loading=\"lazy\" decoding=\"async\" width=\"793\" height=\"1024\" src=\"https://s.w.org/patterns/files/2021/06/Iris-793x1024.jpg\" alt=\"Beautiful photomechanical prints of White Irises (1887-1897) by Ogawa Kazumasa. Original from The Rijksmuseum. \" class=\"wp-image-525\" srcset=\"https://s.w.org/patterns/files/2021/06/Iris-793x1024.jpg 793w, https://s.w.org/patterns/files/2021/06/Iris-232x300.jpg 232w, https://s.w.org/patterns/files/2021/06/Iris-768x992.jpg 768w, https://s.w.org/patterns/files/2021/06/Iris-1189x1536.jpg 1189w, https://s.w.org/patterns/files/2021/06/Iris-1586x2048.jpg 1586w, https://s.w.org/patterns/files/2021/06/Iris.jpg 1920w\" sizes=\"auto, (max-width: 793px) 100vw, 793px\" /></figure>\n\n\n\n<div class=\"wp-block-group is-vertical is-nowrap is-layout-flex wp-container-core-group-is-layout-14 wp-block-group-is-layout-flex\">\n<p class=\"has-medium-font-size\"><strong>White Irises</strong></p>\n\n\n\n<p class=\"has-small-font-size\">Ogawa Kazumasa</p>\n</div>\n</div>\n</div>\n\n\n\n<div class=\"wp-block-column is-vertically-aligned-top is-layout-flow wp-block-column-is-layout-flow\">\n<div class=\"wp-block-group wp-container-content-3 is-vertical is-layout-flex wp-container-core-group-is-layout-17 wp-block-group-is-layout-flex\" style=\"margin-top:0;margin-bottom:0\">\n<div class=\"wp-block-group is-vertical is-nowrap is-layout-flex wp-container-core-group-is-layout-16 wp-block-group-is-layout-flex\">\n<div style=\"height:80px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n\n\n\n<p class=\"has-medium-font-size\"><strong>Cherry Blossom</strong></p>\n\n\n\n<p class=\"has-small-font-size\">Ogawa Kazumasa</p>\n</div>\n\n\n\n<figure class=\"wp-block-image size-large\" style=\"font-size:14px\"><img loading=\"lazy\" decoding=\"async\" width=\"707\" height=\"1024\" src=\"https://s.w.org/patterns/files/2021/06/Cherry-Blossom-707x1024.jpg\" alt=\"Beautiful photomechanical prints of Cherry Blossom (1887-1897) by Ogawa Kazumasa. Original from The Rijksmuseum. \" class=\"wp-image-524\" srcset=\"https://s.w.org/patterns/files/2021/06/Cherry-Blossom-707x1024.jpg 707w, https://s.w.org/patterns/files/2021/06/Cherry-Blossom-207x300.jpg 207w, https://s.w.org/patterns/files/2021/06/Cherry-Blossom-768x1112.jpg 768w, https://s.w.org/patterns/files/2021/06/Cherry-Blossom-1061x1536.jpg 1061w, https://s.w.org/patterns/files/2021/06/Cherry-Blossom-1414x2048.jpg 1414w, https://s.w.org/patterns/files/2021/06/Cherry-Blossom-scaled.jpg 1768w\" sizes=\"auto, (max-width: 707px) 100vw, 707px\" /></figure>\n</div>\n</div>\n</div>\n\";s:9:\"protected\";b:0;}s:4:\"meta\";O:8:\"stdClass\":8:{s:13:\"wpop_keywords\";s:0:\"\";s:16:\"wpop_description\";s:58:\"Two offset columns with images and titles within each one.\";s:19:\"wpop_viewport_width\";i:1200;s:16:\"wpop_block_types\";a:0:{}s:11:\"wpop_locale\";s:5:\"en_US\";s:15:\"wpop_wp_version\";s:0:\"\";s:25:\"wpop_contains_block_types\";s:73:\"core/column,core/columns,core/group,core/image,core/paragraph,core/spacer\";s:9:\"footnotes\";s:0:\"\";}s:14:\"category_slugs\";a:2:{i:0;s:7:\"gallery\";i:1;s:6:\"images\";}s:13:\"keyword_slugs\";a:1:{i:0;s:8:\"featured\";}s:15:\"pattern_content\";s:2930:\"<!-- wp:columns {\"verticalAlignment\":\"top\",\"align\":\"wide\",\"style\":{\"spacing\":{\"blockGap\":{\"top\":\"var:preset|spacing|40\",\"left\":\"var:preset|spacing|40\"}}}} -->\n<div class=\"wp-block-columns alignwide are-vertically-aligned-top\"><!-- wp:column {\"verticalAlignment\":\"top\"} -->\n<div class=\"wp-block-column is-vertically-aligned-top\"><!-- wp:group {\"style\":{\"layout\":{\"selfStretch\":\"fixed\",\"flexSize\":\"480px\"},\"spacing\":{\"margin\":{\"top\":\"0\",\"bottom\":\"0\"}}},\"layout\":{\"type\":\"flex\",\"orientation\":\"vertical\",\"flexWrap\":\"nowrap\",\"justifyContent\":\"left\"}} -->\n<div class=\"wp-block-group\" style=\"margin-top:0;margin-bottom:0\"><!-- wp:image {\"id\":525,\"sizeSlug\":\"large\",\"linkDestination\":\"none\",\"style\":{\"layout\":{\"selfStretch\":\"fixed\",\"flexSize\":\"50%\"}}} -->\n<figure class=\"wp-block-image size-large\"><img src=\"https://s.w.org/patterns/files/2021/06/Iris-793x1024.jpg\" alt=\"Beautiful photomechanical prints of White Irises (1887-1897) by Ogawa Kazumasa. Original from The Rijksmuseum. \" class=\"wp-image-525\" /></figure>\n<!-- /wp:image -->\n\n<!-- wp:group {\"style\":{\"spacing\":{\"blockGap\":\"0\"}},\"layout\":{\"type\":\"flex\",\"orientation\":\"vertical\",\"flexWrap\":\"nowrap\"}} -->\n<div class=\"wp-block-group\"><!-- wp:paragraph {\"fontSize\":\"medium\"} -->\n<p class=\"has-medium-font-size\"><strong>White Irises</strong></p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph {\"fontSize\":\"small\"} -->\n<p class=\"has-small-font-size\">Ogawa Kazumasa</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:group --></div>\n<!-- /wp:group --></div>\n<!-- /wp:column -->\n\n<!-- wp:column {\"verticalAlignment\":\"top\"} -->\n<div class=\"wp-block-column is-vertically-aligned-top\"><!-- wp:group {\"style\":{\"layout\":{\"selfStretch\":\"fixed\",\"flexSize\":\"480px\"},\"spacing\":{\"margin\":{\"top\":\"0\",\"bottom\":\"0\"}}},\"layout\":{\"type\":\"flex\",\"orientation\":\"vertical\"}} -->\n<div class=\"wp-block-group\" style=\"margin-top:0;margin-bottom:0\"><!-- wp:group {\"style\":{\"spacing\":{\"blockGap\":\"0\"}},\"layout\":{\"type\":\"flex\",\"orientation\":\"vertical\",\"flexWrap\":\"nowrap\"}} -->\n<div class=\"wp-block-group\"><!-- wp:spacer {\"height\":\"80px\"} -->\n<div style=\"height:80px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n<!-- /wp:spacer -->\n\n<!-- wp:paragraph {\"fontSize\":\"medium\"} -->\n<p class=\"has-medium-font-size\"><strong>Cherry Blossom</strong></p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph {\"fontSize\":\"small\"} -->\n<p class=\"has-small-font-size\">Ogawa Kazumasa</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:group -->\n\n<!-- wp:image {\"id\":524,\"sizeSlug\":\"large\",\"linkDestination\":\"none\",\"style\":{\"typography\":{\"fontSize\":\"14px\"}}} -->\n<figure class=\"wp-block-image size-large\" style=\"font-size:14px\"><img src=\"https://s.w.org/patterns/files/2021/06/Cherry-Blossom-707x1024.jpg\" alt=\"Beautiful photomechanical prints of Cherry Blossom (1887-1897) by Ogawa Kazumasa. Original from The Rijksmuseum. \" class=\"wp-image-524\" /></figure>\n<!-- /wp:image --></div>\n<!-- /wp:group --></div>\n<!-- /wp:column --></div>\n<!-- /wp:columns -->\";}i:21;O:8:\"stdClass\":7:{s:2:\"id\";i:521;s:5:\"title\";O:8:\"stdClass\":1:{s:8:\"rendered\";s:45:\"Image with description below and to the right\";}s:7:\"content\";O:8:\"stdClass\":2:{s:8:\"rendered\";s:1717:\"\n<div class=\"wp-block-columns is-layout-flex wp-container-core-columns-is-layout-18 wp-block-columns-is-layout-flex\">\n<div class=\"wp-block-column is-layout-flow wp-block-column-is-layout-flow\" style=\"flex-basis:10%\"></div>\n\n\n\n<div class=\"wp-block-column is-layout-flow wp-block-column-is-layout-flow\">\n<figure class=\"wp-block-image size-large\"><img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"1024\" src=\"https://s.w.org/patterns/files/2021/06/image-from-rawpixel-id-539759-jpeg-1-1024x1024.jpg\" alt=\"Vintage Cupid Illustration\" class=\"wp-image-522\" srcset=\"https://s.w.org/patterns/files/2021/06/image-from-rawpixel-id-539759-jpeg-1-1024x1024.jpg 1024w, https://s.w.org/patterns/files/2021/06/image-from-rawpixel-id-539759-jpeg-1-300x300.jpg 300w, https://s.w.org/patterns/files/2021/06/image-from-rawpixel-id-539759-jpeg-1-150x150.jpg 150w, https://s.w.org/patterns/files/2021/06/image-from-rawpixel-id-539759-jpeg-1-768x768.jpg 768w, https://s.w.org/patterns/files/2021/06/image-from-rawpixel-id-539759-jpeg-1.jpg 1510w\" sizes=\"auto, (max-width: 1024px) 100vw, 1024px\" /></figure>\n</div>\n\n\n\n<div class=\"wp-block-column is-layout-flow wp-block-column-is-layout-flow\"></div>\n\n\n\n<div class=\"wp-block-column is-layout-flow wp-block-column-is-layout-flow\" style=\"flex-basis:10%\"></div>\n</div>\n\n\n\n<div class=\"wp-block-columns is-layout-flex wp-container-core-columns-is-layout-19 wp-block-columns-is-layout-flex\">\n<div class=\"wp-block-column is-layout-flow wp-block-column-is-layout-flow\"></div>\n\n\n\n<div class=\"wp-block-column is-layout-flow wp-block-column-is-layout-flow\">\n<p style=\"font-size:14px\"><strong>Cupid in Flight</strong><br>48” x 48” Giclee print on archival paper.</p>\n</div>\n</div>\n\n\n\n<p></p>\n\";s:9:\"protected\";b:0;}s:4:\"meta\";O:8:\"stdClass\":8:{s:13:\"wpop_keywords\";s:0:\"\";s:16:\"wpop_description\";s:46:\"Image with description below and to the right.\";s:19:\"wpop_viewport_width\";i:1200;s:16:\"wpop_block_types\";a:0:{}s:11:\"wpop_locale\";s:5:\"en_US\";s:15:\"wpop_wp_version\";s:0:\"\";s:25:\"wpop_contains_block_types\";s:50:\"core/column,core/columns,core/image,core/paragraph\";s:9:\"footnotes\";s:0:\"\";}s:14:\"category_slugs\";a:1:{i:0;s:6:\"images\";}s:13:\"keyword_slugs\";a:1:{i:0;s:8:\"featured\";}s:15:\"pattern_content\";s:1241:\"<!-- wp:columns -->\n<div class=\"wp-block-columns\"><!-- wp:column {\"width\":\"10%\"} -->\n<div class=\"wp-block-column\" style=\"flex-basis:10%\"></div>\n<!-- /wp:column -->\n\n<!-- wp:column -->\n<div class=\"wp-block-column\"><!-- wp:image {\"id\":522,\"sizeSlug\":\"large\",\"linkDestination\":\"none\"} -->\n<figure class=\"wp-block-image size-large\"><img src=\"https://s.w.org/patterns/files/2021/06/image-from-rawpixel-id-539759-jpeg-1-1024x1024.jpg\" alt=\"Vintage Cupid Illustration\" class=\"wp-image-522\" /></figure>\n<!-- /wp:image --></div>\n<!-- /wp:column -->\n\n<!-- wp:column -->\n<div class=\"wp-block-column\"></div>\n<!-- /wp:column -->\n\n<!-- wp:column {\"width\":\"10%\"} -->\n<div class=\"wp-block-column\" style=\"flex-basis:10%\"></div>\n<!-- /wp:column --></div>\n<!-- /wp:columns -->\n\n<!-- wp:columns -->\n<div class=\"wp-block-columns\"><!-- wp:column -->\n<div class=\"wp-block-column\"></div>\n<!-- /wp:column -->\n\n<!-- wp:column -->\n<div class=\"wp-block-column\"><!-- wp:paragraph {\"style\":{\"typography\":{\"fontSize\":\"14px\"}}} -->\n<p style=\"font-size:14px\"><strong>Cupid in Flight</strong><br>48” x 48” Giclee print on archival paper.</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:column --></div>\n<!-- /wp:columns -->\n\n<!-- wp:paragraph -->\n<p></p>\n<!-- /wp:paragraph -->\";}i:22;O:8:\"stdClass\":7:{s:2:\"id\";i:502;s:5:\"title\";O:8:\"stdClass\":1:{s:8:\"rendered\";s:13:\"Event details\";}s:7:\"content\";O:8:\"stdClass\":2:{s:8:\"rendered\";s:1713:\"\n<figure class=\"wp-block-image alignwide size-full\"><img loading=\"lazy\" decoding=\"async\" width=\"2560\" height=\"1227\" src=\"https://s.w.org/patterns/files/2021/06/Group-17-scaled.jpg\" alt=\"Image of a woman being carried through the air by swans.\" class=\"wp-image-501\" srcset=\"https://s.w.org/patterns/files/2021/06/Group-17-scaled.jpg 2560w, https://s.w.org/patterns/files/2021/06/Group-17-300x144.jpg 300w, https://s.w.org/patterns/files/2021/06/Group-17-1024x491.jpg 1024w, https://s.w.org/patterns/files/2021/06/Group-17-768x368.jpg 768w, https://s.w.org/patterns/files/2021/06/Group-17-1536x736.jpg 1536w, https://s.w.org/patterns/files/2021/06/Group-17-2048x981.jpg 2048w\" sizes=\"auto, (max-width: 2560px) 100vw, 2560px\" /></figure>\n\n\n\n<div class=\"wp-block-columns alignwide are-vertically-aligned-center is-layout-flex wp-container-core-columns-is-layout-20 wp-block-columns-is-layout-flex\">\n<div class=\"wp-block-column is-vertically-aligned-center is-layout-flow wp-block-column-is-layout-flow\">\n<p style=\"line-height:2\"><strong>Location:</strong><br>82 Main St. Brooklyn, NY</p>\n</div>\n\n\n\n<div class=\"wp-block-column is-vertically-aligned-center is-layout-flow wp-block-column-is-layout-flow\">\n<p style=\"line-height:2\"><strong>Date:</strong><br>October 24, 2021</p>\n</div>\n\n\n\n<div class=\"wp-block-column is-vertically-aligned-center is-layout-flow wp-block-column-is-layout-flow\">\n<div class=\"wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex\">\n<div class=\"wp-block-button has-custom-width wp-block-button__width-100\"><a class=\"wp-block-button__link has-text-color has-background wp-element-button\" style=\"color:#efefef;background-color:#262626\">Purchase Tickets</a></div>\n</div>\n</div>\n</div>\n\";s:9:\"protected\";b:0;}s:4:\"meta\";O:8:\"stdClass\":8:{s:13:\"wpop_keywords\";s:0:\"\";s:16:\"wpop_description\";s:14:\"Event details.\";s:19:\"wpop_viewport_width\";i:1200;s:16:\"wpop_block_types\";a:0:{}s:11:\"wpop_locale\";s:5:\"en_US\";s:15:\"wpop_wp_version\";s:0:\"\";s:25:\"wpop_contains_block_types\";s:75:\"core/button,core/buttons,core/column,core/columns,core/image,core/paragraph\";s:9:\"footnotes\";s:0:\"\";}s:14:\"category_slugs\";a:1:{i:0;s:14:\"call-to-action\";}s:13:\"keyword_slugs\";a:1:{i:0;s:8:\"featured\";}s:15:\"pattern_content\";s:1642:\"<!-- wp:image {\"align\":\"wide\",\"id\":501,\"sizeSlug\":\"full\",\"linkDestination\":\"none\"} -->\n<figure class=\"wp-block-image alignwide size-full\"><img src=\"https://s.w.org/patterns/files/2021/06/Group-17-scaled.jpg\" alt=\"Image of a woman being carried through the air by swans.\" class=\"wp-image-501\" /></figure>\n<!-- /wp:image -->\n\n<!-- wp:columns {\"verticalAlignment\":\"center\",\"align\":\"wide\"} -->\n<div class=\"wp-block-columns alignwide are-vertically-aligned-center\"><!-- wp:column {\"verticalAlignment\":\"center\"} -->\n<div class=\"wp-block-column is-vertically-aligned-center\"><!-- wp:paragraph {\"style\":{\"typography\":{\"lineHeight\":\"2\"}}} -->\n<p style=\"line-height:2\"><strong>Location:</strong><br>82 Main St. Brooklyn, NY</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:column -->\n\n<!-- wp:column {\"verticalAlignment\":\"center\"} -->\n<div class=\"wp-block-column is-vertically-aligned-center\"><!-- wp:paragraph {\"style\":{\"typography\":{\"lineHeight\":\"2\"}}} -->\n<p style=\"line-height:2\"><strong>Date:</strong><br>October 24, 2021</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:column -->\n\n<!-- wp:column {\"verticalAlignment\":\"center\"} -->\n<div class=\"wp-block-column is-vertically-aligned-center\"><!-- wp:buttons -->\n<div class=\"wp-block-buttons\"><!-- wp:button {\"width\":100,\"style\":{\"color\":{\"background\":\"#262626\",\"text\":\"#efefef\"}}} -->\n<div class=\"wp-block-button has-custom-width wp-block-button__width-100\"><a class=\"wp-block-button__link has-text-color has-background wp-element-button\" style=\"color:#efefef;background-color:#262626\">Purchase Tickets</a></div>\n<!-- /wp:button --></div>\n<!-- /wp:buttons --></div>\n<!-- /wp:column --></div>\n<!-- /wp:columns -->\";}i:23;O:8:\"stdClass\":7:{s:2:\"id\";i:199;s:5:\"title\";O:8:\"stdClass\":1:{s:8:\"rendered\";s:34:\"Three columns with images and text\";}s:7:\"content\";O:8:\"stdClass\":2:{s:8:\"rendered\";s:3580:\"\n<div class=\"wp-block-group alignfull has-background is-layout-flow wp-block-group-is-layout-flow\" style=\"background-color:#f5eac1;padding-top:6vw;padding-right:6vw;padding-bottom:6vw;padding-left:6vw\">\n<div class=\"wp-block-group is-vertical is-nowrap is-layout-flex wp-container-core-group-is-layout-18 wp-block-group-is-layout-flex\" style=\"padding-right:0;padding-left:0\">\n<h6 class=\"wp-block-heading has-text-color\" id=\"ecosystem\" style=\"color:#000000;font-size:16px\">ECOSYSTEM</h6>\n\n\n\n<p class=\"has-text-color\" style=\"color:#000000;font-size:6vw;font-style:normal;font-weight:700;letter-spacing:0px;line-height:0.9;text-decoration:none;text-transform:none\">Positive growth.</p>\n</div>\n\n\n\n<div style=\"height:1vw\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n\n\n\n<div class=\"wp-block-group alignwide is-vertical is-nowrap is-layout-flex wp-container-core-group-is-layout-19 wp-block-group-is-layout-flex\" style=\"padding-top:0;padding-right:0;padding-bottom:0;padding-left:0\">\n<div class=\"wp-block-columns alignwide is-layout-flex wp-container-core-columns-is-layout-21 wp-block-columns-is-layout-flex\">\n<div class=\"wp-block-column is-layout-flow wp-block-column-is-layout-flow\" style=\"flex-basis:33.38%\">\n<p class=\"has-text-color\" style=\"color:#000000;font-size:17px\"><em>Nature</em>, in the common sense, refers to essences unchanged by man; space, the air, the river, the leaf.&nbsp;<em>Art</em>&nbsp;is applied to the mixture of his will with the same things, as in a house, a canal, a statue, a picture. </p>\n\n\n\n<p class=\"has-text-color\" style=\"color:#000000;font-size:17px\">But his operations taken together are so insignificant, a little chipping, baking, patching, and washing, that in an impression so grand as that of the world on the human mind, they do not vary the result.</p>\n</div>\n\n\n\n<div class=\"wp-block-column is-layout-flow wp-block-column-is-layout-flow\" style=\"flex-basis:33%\">\n<div style=\"height:2vw\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n\n\n\n<figure class=\"wp-block-image size-large\"><img decoding=\"async\" src=\"https://s.w.org/images/core/5.8/outside-01.jpg\" alt=\"The sun setting through a dense forest.\" /></figure>\n</div>\n\n\n\n<div class=\"wp-block-column is-layout-flow wp-block-column-is-layout-flow\" style=\"flex-basis:33.62%\">\n<figure class=\"wp-block-image size-large\"><img decoding=\"async\" src=\"https://s.w.org/images/core/5.8/outside-02.jpg\" alt=\"Wind turbines standing on a grassy plain, against a blue sky.\" /></figure>\n</div>\n</div>\n\n\n\n<div class=\"wp-block-columns alignwide is-layout-flex wp-container-core-columns-is-layout-22 wp-block-columns-is-layout-flex\">\n<div class=\"wp-block-column is-layout-flow wp-block-column-is-layout-flow\" style=\"flex-basis:69%\">\n<figure class=\"wp-block-image size-large\"><img decoding=\"async\" src=\"https://s.w.org/images/core/5.8/outside-03.jpg\" alt=\"The sun shining over a ridge leading down into the shore. In the distance, a car drives down a road.\" /></figure>\n</div>\n\n\n\n<div class=\"wp-block-column is-vertically-aligned-center is-layout-flow wp-block-column-is-layout-flow\" style=\"flex-basis:33%\">\n<div style=\"height:2vw\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n\n\n\n<p class=\"has-text-color\" style=\"color:#000000;font-size:17px\">Undoubtedly we have no questions to ask which are unanswerable. We must trust the perfection of the creation so far, as to believe that whatever curiosity the order of things has awakened in our minds, the order of things can satisfy. Every man&#8217;s condition is a solution in hieroglyphic to those inquiries he would put.</p>\n</div>\n</div>\n</div>\n</div>\n\";s:9:\"protected\";b:0;}s:4:\"meta\";O:8:\"stdClass\":8:{s:13:\"wpop_keywords\";s:0:\"\";s:16:\"wpop_description\";s:77:\"Three columns with images and text, with vertical spacing for an offset look.\";s:19:\"wpop_viewport_width\";i:1200;s:16:\"wpop_block_types\";a:0:{}s:11:\"wpop_locale\";s:5:\"en_US\";s:15:\"wpop_wp_version\";s:0:\"\";s:25:\"wpop_contains_block_types\";s:86:\"core/column,core/columns,core/group,core/heading,core/image,core/paragraph,core/spacer\";s:9:\"footnotes\";s:0:\"\";}s:14:\"category_slugs\";a:4:{i:0;s:7:\"columns\";i:1;s:7:\"gallery\";i:2;s:6:\"images\";i:3;s:4:\"text\";}s:13:\"keyword_slugs\";a:2:{i:0;s:4:\"core\";i:1;s:8:\"featured\";}s:15:\"pattern_content\";s:5124:\"<!-- wp:group {\"align\":\"full\",\"style\":{\"color\":{\"background\":\"#f5eac1\"},\"spacing\":{\"padding\":{\"top\":\"6vw\",\"bottom\":\"6vw\",\"left\":\"6vw\",\"right\":\"6vw\"}}},\"layout\":{\"type\":\"default\"}} -->\n<div class=\"wp-block-group alignfull has-background\" style=\"background-color:#f5eac1;padding-top:6vw;padding-right:6vw;padding-bottom:6vw;padding-left:6vw\"><!-- wp:group {\"style\":{\"spacing\":{\"blockGap\":\"16px\",\"padding\":{\"right\":\"0\",\"left\":\"0\"}}},\"layout\":{\"type\":\"flex\",\"orientation\":\"vertical\",\"flexWrap\":\"nowrap\"}} -->\n<div class=\"wp-block-group\" style=\"padding-right:0;padding-left:0\"><!-- wp:heading {\"level\":6,\"style\":{\"color\":{\"text\":\"#000000\"},\"typography\":{\"fontSize\":\"16px\"}},\"anchor\":\"ecosystem\"} -->\n<h6 class=\"wp-block-heading has-text-color\" id=\"ecosystem\" style=\"color:#000000;font-size:16px\">ECOSYSTEM</h6>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph {\"style\":{\"typography\":{\"lineHeight\":\"0.9\",\"fontSize\":\"6vw\",\"fontStyle\":\"normal\",\"fontWeight\":\"700\",\"textTransform\":\"none\",\"textDecoration\":\"none\",\"letterSpacing\":\"0px\"},\"color\":{\"text\":\"#000000\"}}} -->\n<p class=\"has-text-color\" style=\"color:#000000;font-size:6vw;font-style:normal;font-weight:700;letter-spacing:0px;line-height:0.9;text-decoration:none;text-transform:none\">Positive growth.</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:group -->\n\n<!-- wp:spacer {\"height\":\"1vw\"} -->\n<div style=\"height:1vw\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n<!-- /wp:spacer -->\n\n<!-- wp:group {\"align\":\"wide\",\"style\":{\"spacing\":{\"blockGap\":\"3vw\",\"padding\":{\"top\":\"0\",\"bottom\":\"0\",\"left\":\"0\",\"right\":\"0\"}}},\"layout\":{\"type\":\"flex\",\"orientation\":\"vertical\",\"flexWrap\":\"nowrap\"}} -->\n<div class=\"wp-block-group alignwide\" style=\"padding-top:0;padding-right:0;padding-bottom:0;padding-left:0\"><!-- wp:columns {\"align\":\"wide\",\"style\":{\"spacing\":{\"blockGap\":{\"top\":\"3vw\",\"left\":\"3vw\"}}}} -->\n<div class=\"wp-block-columns alignwide\"><!-- wp:column {\"width\":\"33.38%\"} -->\n<div class=\"wp-block-column\" style=\"flex-basis:33.38%\"><!-- wp:paragraph {\"style\":{\"color\":{\"text\":\"#000000\"},\"typography\":{\"fontSize\":\"17px\"}}} -->\n<p class=\"has-text-color\" style=\"color:#000000;font-size:17px\"><em>Nature</em>, in the common sense, refers to essences unchanged by man; space, the air, the river, the leaf.&nbsp;<em>Art</em>&nbsp;is applied to the mixture of his will with the same things, as in a house, a canal, a statue, a picture. </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph {\"style\":{\"color\":{\"text\":\"#000000\"},\"typography\":{\"fontSize\":\"17px\"}}} -->\n<p class=\"has-text-color\" style=\"color:#000000;font-size:17px\">But his operations taken together are so insignificant, a little chipping, baking, patching, and washing, that in an impression so grand as that of the world on the human mind, they do not vary the result.</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:column -->\n\n<!-- wp:column {\"width\":\"33%\"} -->\n<div class=\"wp-block-column\" style=\"flex-basis:33%\"><!-- wp:spacer {\"height\":\"2vw\"} -->\n<div style=\"height:2vw\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n<!-- /wp:spacer -->\n\n<!-- wp:image {\"sizeSlug\":\"large\",\"linkDestination\":\"none\"} -->\n<figure class=\"wp-block-image size-large\"><img src=\"https://s.w.org/images/core/5.8/outside-01.jpg\" alt=\"The sun setting through a dense forest.\" /></figure>\n<!-- /wp:image --></div>\n<!-- /wp:column -->\n\n<!-- wp:column {\"width\":\"33.62%\"} -->\n<div class=\"wp-block-column\" style=\"flex-basis:33.62%\"><!-- wp:image {\"sizeSlug\":\"large\",\"linkDestination\":\"none\"} -->\n<figure class=\"wp-block-image size-large\"><img src=\"https://s.w.org/images/core/5.8/outside-02.jpg\" alt=\"Wind turbines standing on a grassy plain, against a blue sky.\" /></figure>\n<!-- /wp:image --></div>\n<!-- /wp:column --></div>\n<!-- /wp:columns -->\n\n<!-- wp:columns {\"align\":\"wide\",\"style\":{\"spacing\":{\"blockGap\":{\"left\":\"3vw\"}}}} -->\n<div class=\"wp-block-columns alignwide\"><!-- wp:column {\"width\":\"69%\"} -->\n<div class=\"wp-block-column\" style=\"flex-basis:69%\"><!-- wp:image {\"sizeSlug\":\"large\",\"linkDestination\":\"none\"} -->\n<figure class=\"wp-block-image size-large\"><img src=\"https://s.w.org/images/core/5.8/outside-03.jpg\" alt=\"The sun shining over a ridge leading down into the shore. In the distance, a car drives down a road.\" /></figure>\n<!-- /wp:image --></div>\n<!-- /wp:column -->\n\n<!-- wp:column {\"verticalAlignment\":\"center\",\"width\":\"33%\"} -->\n<div class=\"wp-block-column is-vertically-aligned-center\" style=\"flex-basis:33%\"><!-- wp:spacer {\"height\":\"2vw\"} -->\n<div style=\"height:2vw\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n<!-- /wp:spacer -->\n\n<!-- wp:paragraph {\"style\":{\"color\":{\"text\":\"#000000\"},\"typography\":{\"fontSize\":\"17px\"}}} -->\n<p class=\"has-text-color\" style=\"color:#000000;font-size:17px\">Undoubtedly we have no questions to ask which are unanswerable. We must trust the perfection of the creation so far, as to believe that whatever curiosity the order of things has awakened in our minds, the order of things can satisfy. Every man\'s condition is a solution in hieroglyphic to those inquiries he would put.</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:column --></div>\n<!-- /wp:columns --></div>\n<!-- /wp:group --></div>\n<!-- /wp:group -->\";}i:24;O:8:\"stdClass\":7:{s:2:\"id\";i:192;s:5:\"title\";O:8:\"stdClass\":1:{s:8:\"rendered\";s:37:\"Media and text with image on the left\";}s:7:\"content\";O:8:\"stdClass\":2:{s:8:\"rendered\";s:611:\"\n<div class=\"wp-block-media-text alignfull is-stacked-on-mobile is-vertically-aligned-center\"><figure class=\"wp-block-media-text__media\"><img decoding=\"async\" src=\"https://s.w.org/images/core/5.8/architecture-04.jpg\" alt=\"Close-up, abstract view of architecture.\" /></figure><div class=\"wp-block-media-text__content\">\n<h3 class=\"wp-block-heading has-text-align-center has-text-color\" style=\"color:#000000\"><strong>Open Spaces</strong></h3>\n\n\n\n<p class=\"has-text-align-center has-extra-small-font-size\"><a href=\"#\">See case study <span aria-hidden=\"true\" class=\"wp-exclude-emoji\">↗</span></a></p>\n</div></div>\n\";s:9:\"protected\";b:0;}s:4:\"meta\";O:8:\"stdClass\":8:{s:13:\"wpop_keywords\";s:0:\"\";s:16:\"wpop_description\";s:66:\"Media and text block with image to the left and text to the right.\";s:19:\"wpop_viewport_width\";i:1200;s:16:\"wpop_block_types\";a:0:{}s:11:\"wpop_locale\";s:5:\"en_US\";s:15:\"wpop_wp_version\";s:0:\"\";s:25:\"wpop_contains_block_types\";s:43:\"core/heading,core/media-text,core/paragraph\";s:9:\"footnotes\";s:0:\"\";}s:14:\"category_slugs\";a:1:{i:0;s:6:\"banner\";}s:13:\"keyword_slugs\";a:2:{i:0;s:4:\"core\";i:1;s:8:\"featured\";}s:15:\"pattern_content\";s:844:\"<!-- wp:media-text {\"align\":\"full\",\"mediaType\":\"image\",\"verticalAlignment\":\"center\"} -->\n<div class=\"wp-block-media-text alignfull is-stacked-on-mobile is-vertically-aligned-center\"><figure class=\"wp-block-media-text__media\"><img src=\"https://s.w.org/images/core/5.8/architecture-04.jpg\" alt=\"Close-up, abstract view of architecture.\" /></figure><div class=\"wp-block-media-text__content\"><!-- wp:heading {\"textAlign\":\"center\",\"level\":3,\"style\":{\"color\":{\"text\":\"#000000\"}}} -->\n<h3 class=\"wp-block-heading has-text-align-center has-text-color\" style=\"color:#000000\"><strong>Open Spaces</strong></h3>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph {\"align\":\"center\",\"fontSize\":\"extra-small\"} -->\n<p class=\"has-text-align-center has-extra-small-font-size\"><a href=\"#\">See case study ↗</a></p>\n<!-- /wp:paragraph --></div></div>\n<!-- /wp:media-text -->\";}i:25;O:8:\"stdClass\":7:{s:2:\"id\";i:185;s:5:\"title\";O:8:\"stdClass\":1:{s:8:\"rendered\";s:35:\"Large header with left-aligned text\";}s:7:\"content\";O:8:\"stdClass\":2:{s:8:\"rendered\";s:1382:\"\n<div class=\"wp-block-cover alignfull\" style=\"min-height:800px;aspect-ratio:unset;aspect-ratio:unset;\"><span aria-hidden=\"true\" class=\"wp-block-cover__background has-background-dim-60 has-background-dim\"></span><img decoding=\"async\" class=\"wp-block-cover__image-background\" alt=\"\" src=\"https://s.w.org/images/core/5.8/forest.jpg\" data-object-fit=\"cover\" /><div class=\"wp-block-cover__inner-container is-layout-flow wp-block-cover-is-layout-flow\">\n<h2 class=\"wp-block-heading alignwide has-text-color\" style=\"color:#ffe074;font-size:64px\">Forest.</h2>\n\n\n\n<div class=\"wp-block-columns alignwide is-layout-flex wp-container-core-columns-is-layout-23 wp-block-columns-is-layout-flex\">\n<div class=\"wp-block-column is-layout-flow wp-block-column-is-layout-flow\" style=\"flex-basis:55%\">\n<div style=\"height:330px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n\n\n\n<p class=\"has-text-color\" style=\"color:#ffe074;font-size:12px;line-height:1.3\"><em>Even a child knows how valuable the forest is. The fresh, breathtaking smell of trees. Echoing birds flying above that dense magnitude. A stable climate, a sustainable diverse life and a source of culture. Yet, forests and other ecosystems hang in the balance, threatened to become croplands, pasture, and plantations.</em></p>\n</div>\n\n\n\n<div class=\"wp-block-column is-layout-flow wp-block-column-is-layout-flow\"></div>\n</div>\n</div></div>\n\";s:9:\"protected\";b:0;}s:4:\"meta\";O:8:\"stdClass\":8:{s:13:\"wpop_keywords\";s:0:\"\";s:16:\"wpop_description\";s:29:\"Cover image with quote on top\";s:19:\"wpop_viewport_width\";i:1200;s:16:\"wpop_block_types\";a:0:{}s:11:\"wpop_locale\";s:5:\"en_US\";s:15:\"wpop_wp_version\";s:0:\"\";s:25:\"wpop_contains_block_types\";s:75:\"core/column,core/columns,core/cover,core/heading,core/paragraph,core/spacer\";s:9:\"footnotes\";s:0:\"\";}s:14:\"category_slugs\";a:1:{i:0;s:6:\"banner\";}s:13:\"keyword_slugs\";a:2:{i:0;s:4:\"core\";i:1;s:8:\"featured\";}s:15:\"pattern_content\";s:1698:\"<!-- wp:cover {\"url\":\"https://s.w.org/images/core/5.8/forest.jpg\",\"dimRatio\":60,\"minHeight\":800,\"align\":\"full\"} -->\n<div class=\"wp-block-cover alignfull\" style=\"min-height:800px\"><span aria-hidden=\"true\" class=\"wp-block-cover__background has-background-dim-60 has-background-dim\"></span><img class=\"wp-block-cover__image-background\" alt=\"\" src=\"https://s.w.org/images/core/5.8/forest.jpg\" data-object-fit=\"cover\" /><div class=\"wp-block-cover__inner-container\"><!-- wp:heading {\"align\":\"wide\",\"style\":{\"color\":{\"text\":\"#ffe074\"},\"typography\":{\"fontSize\":\"64px\"}}} -->\n<h2 class=\"wp-block-heading alignwide has-text-color\" style=\"color:#ffe074;font-size:64px\">Forest.</h2>\n<!-- /wp:heading -->\n\n<!-- wp:columns {\"align\":\"wide\"} -->\n<div class=\"wp-block-columns alignwide\"><!-- wp:column {\"width\":\"55%\"} -->\n<div class=\"wp-block-column\" style=\"flex-basis:55%\"><!-- wp:spacer {\"height\":\"330px\"} -->\n<div style=\"height:330px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n<!-- /wp:spacer -->\n\n<!-- wp:paragraph {\"style\":{\"color\":{\"text\":\"#ffe074\"},\"typography\":{\"lineHeight\":\"1.3\",\"fontSize\":\"12px\"}}} -->\n<p class=\"has-text-color\" style=\"color:#ffe074;font-size:12px;line-height:1.3\"><em>Even a child knows how valuable the forest is. The fresh, breathtaking smell of trees. Echoing birds flying above that dense magnitude. A stable climate, a sustainable diverse life and a source of culture. Yet, forests and other ecosystems hang in the balance, threatened to become croplands, pasture, and plantations.</em></p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:column -->\n\n<!-- wp:column -->\n<div class=\"wp-block-column\"></div>\n<!-- /wp:column --></div>\n<!-- /wp:columns --></div></div>\n<!-- /wp:cover -->\";}i:26;O:8:\"stdClass\":7:{s:2:\"id\";i:184;s:5:\"title\";O:8:\"stdClass\":1:{s:8:\"rendered\";s:7:\"Heading\";}s:7:\"content\";O:8:\"stdClass\":2:{s:8:\"rendered\";s:526:\"\n<h2 class=\"alignwide wp-block-heading\" id=\"we-re-a-studio-in-berlin-with-an-international-practice-in-architecture-urban-planning-and-interior-design-we-believe-in-sharing-knowledge-and-promoting-dialogue-to-increase-the-creative-potential-of-collaboration\" style=\"font-size:48px;line-height:1.1\">We&#8217;re a studio in Berlin with an international practice in architecture, urban planning and interior design. We believe in sharing knowledge and promoting dialogue to increase the creative potential of collaboration.</h2>\n\";s:9:\"protected\";b:0;}s:4:\"meta\";O:8:\"stdClass\":8:{s:13:\"wpop_keywords\";s:17:\"large text, title\";s:16:\"wpop_description\";s:12:\"Heading text\";s:19:\"wpop_viewport_width\";i:1200;s:16:\"wpop_block_types\";a:1:{i:0;s:12:\"core/heading\";}s:11:\"wpop_locale\";s:5:\"en_US\";s:15:\"wpop_wp_version\";s:0:\"\";s:25:\"wpop_contains_block_types\";s:12:\"core/heading\";s:9:\"footnotes\";s:0:\"\";}s:14:\"category_slugs\";a:1:{i:0;s:4:\"text\";}s:13:\"keyword_slugs\";a:2:{i:0;s:4:\"core\";i:1;s:8:\"featured\";}s:15:\"pattern_content\";s:621:\"<!-- wp:heading {\"align\":\"wide\",\"style\":{\"typography\":{\"fontSize\":\"48px\",\"lineHeight\":\"1.1\"}}} -->\n<h2 class=\"alignwide\" id=\"we-re-a-studio-in-berlin-with-an-international-practice-in-architecture-urban-planning-and-interior-design-we-believe-in-sharing-knowledge-and-promoting-dialogue-to-increase-the-creative-potential-of-collaboration\" style=\"font-size:48px;line-height:1.1\">We\'re a studio in Berlin with an international practice in architecture, urban planning and interior design. We believe in sharing knowledge and promoting dialogue to increase the creative potential of collaboration.</h2>\n<!-- /wp:heading -->\";}}', 'off');
@@ -591,12 +869,29 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (718, '_transient_wc_products_onsale', 'a:8:{i:0;i:67;i:1;i:68;i:2;i:69;i:3;i:71;i:4;i:76;i:5;i:80;i:6;i:84;i:7;i:64;}', 'off'),
 (719, '_transient_timeout_wc_blocks_query_644b153a8acbcbfed9fed75debbab64f', '1735276629', 'off'),
 (720, '_transient_wc_blocks_query_644b153a8acbcbfed9fed75debbab64f', 'a:2:{s:7:\"version\";s:10:\"1732682298\";s:5:\"value\";a:6:{i:0;i:84;i:1;i:76;i:2;i:69;i:3;i:68;i:4;i:67;i:5;i:64;}}', 'off'),
-(723, '_transient_woocommerce_product_task_product_count_transient', '18', 'on'),
 (725, '_transient_timeout_wc_report_orders_stats_18f3212020442c733377a27227fdfd19', '1733289512', 'off'),
 (726, '_transient_wc_report_orders_stats_18f3212020442c733377a27227fdfd19', 'a:2:{s:7:\"version\";s:10:\"1732682924\";s:5:\"value\";O:8:\"stdClass\":5:{s:6:\"totals\";O:8:\"stdClass\":15:{s:12:\"orders_count\";i:0;s:14:\"num_items_sold\";i:0;s:11:\"gross_sales\";d:0;s:11:\"total_sales\";d:0;s:7:\"coupons\";d:0;s:13:\"coupons_count\";i:0;s:7:\"refunds\";d:0;s:5:\"taxes\";d:0;s:8:\"shipping\";d:0;s:11:\"net_revenue\";d:0;s:19:\"avg_items_per_order\";d:0;s:15:\"avg_order_value\";d:0;s:15:\"total_customers\";i:0;s:8:\"products\";i:0;s:8:\"segments\";a:0:{}}s:9:\"intervals\";a:1:{i:0;a:6:{s:8:\"interval\";s:7:\"2024-48\";s:10:\"date_start\";s:19:\"2024-11-27 00:00:00\";s:14:\"date_start_gmt\";s:19:\"2024-11-27 03:00:00\";s:8:\"date_end\";s:19:\"2024-11-27 02:18:08\";s:12:\"date_end_gmt\";s:19:\"2024-11-27 05:18:08\";s:9:\"subtotals\";O:8:\"stdClass\":14:{s:12:\"orders_count\";i:0;s:14:\"num_items_sold\";i:0;s:11:\"gross_sales\";d:0;s:11:\"total_sales\";d:0;s:7:\"coupons\";d:0;s:13:\"coupons_count\";i:0;s:7:\"refunds\";d:0;s:5:\"taxes\";d:0;s:8:\"shipping\";d:0;s:11:\"net_revenue\";d:0;s:19:\"avg_items_per_order\";d:0;s:15:\"avg_order_value\";d:0;s:15:\"total_customers\";i:0;s:8:\"segments\";a:0:{}}}}s:5:\"total\";i:1;s:5:\"pages\";i:1;s:7:\"page_no\";i:1;}}', 'off'),
 (727, '_transient_timeout_wc_report_orders_stats_e529fa72187c9291d2c4685efc252404', '1733289512', 'off'),
 (728, '_transient_wc_report_orders_stats_e529fa72187c9291d2c4685efc252404', 'a:2:{s:7:\"version\";s:10:\"1732682924\";s:5:\"value\";O:8:\"stdClass\":5:{s:6:\"totals\";O:8:\"stdClass\":15:{s:12:\"orders_count\";i:0;s:14:\"num_items_sold\";i:0;s:11:\"gross_sales\";d:0;s:11:\"total_sales\";d:0;s:7:\"coupons\";d:0;s:13:\"coupons_count\";i:0;s:7:\"refunds\";d:0;s:5:\"taxes\";d:0;s:8:\"shipping\";d:0;s:11:\"net_revenue\";d:0;s:19:\"avg_items_per_order\";d:0;s:15:\"avg_order_value\";d:0;s:15:\"total_customers\";i:0;s:8:\"products\";i:0;s:8:\"segments\";a:0:{}}s:9:\"intervals\";a:1:{i:0;a:6:{s:8:\"interval\";s:7:\"2024-48\";s:10:\"date_start\";s:19:\"2024-11-27 00:00:00\";s:14:\"date_start_gmt\";s:19:\"2024-11-27 03:00:00\";s:8:\"date_end\";s:19:\"2024-11-27 02:18:08\";s:12:\"date_end_gmt\";s:19:\"2024-11-27 05:18:08\";s:9:\"subtotals\";O:8:\"stdClass\":14:{s:12:\"orders_count\";i:0;s:14:\"num_items_sold\";i:0;s:11:\"gross_sales\";d:0;s:11:\"total_sales\";d:0;s:7:\"coupons\";d:0;s:13:\"coupons_count\";i:0;s:7:\"refunds\";d:0;s:5:\"taxes\";d:0;s:8:\"shipping\";d:0;s:11:\"net_revenue\";d:0;s:19:\"avg_items_per_order\";d:0;s:15:\"avg_order_value\";d:0;s:15:\"total_customers\";i:0;s:8:\"segments\";a:0:{}}}}s:5:\"total\";i:1;s:5:\"pages\";i:1;s:7:\"page_no\";i:1;}}', 'off'),
-(731, '_transient_is_multi_author', '0', 'on');
+(741, '_transient_timeout_wc_report_orders_stats_20ff59afe6060af06fc7934ab60d1f7b', '1733290292', 'off'),
+(742, '_transient_wc_report_orders_stats_20ff59afe6060af06fc7934ab60d1f7b', 'a:2:{s:7:\"version\";s:10:\"1732682924\";s:5:\"value\";O:8:\"stdClass\":5:{s:6:\"totals\";O:8:\"stdClass\":15:{s:12:\"orders_count\";i:0;s:14:\"num_items_sold\";i:0;s:11:\"gross_sales\";d:0;s:11:\"total_sales\";d:0;s:7:\"coupons\";d:0;s:13:\"coupons_count\";i:0;s:7:\"refunds\";d:0;s:5:\"taxes\";d:0;s:8:\"shipping\";d:0;s:11:\"net_revenue\";d:0;s:19:\"avg_items_per_order\";d:0;s:15:\"avg_order_value\";d:0;s:15:\"total_customers\";i:0;s:8:\"products\";i:0;s:8:\"segments\";a:0:{}}s:9:\"intervals\";a:1:{i:0;a:6:{s:8:\"interval\";s:7:\"2024-48\";s:10:\"date_start\";s:19:\"2024-11-27 00:00:00\";s:14:\"date_start_gmt\";s:19:\"2024-11-27 03:00:00\";s:8:\"date_end\";s:19:\"2024-11-27 02:31:02\";s:12:\"date_end_gmt\";s:19:\"2024-11-27 05:31:02\";s:9:\"subtotals\";O:8:\"stdClass\":14:{s:12:\"orders_count\";i:0;s:14:\"num_items_sold\";i:0;s:11:\"gross_sales\";d:0;s:11:\"total_sales\";d:0;s:7:\"coupons\";d:0;s:13:\"coupons_count\";i:0;s:7:\"refunds\";d:0;s:5:\"taxes\";d:0;s:8:\"shipping\";d:0;s:11:\"net_revenue\";d:0;s:19:\"avg_items_per_order\";d:0;s:15:\"avg_order_value\";d:0;s:15:\"total_customers\";i:0;s:8:\"segments\";a:0:{}}}}s:5:\"total\";i:1;s:5:\"pages\";i:1;s:7:\"page_no\";i:1;}}', 'off'),
+(743, '_transient_timeout_wc_report_orders_stats_cf35da895b1a0fb65e25676d36a71ba6', '1733290292', 'off'),
+(744, '_transient_wc_report_orders_stats_cf35da895b1a0fb65e25676d36a71ba6', 'a:2:{s:7:\"version\";s:10:\"1732682924\";s:5:\"value\";O:8:\"stdClass\":5:{s:6:\"totals\";O:8:\"stdClass\":15:{s:12:\"orders_count\";i:0;s:14:\"num_items_sold\";i:0;s:11:\"gross_sales\";d:0;s:11:\"total_sales\";d:0;s:7:\"coupons\";d:0;s:13:\"coupons_count\";i:0;s:7:\"refunds\";d:0;s:5:\"taxes\";d:0;s:8:\"shipping\";d:0;s:11:\"net_revenue\";d:0;s:19:\"avg_items_per_order\";d:0;s:15:\"avg_order_value\";d:0;s:15:\"total_customers\";i:0;s:8:\"products\";i:0;s:8:\"segments\";a:0:{}}s:9:\"intervals\";a:1:{i:0;a:6:{s:8:\"interval\";s:7:\"2024-48\";s:10:\"date_start\";s:19:\"2024-11-27 00:00:00\";s:14:\"date_start_gmt\";s:19:\"2024-11-27 03:00:00\";s:8:\"date_end\";s:19:\"2024-11-27 02:31:02\";s:12:\"date_end_gmt\";s:19:\"2024-11-27 05:31:02\";s:9:\"subtotals\";O:8:\"stdClass\":14:{s:12:\"orders_count\";i:0;s:14:\"num_items_sold\";i:0;s:11:\"gross_sales\";d:0;s:11:\"total_sales\";d:0;s:7:\"coupons\";d:0;s:13:\"coupons_count\";i:0;s:7:\"refunds\";d:0;s:5:\"taxes\";d:0;s:8:\"shipping\";d:0;s:11:\"net_revenue\";d:0;s:19:\"avg_items_per_order\";d:0;s:15:\"avg_order_value\";d:0;s:15:\"total_customers\";i:0;s:8:\"segments\";a:0:{}}}}s:5:\"total\";i:1;s:5:\"pages\";i:1;s:7:\"page_no\";i:1;}}', 'off'),
+(757, '_transient_timeout_wc_report_orders_stats_3ce3746728a7f6f08163c0fd8fecfc9c', '1733291541', 'off'),
+(758, '_transient_wc_report_orders_stats_3ce3746728a7f6f08163c0fd8fecfc9c', 'a:2:{s:7:\"version\";s:10:\"1732682924\";s:5:\"value\";O:8:\"stdClass\":5:{s:6:\"totals\";O:8:\"stdClass\":15:{s:12:\"orders_count\";i:0;s:14:\"num_items_sold\";i:0;s:11:\"gross_sales\";d:0;s:11:\"total_sales\";d:0;s:7:\"coupons\";d:0;s:13:\"coupons_count\";i:0;s:7:\"refunds\";d:0;s:5:\"taxes\";d:0;s:8:\"shipping\";d:0;s:11:\"net_revenue\";d:0;s:19:\"avg_items_per_order\";d:0;s:15:\"avg_order_value\";d:0;s:15:\"total_customers\";i:0;s:8:\"products\";i:0;s:8:\"segments\";a:0:{}}s:9:\"intervals\";a:1:{i:0;a:6:{s:8:\"interval\";s:7:\"2024-48\";s:10:\"date_start\";s:19:\"2024-11-27 00:00:00\";s:14:\"date_start_gmt\";s:19:\"2024-11-27 03:00:00\";s:8:\"date_end\";s:19:\"2024-11-27 02:52:14\";s:12:\"date_end_gmt\";s:19:\"2024-11-27 05:52:14\";s:9:\"subtotals\";O:8:\"stdClass\":14:{s:12:\"orders_count\";i:0;s:14:\"num_items_sold\";i:0;s:11:\"gross_sales\";d:0;s:11:\"total_sales\";d:0;s:7:\"coupons\";d:0;s:13:\"coupons_count\";i:0;s:7:\"refunds\";d:0;s:5:\"taxes\";d:0;s:8:\"shipping\";d:0;s:11:\"net_revenue\";d:0;s:19:\"avg_items_per_order\";d:0;s:15:\"avg_order_value\";d:0;s:15:\"total_customers\";i:0;s:8:\"segments\";a:0:{}}}}s:5:\"total\";i:1;s:5:\"pages\";i:1;s:7:\"page_no\";i:1;}}', 'off'),
+(759, '_transient_timeout_wc_report_orders_stats_ac77fb20388d2bc0c496cb0cde61dd7f', '1733291541', 'off'),
+(760, '_transient_wc_report_orders_stats_ac77fb20388d2bc0c496cb0cde61dd7f', 'a:2:{s:7:\"version\";s:10:\"1732682924\";s:5:\"value\";O:8:\"stdClass\":5:{s:6:\"totals\";O:8:\"stdClass\":15:{s:12:\"orders_count\";i:0;s:14:\"num_items_sold\";i:0;s:11:\"gross_sales\";d:0;s:11:\"total_sales\";d:0;s:7:\"coupons\";d:0;s:13:\"coupons_count\";i:0;s:7:\"refunds\";d:0;s:5:\"taxes\";d:0;s:8:\"shipping\";d:0;s:11:\"net_revenue\";d:0;s:19:\"avg_items_per_order\";d:0;s:15:\"avg_order_value\";d:0;s:15:\"total_customers\";i:0;s:8:\"products\";i:0;s:8:\"segments\";a:0:{}}s:9:\"intervals\";a:1:{i:0;a:6:{s:8:\"interval\";s:7:\"2024-48\";s:10:\"date_start\";s:19:\"2024-11-27 00:00:00\";s:14:\"date_start_gmt\";s:19:\"2024-11-27 03:00:00\";s:8:\"date_end\";s:19:\"2024-11-27 02:52:14\";s:12:\"date_end_gmt\";s:19:\"2024-11-27 05:52:14\";s:9:\"subtotals\";O:8:\"stdClass\":14:{s:12:\"orders_count\";i:0;s:14:\"num_items_sold\";i:0;s:11:\"gross_sales\";d:0;s:11:\"total_sales\";d:0;s:7:\"coupons\";d:0;s:13:\"coupons_count\";i:0;s:7:\"refunds\";d:0;s:5:\"taxes\";d:0;s:8:\"shipping\";d:0;s:11:\"net_revenue\";d:0;s:19:\"avg_items_per_order\";d:0;s:15:\"avg_order_value\";d:0;s:15:\"total_customers\";i:0;s:8:\"segments\";a:0:{}}}}s:5:\"total\";i:1;s:5:\"pages\";i:1;s:7:\"page_no\";i:1;}}', 'off'),
+(763, 'site_logo', '119', 'auto'),
+(769, '_transient_woocommerce_product_task_product_count_transient', '18', 'on'),
+(775, '_site_transient_timeout_wp_theme_files_patterns-9db88df3de8f761921ab242cddb26b8b', '1732689412', 'off'),
+(776, '_site_transient_wp_theme_files_patterns-9db88df3de8f761921ab242cddb26b8b', 'a:2:{s:7:\"version\";s:5:\"4.6.0\";s:8:\"patterns\";a:0:{}}', 'off'),
+(777, '_transient_timeout_wc_report_orders_stats_35fa8f5c17c453bbd26f34b503955290', '1733292428', 'off'),
+(778, '_transient_wc_report_orders_stats_35fa8f5c17c453bbd26f34b503955290', 'a:2:{s:7:\"version\";s:10:\"1732682924\";s:5:\"value\";O:8:\"stdClass\":5:{s:6:\"totals\";O:8:\"stdClass\":15:{s:12:\"orders_count\";i:0;s:14:\"num_items_sold\";i:0;s:11:\"gross_sales\";d:0;s:11:\"total_sales\";d:0;s:7:\"coupons\";d:0;s:13:\"coupons_count\";i:0;s:7:\"refunds\";d:0;s:5:\"taxes\";d:0;s:8:\"shipping\";d:0;s:11:\"net_revenue\";d:0;s:19:\"avg_items_per_order\";d:0;s:15:\"avg_order_value\";d:0;s:15:\"total_customers\";i:0;s:8:\"products\";i:0;s:8:\"segments\";a:0:{}}s:9:\"intervals\";a:1:{i:0;a:6:{s:8:\"interval\";s:7:\"2024-48\";s:10:\"date_start\";s:19:\"2024-11-27 00:00:00\";s:14:\"date_start_gmt\";s:19:\"2024-11-27 03:00:00\";s:8:\"date_end\";s:19:\"2024-11-27 03:06:47\";s:12:\"date_end_gmt\";s:19:\"2024-11-27 06:06:47\";s:9:\"subtotals\";O:8:\"stdClass\":14:{s:12:\"orders_count\";i:0;s:14:\"num_items_sold\";i:0;s:11:\"gross_sales\";d:0;s:11:\"total_sales\";d:0;s:7:\"coupons\";d:0;s:13:\"coupons_count\";i:0;s:7:\"refunds\";d:0;s:5:\"taxes\";d:0;s:8:\"shipping\";d:0;s:11:\"net_revenue\";d:0;s:19:\"avg_items_per_order\";d:0;s:15:\"avg_order_value\";d:0;s:15:\"total_customers\";i:0;s:8:\"segments\";a:0:{}}}}s:5:\"total\";i:1;s:5:\"pages\";i:1;s:7:\"page_no\";i:1;}}', 'off'),
+(779, '_transient_timeout_wc_report_orders_stats_ffd24ada68b0cc271131391e0d92b49d', '1733292428', 'off'),
+(780, '_transient_wc_report_orders_stats_ffd24ada68b0cc271131391e0d92b49d', 'a:2:{s:7:\"version\";s:10:\"1732682924\";s:5:\"value\";O:8:\"stdClass\":5:{s:6:\"totals\";O:8:\"stdClass\":15:{s:12:\"orders_count\";i:0;s:14:\"num_items_sold\";i:0;s:11:\"gross_sales\";d:0;s:11:\"total_sales\";d:0;s:7:\"coupons\";d:0;s:13:\"coupons_count\";i:0;s:7:\"refunds\";d:0;s:5:\"taxes\";d:0;s:8:\"shipping\";d:0;s:11:\"net_revenue\";d:0;s:19:\"avg_items_per_order\";d:0;s:15:\"avg_order_value\";d:0;s:15:\"total_customers\";i:0;s:8:\"products\";i:0;s:8:\"segments\";a:0:{}}s:9:\"intervals\";a:1:{i:0;a:6:{s:8:\"interval\";s:7:\"2024-48\";s:10:\"date_start\";s:19:\"2024-11-27 00:00:00\";s:14:\"date_start_gmt\";s:19:\"2024-11-27 03:00:00\";s:8:\"date_end\";s:19:\"2024-11-27 03:06:47\";s:12:\"date_end_gmt\";s:19:\"2024-11-27 06:06:47\";s:9:\"subtotals\";O:8:\"stdClass\":14:{s:12:\"orders_count\";i:0;s:14:\"num_items_sold\";i:0;s:11:\"gross_sales\";d:0;s:11:\"total_sales\";d:0;s:7:\"coupons\";d:0;s:13:\"coupons_count\";i:0;s:7:\"refunds\";d:0;s:5:\"taxes\";d:0;s:8:\"shipping\";d:0;s:11:\"net_revenue\";d:0;s:19:\"avg_items_per_order\";d:0;s:15:\"avg_order_value\";d:0;s:15:\"total_customers\";i:0;s:8:\"segments\";a:0:{}}}}s:5:\"total\";i:1;s:5:\"pages\";i:1;s:7:\"page_no\";i:1;}}', 'off'),
+(782, '_site_transient_timeout_theme_roots', '1732689477', 'off'),
+(783, '_site_transient_theme_roots', 'a:1:{s:10:\"storefront\";s:7:\"/themes\";}', 'off'),
+(784, '_transient_is_multi_author', '0', 'on');
 
 -- --------------------------------------------------------
 
@@ -1276,7 +1571,20 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (686, 113, '_customize_changeset_uuid', 'dbbcb7ff-e495-4ad9-bcf7-cfaa0a2ccf9b'),
 (687, 114, '_wp_trash_meta_status', 'publish'),
 (688, 114, '_wp_trash_meta_time', '1732684383'),
-(689, 113, '_edit_lock', '1732684818:1');
+(689, 113, '_edit_lock', '1732684818:1'),
+(691, 119, '_wp_attached_file', '2024/11/logo2.png'),
+(692, 119, '_wp_attachment_metadata', 'a:6:{s:5:\"width\";i:542;s:6:\"height\";i:174;s:4:\"file\";s:17:\"2024/11/logo2.png\";s:8:\"filesize\";i:75731;s:5:\"sizes\";a:0:{}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(693, 119, '_wp_attachment_image_alt', 'Logotipo de WooWP Shop'),
+(697, 121, '_edit_lock', '1732686848:1'),
+(698, 121, '_wp_trash_meta_status', 'publish'),
+(699, 121, '_wp_trash_meta_time', '1732686866'),
+(700, 122, '_wp_attached_file', '2024/11/fav1.png'),
+(701, 122, '_wp_attachment_metadata', 'a:6:{s:5:\"width\";i:220;s:6:\"height\";i:220;s:4:\"file\";s:16:\"2024/11/fav1.png\";s:8:\"filesize\";i:28482;s:5:\"sizes\";a:0:{}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(702, 123, '_wp_trash_meta_status', 'publish'),
+(703, 123, '_wp_trash_meta_time', '1732687382'),
+(704, 122, '_edit_lock', '1732687439:1'),
+(705, 122, '_wp_attachment_image_alt', 'Favicon de WooWP Shop'),
+(706, 122, '_edit_last', '1');
 
 -- --------------------------------------------------------
 
@@ -1432,7 +1740,11 @@ INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 (114, 1, '2024-11-27 02:13:03', '2024-11-27 05:13:03', '{\n    \"show_on_front\": {\n        \"value\": \"page\",\n        \"type\": \"option\",\n        \"user_id\": 1,\n        \"date_modified_gmt\": \"2024-11-27 05:13:03\"\n    },\n    \"page_on_front\": {\n        \"value\": \"113\",\n        \"type\": \"option\",\n        \"user_id\": 1,\n        \"date_modified_gmt\": \"2024-11-27 05:13:03\"\n    },\n    \"nav_menus_created_posts\": {\n        \"value\": [\n            113\n        ],\n        \"type\": \"option\",\n        \"user_id\": 1,\n        \"date_modified_gmt\": \"2024-11-27 05:13:03\"\n    }\n}', '', '', 'trash', 'closed', 'closed', '', 'dbbcb7ff-e495-4ad9-bcf7-cfaa0a2ccf9b', '', '', '2024-11-27 02:13:03', '2024-11-27 05:13:03', '', 0, 'http://localhost/curso-woocomerce-wp/dbbcb7ff-e495-4ad9-bcf7-cfaa0a2ccf9b/', 0, 'customize_changeset', '', 0),
 (115, 1, '2024-11-27 02:13:03', '2024-11-27 05:13:03', '', 'Inicio', '', 'inherit', 'closed', 'closed', '', '113-revision-v1', '', '', '2024-11-27 02:13:03', '2024-11-27 05:13:03', '', 113, 'http://localhost/curso-woocomerce-wp/?p=115', 0, 'revision', '', 0),
 (117, 1, '2024-11-27 02:17:39', '2024-11-27 05:17:39', '<!-- wp:search {\"label\":\"Buscar\",\"placeholder\":\"Buscar productos...\",\"buttonText\":\"Buscar\",\"query\":{\"post_type\":\"product\"},\"namespace\":\"woocommerce/product-search\"} /-->\n\n<!-- wp:heading {\"textAlign\":\"center\"} -->\n<h2 class=\"wp-block-heading has-text-align-center\">Novedades</h2>\n<!-- /wp:heading -->\n\n<!-- wp:woocommerce/product-new /-->\n\n<!-- wp:heading {\"textAlign\":\"center\"} -->\n<h2 class=\"wp-block-heading has-text-align-center\">Ofertas</h2>\n<!-- /wp:heading -->\n\n<!-- wp:woocommerce/product-on-sale /-->', 'Inicio', '', 'inherit', 'closed', 'closed', '', '113-revision-v1', '', '', '2024-11-27 02:17:39', '2024-11-27 05:17:39', '', 113, 'http://localhost/curso-woocomerce-wp/?p=117', 0, 'revision', '', 0),
-(118, 1, '2024-11-27 02:19:52', '2024-11-27 05:19:52', '<!-- wp:search {\"label\":\"Buscar\",\"placeholder\":\"Buscar productos...\",\"buttonText\":\"Buscar\",\"query\":{\"post_type\":\"product\"},\"namespace\":\"woocommerce/product-search\"} /-->\n\n<!-- wp:heading {\"textAlign\":\"center\"} -->\n<h2 class=\"wp-block-heading has-text-align-center\">Novedades</h2>\n<!-- /wp:heading -->\n\n<!-- wp:woocommerce/product-new /-->\n\n<!-- wp:heading {\"textAlign\":\"center\"} -->\n<h2 class=\"wp-block-heading has-text-align-center\">Ofertas</h2>\n<!-- /wp:heading -->\n\n<!-- wp:woocommerce/product-on-sale /-->', '', '', 'inherit', 'closed', 'closed', '', '113-revision-v1', '', '', '2024-11-27 02:19:52', '2024-11-27 05:19:52', '', 113, 'http://localhost/curso-woocomerce-wp/?p=118', 0, 'revision', '', 0);
+(118, 1, '2024-11-27 02:19:52', '2024-11-27 05:19:52', '<!-- wp:search {\"label\":\"Buscar\",\"placeholder\":\"Buscar productos...\",\"buttonText\":\"Buscar\",\"query\":{\"post_type\":\"product\"},\"namespace\":\"woocommerce/product-search\"} /-->\n\n<!-- wp:heading {\"textAlign\":\"center\"} -->\n<h2 class=\"wp-block-heading has-text-align-center\">Novedades</h2>\n<!-- /wp:heading -->\n\n<!-- wp:woocommerce/product-new /-->\n\n<!-- wp:heading {\"textAlign\":\"center\"} -->\n<h2 class=\"wp-block-heading has-text-align-center\">Ofertas</h2>\n<!-- /wp:heading -->\n\n<!-- wp:woocommerce/product-on-sale /-->', '', '', 'inherit', 'closed', 'closed', '', '113-revision-v1', '', '', '2024-11-27 02:19:52', '2024-11-27 05:19:52', '', 113, 'http://localhost/curso-woocomerce-wp/?p=118', 0, 'revision', '', 0),
+(119, 1, '2024-11-27 02:51:55', '2024-11-27 05:51:55', '', 'Logo de WooWP Shop', 'Logotipo de WooWP Shop', 'inherit', 'open', 'closed', '', 'logo2', '', '', '2024-11-27 02:52:50', '2024-11-27 05:52:50', '', 0, 'http://localhost/curso-woocomerce-wp/wp-content/uploads/2024/11/logo2.png', 0, 'attachment', 'image/png', 0),
+(121, 1, '2024-11-27 02:54:26', '2024-11-27 05:54:26', '{\n    \"storefront::custom_logo\": {\n        \"value\": 119,\n        \"type\": \"theme_mod\",\n        \"user_id\": 1,\n        \"date_modified_gmt\": \"2024-11-27 05:53:53\"\n    },\n    \"site_icon\": {\n        \"value\": 120,\n        \"type\": \"option\",\n        \"user_id\": 1,\n        \"date_modified_gmt\": \"2024-11-27 05:54:26\"\n    }\n}', '', '', 'trash', 'closed', 'closed', '', '71f9a93c-ff5e-4fdf-bcf7-cf835075a1eb', '', '', '2024-11-27 02:54:26', '2024-11-27 05:54:26', '', 0, 'http://localhost/curso-woocomerce-wp/?p=121', 0, 'customize_changeset', '', 0),
+(122, 1, '2024-11-27 03:02:41', '2024-11-27 06:02:41', '', 'Favicon de WooWP Shop', '', 'inherit', 'open', 'closed', '', 'fav1', '', '', '2024-11-27 03:06:06', '2024-11-27 06:06:06', '', 0, 'http://localhost/curso-woocomerce-wp/wp-content/uploads/2024/11/fav1.png', 0, 'attachment', 'image/png', 0),
+(123, 1, '2024-11-27 03:03:02', '2024-11-27 06:03:02', '{\n    \"site_icon\": {\n        \"value\": 122,\n        \"type\": \"option\",\n        \"user_id\": 1,\n        \"date_modified_gmt\": \"2024-11-27 06:03:02\"\n    }\n}', '', '', 'trash', 'closed', 'closed', '', 'a0a7d06f-8450-4450-b3a1-10268efb672e', '', '', '2024-11-27 03:03:02', '2024-11-27 06:03:02', '', 0, 'http://localhost/curso-woocomerce-wp/a0a7d06f-8450-4450-b3a1-10268efb672e/', 0, 'customize_changeset', '', 0);
 
 -- --------------------------------------------------------
 
@@ -1703,7 +2015,8 @@ INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALU
 (24, 1, 'meta-box-order_product', 'a:3:{s:4:\"side\";s:84:\"submitdiv,postimagediv,woocommerce-product-images,product_catdiv,tagsdiv-product_tag\";s:6:\"normal\";s:55:\"woocommerce-product-data,postcustom,slugdiv,postexcerpt\";s:8:\"advanced\";s:0:\"\";}'),
 (25, 1, 'wp_user-settings', 'libraryContent=browse'),
 (26, 1, 'wp_user-settings-time', '1732683689'),
-(27, 1, 'wp_persisted_preferences', 'a:3:{s:4:\"core\";a:1:{s:26:\"isComplementaryAreaVisible\";b:1;}s:14:\"core/edit-post\";a:1:{s:12:\"welcomeGuide\";b:0;}s:9:\"_modified\";s:24:\"2024-11-27T05:19:37.542Z\";}');
+(27, 1, 'wp_persisted_preferences', 'a:3:{s:4:\"core\";a:1:{s:26:\"isComplementaryAreaVisible\";b:1;}s:14:\"core/edit-post\";a:1:{s:12:\"welcomeGuide\";b:0;}s:9:\"_modified\";s:24:\"2024-11-27T05:19:37.542Z\";}'),
+(28, 1, 'wp_media_library_mode', 'list');
 
 -- --------------------------------------------------------
 
@@ -1731,9 +2044,911 @@ CREATE TABLE `wp_users` (
 INSERT INTO `wp_users` (`ID`, `user_login`, `user_pass`, `user_nicename`, `user_email`, `user_url`, `user_registered`, `user_activation_key`, `user_status`, `display_name`) VALUES
 (1, 'Liam Cochrane', '$P$BNc0OxBcqOjap48gUEIqOW9GGu6efG.', 'liam-cochrane', 'guilleac8@gmail.com', 'http://localhost/curso-woocomerce-wp', '2024-11-25 20:40:42', '', 0, 'Liam Cochrane');
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `wp_wc_admin_notes`
+--
+
+CREATE TABLE `wp_wc_admin_notes` (
+  `note_id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `type` varchar(20) NOT NULL,
+  `locale` varchar(20) NOT NULL,
+  `title` longtext NOT NULL,
+  `content` longtext NOT NULL,
+  `content_data` longtext DEFAULT NULL,
+  `status` varchar(200) NOT NULL,
+  `source` varchar(200) NOT NULL,
+  `date_created` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `date_reminder` datetime DEFAULT NULL,
+  `is_snoozable` tinyint(1) NOT NULL DEFAULT 0,
+  `layout` varchar(20) NOT NULL DEFAULT '',
+  `image` varchar(200) DEFAULT NULL,
+  `is_deleted` tinyint(1) NOT NULL DEFAULT 0,
+  `is_read` tinyint(1) NOT NULL DEFAULT 0,
+  `icon` varchar(200) NOT NULL DEFAULT 'info'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+--
+-- Volcado de datos para la tabla `wp_wc_admin_notes`
+--
+
+INSERT INTO `wp_wc_admin_notes` (`note_id`, `name`, `type`, `locale`, `title`, `content`, `content_data`, `status`, `source`, `date_created`, `date_reminder`, `is_snoozable`, `layout`, `image`, `is_deleted`, `is_read`, `icon`) VALUES
+(1, 'wc-refund-returns-page', 'info', 'en_US', 'Setup a Refund and Returns Policy page to boost your store\'s credibility.', 'We have created a sample draft Refund and Returns Policy page for you. Please have a look and update it to fit your store.', '{}', 'unactioned', 'woocommerce-core', '2024-11-27 04:01:28', NULL, 0, 'plain', '', 0, 1, 'info'),
+(2, 'wayflyer_bnpl_q4_2021', 'marketing', 'en_US', 'Grow your business with funding through Wayflyer', 'Fast, flexible financing to boost cash flow and help your business grow – one fee, no interest rates, penalties, equity, or personal guarantees. Based on your store’s performance, Wayflyer provides funding and analytical insights to invest in your business.', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:52', NULL, 0, 'plain', '', 0, 0, 'info'),
+(3, 'wc_shipping_mobile_app_usps_q4_2021', 'marketing', 'en_US', 'Print and manage your shipping labels with WooCommerce Shipping and the WooCommerce Mobile App', 'Save time by printing, purchasing, refunding, and tracking shipping labels generated by <a href=\"https://woocommerce.com/woocommerce-shipping/\">WooCommerce Shipping</a> – all directly from your mobile device!', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:52', NULL, 0, 'plain', '', 0, 0, 'info'),
+(4, 'your-first-product', 'info', 'en_US', 'Your first product', 'That’s huge! You’re well on your way to building a successful online store — now it’s time to think about how you’ll fulfill your orders.<br /><br />Read our shipping guide to learn best practices and options for putting together your shipping strategy. And for WooCommerce stores in the United States, you can print discounted shipping labels via USPS with <a href=\"https://href.li/?https://woocommerce.com/shipping\" target=\"_blank\">WooCommerce Shipping</a>.', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:53', NULL, 0, 'plain', '', 0, 0, 'info'),
+(5, 'wc-admin-optimizing-the-checkout-flow', 'info', 'en_US', 'Optimizing the checkout flow', 'It’s crucial to get your store’s checkout as smooth as possible to avoid losing sales. Let’s take a look at how you can optimize the checkout experience for your shoppers.', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:53', NULL, 0, 'plain', '', 0, 0, 'info'),
+(6, 'wc-payments-qualitative-feedback', 'info', 'en_US', 'WooPayments setup - let us know what you think', 'Congrats on enabling WooPayments for your store. Please share your feedback in this 2 minute survey to help us improve the setup process.', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:53', NULL, 0, 'plain', '', 0, 0, 'info'),
+(7, 'share-your-feedback-on-paypal', 'info', 'en_US', 'Share your feedback on PayPal', 'Share your feedback in this 2 minute survey about how we can make the process of accepting payments more useful for your store.', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:53', NULL, 0, 'plain', '', 0, 0, 'info'),
+(8, 'google_listings_and_ads_install', 'marketing', 'en_US', 'Drive traffic and sales with Google', 'Reach online shoppers to drive traffic and sales for your store by showcasing products across Google, for free or with ads.', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:53', NULL, 0, 'plain', '', 0, 0, 'info'),
+(9, 'wc-subscriptions-security-update-3-0-15', 'info', 'en_US', 'WooCommerce Subscriptions security update!', 'We recently released an important security update to WooCommerce Subscriptions. To ensure your site’s data is protected, please upgrade <strong>WooCommerce Subscriptions to version 3.0.15</strong> or later.<br /><br />Click the button below to view and update to the latest Subscriptions version, or log in to <a href=\"https://woocommerce.com/my-dashboard\">WooCommerce.com Dashboard</a> and navigate to your <strong>Downloads</strong> page.<br /><br />We recommend always using the latest version of WooCommerce Subscriptions, and other software running on your site, to ensure maximum security.<br /><br />If you have any questions we are here to help — just <a href=\"https://woocommerce.com/my-account/create-a-ticket/\">open a ticket</a>.', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:53', NULL, 0, 'plain', '', 0, 0, 'info'),
+(10, 'woocommerce-core-update-5-4-0', 'info', 'en_US', 'Update to WooCommerce 5.4.1 now', 'WooCommerce 5.4.1 addresses a checkout issue discovered in WooCommerce 5.4. We recommend upgrading to WooCommerce 5.4.1 as soon as possible.', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:53', NULL, 0, 'plain', '', 0, 0, 'info'),
+(11, 'wcpay-promo-2020-11', 'marketing', 'en_US', 'wcpay-promo-2020-11', 'wcpay-promo-2020-11', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:53', NULL, 0, 'plain', '', 0, 0, 'info'),
+(12, 'wcpay-promo-2020-12', 'marketing', 'en_US', 'wcpay-promo-2020-12', 'wcpay-promo-2020-12', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:53', NULL, 0, 'plain', '', 0, 0, 'info'),
+(13, 'ppxo-pps-upgrade-paypal-payments-1', 'info', 'en_US', 'Get the latest PayPal extension for WooCommerce', 'Heads up! There’s a new PayPal on the block!<br /><br />Now is a great time to upgrade to our latest <a href=\"https://woocommerce.com/products/woocommerce-paypal-payments/\" target=\"_blank\">PayPal extension</a> to continue to receive support and updates with PayPal.<br /><br />Get access to a full suite of PayPal payment methods, extensive currency and country coverage, and pay later options with the all-new PayPal extension for WooCommerce.', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:53', NULL, 0, 'plain', '', 0, 0, 'info'),
+(14, 'ppxo-pps-upgrade-paypal-payments-2', 'info', 'en_US', 'Upgrade your PayPal experience!', 'Get access to a full suite of PayPal payment methods, extensive currency and country coverage, offer subscription and recurring payments, and the new PayPal pay later options.<br /><br />Start using our <a href=\"https://woocommerce.com/products/woocommerce-paypal-payments/\" target=\"_blank\">latest PayPal today</a> to continue to receive support and updates.', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:53', NULL, 0, 'plain', '', 0, 0, 'info'),
+(15, 'woocommerce-core-sqli-july-2021-need-to-update', 'update', 'en_US', 'Action required: Critical vulnerabilities in WooCommerce', 'In response to a critical vulnerability identified on July 13, 2021, we are working with the WordPress Plugins Team to deploy software updates to stores running WooCommerce (versions 3.3 to 5.5) and the WooCommerce Blocks feature plugin (versions 2.5 to 5.5).<br /><br />Our investigation into this vulnerability is ongoing, but <strong>we wanted to let you know now about the importance of updating immediately</strong>.<br /><br />For more information on which actions you should take, as well as answers to FAQs, please urgently review our blog post detailing this issue.', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:53', NULL, 0, 'plain', '', 0, 0, 'info'),
+(16, 'woocommerce-blocks-sqli-july-2021-need-to-update', 'update', 'en_US', 'Action required: Critical vulnerabilities in WooCommerce Blocks', 'In response to a critical vulnerability identified on July 13, 2021, we are working with the WordPress Plugins Team to deploy software updates to stores running WooCommerce (versions 3.3 to 5.5) and the WooCommerce Blocks feature plugin (versions 2.5 to 5.5).<br /><br />Our investigation into this vulnerability is ongoing, but <strong>we wanted to let you know now about the importance of updating immediately</strong>.<br /><br />For more information on which actions you should take, as well as answers to FAQs, please urgently review our blog post detailing this issue.', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:53', NULL, 0, 'plain', '', 0, 0, 'info'),
+(17, 'woocommerce-core-sqli-july-2021-store-patched', 'update', 'en_US', 'Solved: Critical vulnerabilities patched in WooCommerce', 'In response to a critical vulnerability identified on July 13, 2021, we worked with the WordPress Plugins Team to deploy software updates to stores running WooCommerce (versions 3.3 to 5.5) and the WooCommerce Blocks feature plugin (versions 2.5 to 5.5).<br /><br /><strong>Your store has been updated to the latest secure version(s)</strong>. For more information and answers to FAQs, please review our blog post detailing this issue.', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:53', NULL, 0, 'plain', '', 0, 0, 'info'),
+(18, 'woocommerce-blocks-sqli-july-2021-store-patched', 'update', 'en_US', 'Solved: Critical vulnerabilities patched in WooCommerce Blocks', 'In response to a critical vulnerability identified on July 13, 2021, we worked with the WordPress Plugins Team to deploy software updates to stores running WooCommerce (versions 3.3 to 5.5) and the WooCommerce Blocks feature plugin (versions 2.5 to 5.5).<br /><br /><strong>Your store has been updated to the latest secure version(s)</strong>. For more information and answers to FAQs, please review our blog post detailing this issue.', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:53', NULL, 0, 'plain', '', 0, 0, 'info'),
+(19, 'habit-moment-survey', 'marketing', 'en_US', 'We’re all ears! Share your experience so far with WooCommerce', 'We’d love your input to shape the future of WooCommerce together. Feel free to share any feedback, ideas or suggestions that you have.', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:53', NULL, 0, 'plain', '', 0, 0, 'info'),
+(20, 'woocommerce-core-paypal-march-2022-updated', 'update', 'en_US', 'Security auto-update of WooCommerce', '<strong>Your store has been updated to the latest secure version of WooCommerce</strong>. We worked with WordPress to deploy PayPal Standard security updates for stores running WooCommerce (version 3.5 to 6.3). It’s recommended to disable PayPal Standard, and use <a href=\"https://woocommerce.com/products/woocommerce-paypal-payments/\" target=\"_blank\">PayPal Payments</a> to accept PayPal.', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:53', NULL, 0, 'plain', '', 0, 0, 'info'),
+(21, 'woocommerce-core-paypal-march-2022-updated-nopp', 'update', 'en_US', 'Security auto-update of WooCommerce', '<strong>Your store has been updated to the latest secure version of WooCommerce</strong>. We worked with WordPress to deploy security updates related to PayPal Standard payment gateway for stores running WooCommerce (version 3.5 to 6.3).', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:53', NULL, 0, 'plain', '', 0, 0, 'info'),
+(22, 'pinterest_03_2022_update', 'marketing', 'en_US', 'Your Pinterest for WooCommerce plugin is out of date!', 'Update to the latest version of Pinterest for WooCommerce to continue using this plugin and keep your store connected with Pinterest. To update, visit <strong>Plugins &gt; Installed Plugins</strong>, and click on “update now” under Pinterest for WooCommerce.', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:53', NULL, 0, 'plain', '', 0, 0, 'info'),
+(23, 'store_setup_survey_survey_q2_2022', 'survey', 'en_US', 'How is your store setup going?', 'Our goal is to make sure you have all the right tools to start setting up your store in the smoothest way possible.\r\nWe’d love to know if we hit our mark and how we can improve. To collect your thoughts, we made a 2-minute survey.', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:53', NULL, 0, 'plain', '', 0, 0, 'info'),
+(24, 'needs-update-eway-payment-gateway-rin-2022-12-20', 'update', 'en_US', 'Security vulnerability patched in WooCommerce Eway Gateway', 'In response to a potential vulnerability identified in WooCommerce Eway Gateway versions 3.1.0 to 3.5.0, we’ve worked to deploy security fixes and have released an updated version.\r\nNo external exploits have been detected, but we recommend you update to your latest supported version 3.1.26, 3.2.3, 3.3.1, 3.4.6, or 3.5.1', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:53', NULL, 0, 'plain', '', 0, 0, 'info'),
+(25, 'updated-eway-payment-gateway-rin-2022-12-20', 'update', 'en_US', 'WooCommerce Eway Gateway has been automatically updated', 'Your store is now running the latest secure version of WooCommerce Eway Gateway. We worked with the WordPress Plugins team to deploy a software update to stores running WooCommerce Eway Gateway (versions 3.1.0 to 3.5.0) in response to a security vulnerability that was discovered.', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:53', NULL, 0, 'plain', '', 0, 0, 'info'),
+(26, 'ecomm-wc-navigation-survey-2023', 'info', 'en_US', 'Navigating WooCommerce on WordPress.com', 'We are improving the WooCommerce navigation on WordPress.com and would love your help to make it better! Please share your experience with us in this 2-minute survey.', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:54', NULL, 0, 'plain', '', 0, 0, 'info'),
+(27, 'woopay-beta-merchantrecruitment-04MAY23', 'info', 'en_US', 'Increase conversions with WooPay — our fastest checkout yet', 'WooPay, a new express checkout feature built into WooCommerce Payments, is now available —and we’re inviting you to be one of the first to try it. \r\n<br><br>\r\nBoost conversions by offering your customers a simple, secure way to pay with a single click.\r\n<br><br>\r\nGet started in seconds.', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:54', NULL, 0, 'plain', '', 0, 0, 'info'),
+(28, 'woocommerce-wcpay-march-2023-update-needed', 'update', 'en_US', 'Action required: Security update for WooCommerce Payments', '<strong>Your store requires a security update for WooCommerce Payments</strong>. Please update to the latest version of WooCommerce Payments immediately to address a potential vulnerability discovered on March 22. For more information on how to update, visit this WooCommerce Developer Blog Post.', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:54', NULL, 0, 'plain', '', 0, 0, 'info'),
+(29, 'tap_to_pay_iphone_q2_2023_no_wcpay', 'marketing', 'en_US', 'Accept in-person contactless payments on your iPhone', 'Tap to Pay on iPhone and WooCommerce Payments is quick, secure, and simple to set up — no extra terminals or card readers are needed. Accept contactless debit and credit cards, Apple Pay, and other NFC digital wallets in person.', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:54', NULL, 0, 'plain', '', 0, 0, 'info'),
+(30, 'woocommerce-WCPreOrders-april-2023-update-needed', 'update', 'en_US', 'Action required: Security update of WooCommerce Pre-Orders extension', '<strong>Your store requires a security update for the WooCommerce Pre-Orders extension</strong>. Please update the WooCommerce Pre-Orders extension immediately to address a potential vulnerability discovered on April 11.', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:54', NULL, 0, 'plain', '', 0, 0, 'info'),
+(31, 'woopay-beta-merchantrecruitment-update-04MAY23', 'info', 'en_US', 'Increase conversions with WooPay — our fastest checkout yet', 'WooPay, a new express checkout feature built into WooCommerce Payments, is now available — and you’re invited to try it. \r\n<br /><br />\r\nBoost conversions by offering your customers a simple, secure way to pay with a single click.\r\n<br /><br />\r\nUpdate WooCommerce Payments to get started.', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:54', NULL, 0, 'plain', '', 0, 0, 'info'),
+(32, 'woopay-beta-existingmerchants-noaction-27APR23', 'info', 'en_US', 'WooPay is back!', 'Thanks for previously trying WooPay, the express checkout feature built into WooCommerce Payments. We’re excited to announce that WooPay availability has resumed. No action is required on your part.\r\n<br /><br />\r\nYou can now continue boosting conversions by offering your customers a simple, secure way to pay with a single click.', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:54', NULL, 0, 'plain', '', 0, 0, 'info'),
+(33, 'woopay-beta-existingmerchants-update-27APR23', 'info', 'en_US', 'WooPay is back!', 'Thanks for previously trying WooPay, the express checkout feature built into WooCommerce Payments. We’re excited to announce that WooPay availability has resumed.\r\n<br /><br />\r\n\r\nUpdate to the latest WooCommerce Payments version to continue boosting conversions by offering your customers a simple, secure way to pay with a single click.', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:54', NULL, 0, 'plain', '', 0, 0, 'info'),
+(34, 'woopay-beta-merchantrecruitment-short-04MAY23', 'info', 'en_US', 'Increase conversions with WooPay — our fastest checkout yet', 'Be one of the first to try WooPay, a new express checkout feature for WooCommerce Payments. \r\n<br><br>\r\nBoost conversions by letting customers pay with a single click.', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:54', NULL, 0, 'plain', '', 0, 0, 'info'),
+(35, 'woopay-beta-merchantrecruitment-short-update-04MAY23', 'info', 'en_US', 'Increase conversions with WooPay — our fastest checkout yet', 'Be one of the first to try WooPay, our new express checkout feature. <br>Boost conversions by letting customers pay with a single click. <br><br>Update to the latest version of WooCommerce Payments to get started.', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:54', NULL, 0, 'plain', '', 0, 0, 'info'),
+(36, 'woopay-beta-merchantrecruitment-short-06MAY23-TESTA', 'info', 'en_US', 'Increase conversions with WooPay — our fastest checkout yet', 'Be one of the first to try WooPay, a new express checkout feature for WooCommerce Payments. \r\n<br><br>\r\nBoost conversions by letting customers pay with a single click.', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:54', NULL, 0, 'plain', '', 0, 0, 'info'),
+(37, 'woopay-beta-merchantrecruitment-short-06MAY23-TESTB', 'info', 'en_US', 'Increase conversions with WooPay — our fastest checkout yet', 'Be one of the first to try WooPay, a new express checkout feature for WooCommerce Payments. \r\n<br><br>\r\nBoost conversions by letting customers pay with a single click.', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:54', NULL, 0, 'plain', '', 0, 0, 'info'),
+(38, 'woopay-beta-merchantrecruitment-short-06MAY23-TESTC', 'info', 'en_US', 'Increase conversions with WooPay — our fastest checkout yet', 'Be one of the first to try WooPay, a new express checkout feature for WooCommerce Payments. \r\n<br><br>\r\nBoost conversions by letting customers pay with a single click.', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:54', NULL, 0, 'plain', '', 0, 0, 'info'),
+(39, 'woopay-beta-merchantrecruitment-short-06MAY23-TESTD', 'info', 'en_US', 'Increase conversions with WooPay — our fastest checkout yet', 'Be one of the first to try WooPay, a new express checkout feature for WooCommerce Payments. \r\n<br><br>\r\nBoost conversions by letting customers pay with a single click.', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:54', NULL, 0, 'plain', '', 0, 0, 'info'),
+(40, 'woopay-beta-merchantrecruitment-short-09MAY23', 'info', 'en_US', 'Increase conversions with WooPay — our fastest checkout yet', 'Be one of the first to try WooPay, a new express checkout feature for WooCommerce Payments. \r\n<br><br>\r\nBoost conversions by letting customers pay with a single click.', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:54', NULL, 0, 'plain', '', 0, 0, 'info'),
+(41, 'woopay-beta-merchantrecruitment-short-update-09MAY23', 'info', 'en_US', 'Increase conversions with WooPay — our fastest checkout yet', 'Be one of the first to try WooPay, our new express checkout feature. <br>Boost conversions by letting customers pay with a single click. <br><br>Update to the latest version of WooCommerce Payments to get started.', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:54', NULL, 0, 'plain', '', 0, 0, 'info'),
+(42, 'woocommerce-WCSubscriptions-June-2023-updated-needed', 'marketing', 'en_US', 'Action required: Security update of WooCommerce Subscriptions', '<strong>Your store requires a security update for the WooCommerce Subscriptions plugin</strong>. Please update the WooCommerce Subscriptions plugin immediately to address a potential vulnerability.', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:54', NULL, 0, 'plain', '', 0, 0, 'info'),
+(43, 'woocommerce-WCReturnsWarranty-June-2023-updated-needed', 'update', 'en_US', 'Action required: Security update of WooCommerce Returns and Warranty Requests extension', '<strong>Your store requires a security update for the Returns and Warranty Requests extension</strong>.  Please update to the latest version of the WooCommerce Returns and Warranty Requests extension immediately to address a potential vulnerability discovered on May 31.', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:54', NULL, 0, 'plain', '', 0, 0, 'info'),
+(44, 'woocommerce-WCOPC-June-2023-updated-needed', 'update', 'en_US', 'Action required: Security update of WooCommerce One Page Checkout', '<strong>Your shop requires a security update to address a vulnerability in the WooCommerce One Page Checkout extension</strong>. The fix for this vulnerability was released for this extension on June 13th. Please update immediately.', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:54', NULL, 0, 'plain', '', 0, 0, 'info'),
+(45, 'woocommerce-WCGC-July-2023-update-needed', 'update', 'en_US', 'Action required: Security update of WooCommerce GoCardless Extension', '<strong>Your shop requires a security update to address a vulnerability in the WooCommerce GoCardless extension</strong>. The fix for this vulnerability was released on July 4th. Please update immediately.', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:54', NULL, 0, 'plain', '', 0, 0, 'info'),
+(46, 'woocommerce-shipping-fedex-api-outage-2023-07-16', 'warning', 'en_US', 'Scheduled FedEx API outage — July 2023', 'On July 16 there will be a full outage of the FedEx API from 04:00 to 08:00 AM UTC. Due to planned maintenance by FedEx, you\'ll be unable to provide FedEx shipping rates during this time. Follow the link below for more information and recommendations on how to minimize impact.', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:54', NULL, 0, 'plain', '', 0, 0, 'info'),
+(47, 'wcship-2023-07-hazmat-update-needed', 'update', 'en_US', 'Action required: USPS HAZMAT compliance update for WooCommerce Shipping & Tax extension', '<strong>Your store requires an update for the WooCommerce Shipping extension</strong>. Please update to the latest version of the WooCommerce Shipping &amp; Tax extension immediately to ensure compliance with new USPS HAZMAT rules currently in effect.', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:54', NULL, 0, 'plain', '', 0, 0, 'info'),
+(48, 'woocommerce-WCStripe-Aug-2023-update-needed', 'update', 'en_US', 'Action required: Security update for WooCommerce Stripe plugin', '<strong>Your shop requires an important security update for the  WooCommerce Stripe plugin</strong>. The fix for this vulnerability was released on July 31. Please update immediately.', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:54', NULL, 0, 'plain', '', 0, 0, 'info'),
+(49, 'woocommerce-WCStripe-Aug-2023-security-updated', 'update', 'en_US', 'Security update of WooCommerce Stripe plugin', '<strong>Your store has been updated to the latest secure version of the WooCommerce Stripe plugin</strong>. This update was released on July 31.', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:54', NULL, 0, 'plain', '', 0, 0, 'info'),
+(50, 'woocommerce-WooPayments-Aug-2023-security-updated', 'update', 'en_US', 'Security update of WooPayments (WooCommerce Payments) plugin', '<strong>Your store has been updated to the more secure version of WooPayments (WooCommerce Payments)</strong>. This update was released on July 31.', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:54', NULL, 0, 'plain', '', 0, 0, 'info'),
+(51, 'avalara_q3-2023_noAvaTax', 'marketing', 'en_US', 'Automatically calculate VAT in real time', 'Take the effort out of determining tax rates and sell confidently across borders with automated tax management from Avalara AvaTax— including built-in VAT calculation when you sell into or across the EU and UK. Save time and stay compliant when you let Avalara do the heavy lifting.', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:54', NULL, 0, 'plain', '', 0, 0, 'info'),
+(52, 'woocommerce-usermeta-Sept2023-productvendors', 'update', 'en_US', 'Your store requires a security update', '<strong>Your shop needs an update to address a vulnerability in WooCommerce.</strong> The fix was released on Sept 15. Please update WooCommerce to the latest version immediately. <a href=\"https://developer.woocommerce.com/2023/09/16/woocommerce-vulnerability-reintroduced-from-7-0-1/\" />Read our developer update</a> for more information.', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:54', NULL, 0, 'plain', '', 0, 0, 'info'),
+(53, 'woocommerce-STRIPE-Oct-2023-update-needed', 'update', 'en_US', 'Action required: Security update for WooCommerce Stripe Gateway', '<strong>Your shop requires a security update to address a vulnerability in the WooCommerce Stripe Gateway</strong>. The fix for this vulnerability was released on October 17. Please update immediately.', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:54', NULL, 0, 'plain', '', 0, 0, 'info'),
+(54, 'amazon-mcf-reviews-2023-12-07', 'marketing', 'en_US', 'Enjoying Amazon MCF for WooCommerce?', 'We\'re Never Settle, the developers behind Amazon MCF for WooCommerce, and would be deeply honored to have your review. Reviews help immensely as other users can learn how MCF can solve their needs too! Not happy or need help? Please reach out for support and we’d love to make things right!', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:54', NULL, 0, 'plain', '', 0, 0, 'info'),
+(55, 'remove_estimated_deposits_2024', 'marketing', 'en_US', 'Estimated deposits are going away', 'To provide more accurate deposit information and support the expansion of instant deposits, estimated deposit details will no longer be available in WooPayments. We recommend upgrading to the latest version of WooPayments for more detailed balance status information.', '{}', 'pending', 'woocommerce.com', '2024-11-27 04:01:54', NULL, 0, 'plain', '', 0, 0, 'info'),
+(56, 'storefront-customize', 'info', 'en_US', 'Design your store with Storefront 🎨', 'Visit the Storefront settings page to start setup and customization of your shop.', '{}', 'unactioned', 'storefront', '2024-11-27 04:36:30', NULL, 0, 'plain', '', 0, 1, 'info');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `wp_wc_admin_note_actions`
+--
+
+CREATE TABLE `wp_wc_admin_note_actions` (
+  `action_id` bigint(20) UNSIGNED NOT NULL,
+  `note_id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `label` varchar(255) NOT NULL,
+  `query` longtext NOT NULL,
+  `status` varchar(255) NOT NULL,
+  `actioned_text` varchar(255) NOT NULL,
+  `nonce_action` varchar(255) DEFAULT NULL,
+  `nonce_name` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+--
+-- Volcado de datos para la tabla `wp_wc_admin_note_actions`
+--
+
+INSERT INTO `wp_wc_admin_note_actions` (`action_id`, `note_id`, `name`, `label`, `query`, `status`, `actioned_text`, `nonce_action`, `nonce_name`) VALUES
+(1, 1, 'notify-refund-returns-page', 'Edit page', 'http://localhost/curso-woocomerce-wp/wp-admin/post.php?post=12&action=edit', 'actioned', '', NULL, NULL),
+(83, 2, 'wayflyer_bnpl_q4_2021', 'Level up with funding', 'https://woocommerce.com/products/wayflyer/?utm_source=inbox_note&utm_medium=product&utm_campaign=wayflyer_bnpl_q4_2021', 'actioned', '', NULL, NULL),
+(84, 3, 'wc_shipping_mobile_app_usps_q4_2021', 'Get WooCommerce Shipping', 'https://woocommerce.com/woocommerce-shipping/?utm_source=inbox_note&utm_medium=product&utm_campaign=wc_shipping_mobile_app_usps_q4_2021', 'actioned', '', NULL, NULL),
+(85, 4, 'learn-more', 'Learn more', 'https://woocommerce.com/posts/ecommerce-shipping-solutions-guide/?utm_source=inbox_note&utm_medium=product&utm_campaign=learn-more', 'actioned', '', NULL, NULL),
+(86, 5, 'optimizing-the-checkout-flow', 'Learn more', 'https://woocommerce.com/posts/optimizing-woocommerce-checkout?utm_source=inbox_note&utm_medium=product&utm_campaign=optimizing-the-checkout-flow', 'actioned', '', NULL, NULL),
+(87, 6, 'qualitative-feedback-from-new-users', 'Share feedback', 'https://automattic.survey.fm/woopayments-new-user-feedback', 'actioned', '', NULL, NULL),
+(88, 7, 'share-feedback', 'Share feedback', 'http://automattic.survey.fm/paypal-feedback', 'unactioned', '', NULL, NULL),
+(89, 8, 'get-started', 'Get started', 'https://woocommerce.com/products/google-listings-and-ads?utm_source=inbox_note&utm_medium=product&utm_campaign=get-started', 'actioned', '', NULL, NULL),
+(90, 9, 'update-wc-subscriptions-3-0-15', 'View latest version', 'http://localhost/curso-woocomerce-wp/wp-admin/&page=wc-addons&section=helper', 'actioned', '', NULL, NULL),
+(91, 10, 'update-wc-core-5-4-0', 'How to update WooCommerce', 'https://docs.woocommerce.com/document/how-to-update-woocommerce/', 'actioned', '', NULL, NULL),
+(92, 13, 'ppxo-pps-install-paypal-payments-1', 'View upgrade guide', 'https://docs.woocommerce.com/document/woocommerce-paypal-payments/paypal-payments-upgrade-guide/', 'actioned', '', NULL, NULL),
+(93, 14, 'ppxo-pps-install-paypal-payments-2', 'View upgrade guide', 'https://docs.woocommerce.com/document/woocommerce-paypal-payments/paypal-payments-upgrade-guide/', 'actioned', '', NULL, NULL),
+(94, 15, 'learn-more', 'Learn more', 'https://woocommerce.com/posts/critical-vulnerability-detected-july-2021/?utm_source=inbox_note&utm_medium=product&utm_campaign=learn-more', 'unactioned', '', NULL, NULL),
+(95, 15, 'dismiss', 'Dismiss', '', 'actioned', '', NULL, NULL),
+(96, 16, 'learn-more', 'Learn more', 'https://woocommerce.com/posts/critical-vulnerability-detected-july-2021/?utm_source=inbox_note&utm_medium=product&utm_campaign=learn-more', 'unactioned', '', NULL, NULL),
+(97, 16, 'dismiss', 'Dismiss', '', 'actioned', '', NULL, NULL),
+(98, 17, 'learn-more', 'Learn more', 'https://woocommerce.com/posts/critical-vulnerability-detected-july-2021/?utm_source=inbox_note&utm_medium=product&utm_campaign=learn-more', 'unactioned', '', NULL, NULL),
+(99, 17, 'dismiss', 'Dismiss', '', 'actioned', '', NULL, NULL),
+(100, 18, 'learn-more', 'Learn more', 'https://woocommerce.com/posts/critical-vulnerability-detected-july-2021/?utm_source=inbox_note&utm_medium=product&utm_campaign=learn-more', 'unactioned', '', NULL, NULL),
+(101, 18, 'dismiss', 'Dismiss', '', 'actioned', '', NULL, NULL),
+(102, 19, 'share-feedback', 'Share feedback', 'https://automattic.survey.fm/store-management', 'unactioned', '', NULL, NULL),
+(103, 20, 'learn-more', 'Learn more', 'https://developer.woocommerce.com/2022/03/10/woocommerce-3-5-10-6-3-1-security-releases/', 'unactioned', '', NULL, NULL),
+(104, 20, 'woocommerce-core-paypal-march-2022-dismiss', 'Dismiss', '', 'actioned', '', NULL, NULL),
+(105, 21, 'learn-more', 'Learn more', 'https://developer.woocommerce.com/2022/03/10/woocommerce-3-5-10-6-3-1-security-releases/', 'unactioned', '', NULL, NULL),
+(106, 21, 'dismiss', 'Dismiss', '', 'actioned', '', NULL, NULL),
+(107, 22, 'pinterest_03_2022_update', 'Update Instructions', 'https://woocommerce.com/document/pinterest-for-woocommerce/?utm_source=inbox_note&utm_medium=product&utm_campaign=pinterest_03_2022_update#section-3', 'actioned', '', NULL, NULL),
+(108, 23, 'store_setup_survey_survey_q2_2022_share_your_thoughts', 'Tell us how it’s going', 'https://automattic.survey.fm/store-setup-survey-2022', 'actioned', '', NULL, NULL),
+(109, 24, 'needs-update-eway-payment-gateway-rin-action-button-2022-12-20', 'See available updates', 'http://localhost/curso-woocomerce-wp/wp-admin/update-core.php', 'unactioned', '', NULL, NULL),
+(110, 24, 'needs-update-eway-payment-gateway-rin-dismiss-button-2022-12-20', 'Dismiss', '#', 'actioned', '', NULL, NULL),
+(111, 25, 'updated-eway-payment-gateway-rin-action-button-2022-12-20', 'See all updates', 'http://localhost/curso-woocomerce-wp/wp-admin/update-core.php', 'unactioned', '', NULL, NULL),
+(112, 25, 'updated-eway-payment-gateway-rin-dismiss-button-2022-12-20', 'Dismiss', '#', 'actioned', '', NULL, NULL),
+(113, 26, 'share-navigation-survey-feedback', 'Share feedback', 'https://automattic.survey.fm/new-ecommerce-plan-navigation', 'actioned', '', NULL, NULL),
+(114, 27, 'woopay-beta-merchantrecruitment-activate-04MAY23', 'Activate WooPay', 'http://localhost/curso-woocomerce-wp/wp-admin/admin.php?page=wc-settings&tab=checkout&section=woocommerce_payments&method=platform_checkout', 'actioned', '', NULL, NULL),
+(115, 27, 'woopay-beta-merchantrecruitment-activate-learnmore-04MAY23', 'Learn More', 'https://woocommerce.com/woopay-businesses/?utm_source=inbox_note&utm_medium=product&utm_campaign=woopay-beta-merchantrecruitment-activate-learnmore-04MAY23', 'unactioned', '', NULL, NULL),
+(116, 28, 'woocommerce-wcpay-march-2023-update-needed-button', 'See Blog Post', 'https://developer.woocommerce.com/2023/03/23/critical-vulnerability-detected-in-woocommerce-payments-what-you-need-to-know', 'unactioned', '', NULL, NULL),
+(117, 28, 'woocommerce-wcpay-march-2023-update-needed-dismiss-button', 'Dismiss', '#', 'actioned', '', NULL, NULL),
+(118, 29, 'tap_to_pay_iphone_q2_2023_no_wcpay', 'Simplify my payments', 'https://woocommerce.com/products/woocommerce-payments/?utm_source=inbox_note&utm_medium=product&utm_campaign=tap_to_pay_iphone_q2_2023_no_wcpay', 'actioned', '', NULL, NULL),
+(119, 30, 'extension-settings', 'See available updates', 'http://localhost/curso-woocomerce-wp/wp-admin/update-core.php', 'unactioned', '', NULL, NULL),
+(120, 30, 'dismiss', 'Dismiss', '#', 'actioned', '', NULL, NULL),
+(121, 31, 'woopay-beta-merchantrecruitment-update-WCPay-04MAY23', 'Update WooCommerce Payments', 'http://localhost/curso-woocomerce-wp/wp-admin/plugins.php?plugin_status=all', 'unactioned', '', NULL, NULL),
+(122, 31, 'woopay-beta-merchantrecruitment-update-activate-04MAY23', 'Activate WooPay', 'http://localhost/curso-woocomerce-wp/wp-admin/admin.php?page=wc-settings&tab=checkout&section=woocommerce_payments&method=platform_checkout', 'actioned', '', NULL, NULL),
+(123, 32, 'woopay-beta-existingmerchants-noaction-documentation-27APR23', 'Documentation', 'https://woocommerce.com/document/woopay-merchant-documentation/?utm_source=inbox_note&utm_medium=product&utm_campaign=woopay-beta-existingmerchants-noaction-documentation-27APR23', 'actioned', '', NULL, NULL),
+(124, 33, 'woopay-beta-existingmerchants-update-WCPay-27APR23', 'Update WooCommerce Payments', 'http://localhost/curso-woocomerce-wp/wp-admin/plugins.php?plugin_status=all', 'actioned', '', NULL, NULL),
+(125, 34, 'woopay-beta-merchantrecruitment-short-activate-04MAY23', 'Activate WooPay', 'http://localhost/curso-woocomerce-wp/wp-admin/admin.php?page=wc-settings&tab=checkout&section=woocommerce_payments&method=platform_checkout', 'actioned', '', NULL, NULL),
+(126, 34, 'woopay-beta-merchantrecruitment-short-activate-learnmore-04MAY23', 'Learn More', 'https://woocommerce.com/woopay-businesses/?utm_source=inbox_note&utm_medium=product&utm_campaign=woopay-beta-merchantrecruitment-short-activate-learnmore-04MAY23', 'actioned', '', NULL, NULL),
+(127, 35, 'woopay-beta-merchantrecruitment-short-update-WCPay-04MAY23', 'Update WooCommerce Payments', 'http://localhost/curso-woocomerce-wp/wp-admin/plugins.php?plugin_status=all', 'unactioned', '', NULL, NULL),
+(128, 35, 'woopay-beta-merchantrecruitment-short-update-activate-04MAY23', 'Activate WooPay', 'http://localhost/curso-woocomerce-wp/wp-admin/admin.php?page=wc-settings&tab=checkout&section=woocommerce_payments&method=platform_checkout', 'actioned', '', NULL, NULL),
+(129, 36, 'woopay-beta-merchantrecruitment-short-activate-06MAY23-TESTA', 'Activate WooPay Test A', 'http://localhost/curso-woocomerce-wp/wp-admin/admin.php?page=wc-settings&tab=checkout&section=woocommerce_payments&method=platform_checkout', 'unactioned', '', NULL, NULL),
+(130, 36, 'woopay-beta-merchantrecruitment-short-activate-learnmore-06MAY23-TESTA', 'Learn More', 'https://woocommerce.com/woopay-businesses/?utm_source=inbox_note&utm_medium=product&utm_campaign=woopay-beta-merchantrecruitment-short-activate-learnmore-06MAY23-TESTA', 'unactioned', '', NULL, NULL),
+(131, 37, 'woopay-beta-merchantrecruitment-short-activate-06MAY23-TESTB', 'Activate WooPay Test B', 'http://localhost/curso-woocomerce-wp/wp-admin/admin.php?page=wc-settings&tab=checkout&section=woocommerce_payments&method=platform_checkout', 'unactioned', '', NULL, NULL),
+(132, 37, 'woopay-beta-merchantrecruitment-short-activate-learnmore-06MAY23-TESTA', 'Learn More', 'https://woocommerce.com/woopay-businesses/?utm_source=inbox_note&utm_medium=product&utm_campaign=woopay-beta-merchantrecruitment-short-activate-learnmore-06MAY23-TESTA', 'unactioned', '', NULL, NULL),
+(133, 38, 'woopay-beta-merchantrecruitment-short-activate-06MAY23-TESTC', 'Activate WooPay Test C', 'http://localhost/curso-woocomerce-wp/wp-admin/admin.php?page=wc-settings&tab=checkout&section=woocommerce_payments&method=platform_checkout', 'unactioned', '', NULL, NULL),
+(134, 38, 'woopay-beta-merchantrecruitment-short-activate-learnmore-06MAY23-TESTC', 'Learn More', 'https://woocommerce.com/woopay-businesses/?utm_source=inbox_note&utm_medium=product&utm_campaign=woopay-beta-merchantrecruitment-short-activate-learnmore-06MAY23-TESTC', 'unactioned', '', NULL, NULL),
+(135, 39, 'woopay-beta-merchantrecruitment-short-activate-06MAY23-TESTD', 'Activate WooPay Test D', 'http://localhost/curso-woocomerce-wp/wp-admin/admin.php?page=wc-settings&tab=checkout&section=woocommerce_payments&method=platform_checkout', 'unactioned', '', NULL, NULL),
+(136, 39, 'woopay-beta-merchantrecruitment-short-activate-learnmore-06MAY23-TESTD', 'Learn More', 'https://woocommerce.com/woopay-businesses/?utm_source=inbox_note&utm_medium=product&utm_campaign=woopay-beta-merchantrecruitment-short-activate-learnmore-06MAY23-TESTD', 'unactioned', '', NULL, NULL),
+(137, 40, 'woopay-beta-merchantrecruitment-short-activate-button-09MAY23', 'Activate WooPay', 'http://localhost/curso-woocomerce-wp/wp-admin/admin.php?page=wc-settings&tab=checkout&section=woocommerce_payments&method=platform_checkout', 'unactioned', '', NULL, NULL),
+(138, 40, 'woopay-beta-merchantrecruitment-short-activate-learnmore-button2-09MAY23', 'Learn More', 'https://woocommerce.com/woopay-businesses/?utm_source=inbox_note&utm_medium=product&utm_campaign=woopay-beta-merchantrecruitment-short-activate-learnmore-button2-09MAY23', 'unactioned', '', NULL, NULL),
+(139, 41, 'woopay-beta-merchantrecruitment-short-update-WCPay-09MAY23', 'Update WooCommerce Payments', 'http://localhost/curso-woocomerce-wp/wp-admin/plugins.php?plugin_status=all', 'unactioned', '', NULL, NULL),
+(140, 41, 'woopay-beta-merchantrecruitment-short-update-activate-09MAY23', 'Activate WooPay', 'http://localhost/curso-woocomerce-wp/wp-admin/admin.php?page=wc-settings&tab=checkout&section=woocommerce_payments&method=platform_checkout', 'unactioned', '', NULL, NULL),
+(141, 42, 'woocommerce-WCSubscriptions-June-2023-updated-needed-Plugin-Settings', 'See available updates', 'http://localhost/curso-woocomerce-wp/wp-admin/plugins.php?plugin_status=all', 'unactioned', '', NULL, NULL),
+(142, 42, 'woocommerce-WCSubscriptions-June-2023-updated-needed-dismiss', 'Dismiss', '#', 'actioned', '', NULL, NULL),
+(143, 43, 'woocommerce-WCReturnsWarranty-June-2023-updated-needed', 'See available updates', 'http://localhost/curso-woocomerce-wp/wp-admin/plugins.php?plugin_status=all', 'unactioned', '', NULL, NULL),
+(144, 43, 'woocommerce-WCReturnsWarranty-June-2023-updated-needed', 'Dismiss', '#', 'actioned', '', NULL, NULL),
+(145, 44, 'woocommerce-WCOPC-June-2023-updated-needed', 'See available updates', 'http://localhost/curso-woocomerce-wp/wp-admin/plugins.php?plugin_status=all', 'actioned', '', NULL, NULL),
+(146, 44, 'woocommerce-WCOPC-June-2023-updated-needed', 'Dismiss', 'http://localhost/curso-woocomerce-wp/wp-admin/#', 'actioned', '', NULL, NULL),
+(147, 45, 'woocommerce-WCGC-July-2023-update-needed', 'See available updates', 'http://localhost/curso-woocomerce-wp/wp-admin/plugins.php?plugin_status=all', 'unactioned', '', NULL, NULL),
+(148, 45, 'woocommerce-WCGC-July-2023-update-needed', 'Dismiss', '#', 'actioned', '', NULL, NULL),
+(149, 46, 'learn-more', 'Learn more', 'https://woocommerce.com/document/fedex/?utm_medium=product&utm_source=inbox_note&utm_campaign=learn-more#july-2023-api-outage', 'unactioned', '', NULL, NULL),
+(150, 47, 'plugin-list', 'See available updates', 'http://localhost/curso-woocomerce-wp/wp-admin/plugins.php?plugin_status=all', 'unactioned', '', NULL, NULL),
+(151, 47, 'dismiss', 'Dismiss', 'http://localhost/curso-woocomerce-wp/wp-admin/admin.php?page=wc-admin', 'actioned', '', NULL, NULL),
+(152, 48, 'woocommerce-WCStripe-Aug-2023-update-needed', 'See available updates', 'http://localhost/curso-woocomerce-wp/wp-admin/update-core.php?', 'unactioned', '', NULL, NULL),
+(153, 48, 'dismiss', 'Dismiss', '#', 'actioned', '', NULL, NULL),
+(154, 49, 'dismiss', 'Dismiss', '#', 'actioned', '', NULL, NULL),
+(155, 50, 'dismiss', 'Dismiss', '#', 'actioned', '', NULL, NULL),
+(156, 51, 'avalara_q3-2023_noAvaTax', 'Automate my sales tax', 'https://woocommerce.com/products/woocommerce-avatax/?utm_source=inbox_note&utm_medium=product&utm_campaign=avalara_q3-2023_noAvaTax', 'unactioned', '', NULL, NULL),
+(157, 52, 'woocommerce-usermeta-Sept2023-productvendors', 'See available updates', 'http://localhost/curso-woocomerce-wp/wp-admin/plugins.php', 'unactioned', '', NULL, NULL),
+(158, 52, 'dismiss', 'Dismiss', 'http://localhost/curso-woocomerce-wp/wp-admin/#', 'actioned', '', NULL, NULL),
+(159, 53, 'woocommerce-STRIPE-Oct-2023-update-needed', 'See available updates', 'http://localhost/curso-woocomerce-wp/wp-admin/update-core.php', 'unactioned', '', NULL, NULL),
+(160, 53, 'dismiss', 'Dismiss', '#', 'actioned', '', NULL, NULL),
+(161, 54, 'amazon-mcf-review-button-2023-12-07', 'Leave a review', 'https://woocommerce.com/products/woocommerce-amazon-fulfillment/?review&utm_source=inbox_note&utm_medium=product&utm_campaign=amazon-mcf-review-button-2023-12-07', 'actioned', '', NULL, NULL),
+(162, 54, 'amazon-mcf-support-button-2023-12-07', 'Request support', 'https://woocommerce.com/my-account/contact-support/?utm_source=inbox_note&utm_medium=product&utm_campaign=amazon-mcf-support-button-2023-12-07', 'actioned', '', NULL, NULL),
+(163, 55, 'view_docs', 'Learn about Deposit schedules', 'https://woocommerce.com/document/woopayments/deposits/deposit-schedule/?utm_source=inbox_note&utm_medium=product&utm_campaign=view_docs#available-funds', 'unactioned', '', NULL, NULL),
+(164, 56, 'customize-store-with-storefront', 'Let\'s go!', 'http://localhost/curso-woocomerce-wp/wp-admin/themes.php?page=storefront-welcome', 'actioned', '', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `wp_wc_category_lookup`
+--
+
+CREATE TABLE `wp_wc_category_lookup` (
+  `category_tree_id` bigint(20) UNSIGNED NOT NULL,
+  `category_id` bigint(20) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+--
+-- Volcado de datos para la tabla `wp_wc_category_lookup`
+--
+
+INSERT INTO `wp_wc_category_lookup` (`category_tree_id`, `category_id`) VALUES
+(15, 15),
+(16, 16),
+(16, 17),
+(16, 18),
+(16, 19),
+(17, 17),
+(18, 18),
+(19, 19),
+(20, 20),
+(21, 21);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `wp_wc_customer_lookup`
+--
+
+CREATE TABLE `wp_wc_customer_lookup` (
+  `customer_id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `username` varchar(60) NOT NULL DEFAULT '',
+  `first_name` varchar(255) NOT NULL,
+  `last_name` varchar(255) NOT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `date_last_active` timestamp NULL DEFAULT NULL,
+  `date_registered` timestamp NULL DEFAULT NULL,
+  `country` char(2) NOT NULL DEFAULT '',
+  `postcode` varchar(20) NOT NULL DEFAULT '',
+  `city` varchar(100) NOT NULL DEFAULT '',
+  `state` varchar(100) NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `wp_wc_download_log`
+--
+
+CREATE TABLE `wp_wc_download_log` (
+  `download_log_id` bigint(20) UNSIGNED NOT NULL,
+  `timestamp` datetime NOT NULL,
+  `permission_id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `user_ip_address` varchar(100) DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `wp_wc_orders`
+--
+
+CREATE TABLE `wp_wc_orders` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `status` varchar(20) DEFAULT NULL,
+  `currency` varchar(10) DEFAULT NULL,
+  `type` varchar(20) DEFAULT NULL,
+  `tax_amount` decimal(26,8) DEFAULT NULL,
+  `total_amount` decimal(26,8) DEFAULT NULL,
+  `customer_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `billing_email` varchar(320) DEFAULT NULL,
+  `date_created_gmt` datetime DEFAULT NULL,
+  `date_updated_gmt` datetime DEFAULT NULL,
+  `parent_order_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `payment_method` varchar(100) DEFAULT NULL,
+  `payment_method_title` text DEFAULT NULL,
+  `transaction_id` varchar(100) DEFAULT NULL,
+  `ip_address` varchar(100) DEFAULT NULL,
+  `user_agent` text DEFAULT NULL,
+  `customer_note` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `wp_wc_orders_meta`
+--
+
+CREATE TABLE `wp_wc_orders_meta` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `order_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `meta_key` varchar(255) DEFAULT NULL,
+  `meta_value` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `wp_wc_order_addresses`
+--
+
+CREATE TABLE `wp_wc_order_addresses` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `order_id` bigint(20) UNSIGNED NOT NULL,
+  `address_type` varchar(20) DEFAULT NULL,
+  `first_name` text DEFAULT NULL,
+  `last_name` text DEFAULT NULL,
+  `company` text DEFAULT NULL,
+  `address_1` text DEFAULT NULL,
+  `address_2` text DEFAULT NULL,
+  `city` text DEFAULT NULL,
+  `state` text DEFAULT NULL,
+  `postcode` text DEFAULT NULL,
+  `country` text DEFAULT NULL,
+  `email` varchar(320) DEFAULT NULL,
+  `phone` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `wp_wc_order_coupon_lookup`
+--
+
+CREATE TABLE `wp_wc_order_coupon_lookup` (
+  `order_id` bigint(20) UNSIGNED NOT NULL,
+  `coupon_id` bigint(20) NOT NULL,
+  `date_created` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `discount_amount` double NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `wp_wc_order_operational_data`
+--
+
+CREATE TABLE `wp_wc_order_operational_data` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `order_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `created_via` varchar(100) DEFAULT NULL,
+  `woocommerce_version` varchar(20) DEFAULT NULL,
+  `prices_include_tax` tinyint(1) DEFAULT NULL,
+  `coupon_usages_are_counted` tinyint(1) DEFAULT NULL,
+  `download_permission_granted` tinyint(1) DEFAULT NULL,
+  `cart_hash` varchar(100) DEFAULT NULL,
+  `new_order_email_sent` tinyint(1) DEFAULT NULL,
+  `order_key` varchar(100) DEFAULT NULL,
+  `order_stock_reduced` tinyint(1) DEFAULT NULL,
+  `date_paid_gmt` datetime DEFAULT NULL,
+  `date_completed_gmt` datetime DEFAULT NULL,
+  `shipping_tax_amount` decimal(26,8) DEFAULT NULL,
+  `shipping_total_amount` decimal(26,8) DEFAULT NULL,
+  `discount_tax_amount` decimal(26,8) DEFAULT NULL,
+  `discount_total_amount` decimal(26,8) DEFAULT NULL,
+  `recorded_sales` tinyint(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `wp_wc_order_product_lookup`
+--
+
+CREATE TABLE `wp_wc_order_product_lookup` (
+  `order_item_id` bigint(20) UNSIGNED NOT NULL,
+  `order_id` bigint(20) UNSIGNED NOT NULL,
+  `product_id` bigint(20) UNSIGNED NOT NULL,
+  `variation_id` bigint(20) UNSIGNED NOT NULL,
+  `customer_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `date_created` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `product_qty` int(11) NOT NULL,
+  `product_net_revenue` double NOT NULL DEFAULT 0,
+  `product_gross_revenue` double NOT NULL DEFAULT 0,
+  `coupon_amount` double NOT NULL DEFAULT 0,
+  `tax_amount` double NOT NULL DEFAULT 0,
+  `shipping_amount` double NOT NULL DEFAULT 0,
+  `shipping_tax_amount` double NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `wp_wc_order_stats`
+--
+
+CREATE TABLE `wp_wc_order_stats` (
+  `order_id` bigint(20) UNSIGNED NOT NULL,
+  `parent_id` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
+  `date_created` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `date_created_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `date_paid` datetime DEFAULT '0000-00-00 00:00:00',
+  `date_completed` datetime DEFAULT '0000-00-00 00:00:00',
+  `num_items_sold` int(11) NOT NULL DEFAULT 0,
+  `total_sales` double NOT NULL DEFAULT 0,
+  `tax_total` double NOT NULL DEFAULT 0,
+  `shipping_total` double NOT NULL DEFAULT 0,
+  `net_total` double NOT NULL DEFAULT 0,
+  `returning_customer` tinyint(1) DEFAULT NULL,
+  `status` varchar(200) NOT NULL,
+  `customer_id` bigint(20) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `wp_wc_order_tax_lookup`
+--
+
+CREATE TABLE `wp_wc_order_tax_lookup` (
+  `order_id` bigint(20) UNSIGNED NOT NULL,
+  `tax_rate_id` bigint(20) UNSIGNED NOT NULL,
+  `date_created` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `shipping_tax` double NOT NULL DEFAULT 0,
+  `order_tax` double NOT NULL DEFAULT 0,
+  `total_tax` double NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `wp_wc_product_attributes_lookup`
+--
+
+CREATE TABLE `wp_wc_product_attributes_lookup` (
+  `product_id` bigint(20) NOT NULL,
+  `product_or_parent_id` bigint(20) NOT NULL,
+  `taxonomy` varchar(32) NOT NULL,
+  `term_id` bigint(20) NOT NULL,
+  `is_variation_attribute` tinyint(1) NOT NULL,
+  `in_stock` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+--
+-- Volcado de datos para la tabla `wp_wc_product_attributes_lookup`
+--
+
+INSERT INTO `wp_wc_product_attributes_lookup` (`product_id`, `product_or_parent_id`, `taxonomy`, `term_id`, `is_variation_attribute`, `in_stock`) VALUES
+(79, 63, 'pa_color', 22, 1, 1),
+(78, 63, 'pa_color', 23, 1, 1),
+(77, 63, 'pa_color', 24, 1, 1),
+(77, 63, 'pa_size', 25, 1, 1),
+(78, 63, 'pa_size', 25, 1, 1),
+(79, 63, 'pa_size', 25, 1, 1),
+(77, 63, 'pa_size', 26, 1, 1),
+(78, 63, 'pa_size', 26, 1, 1),
+(79, 63, 'pa_size', 26, 1, 1),
+(77, 63, 'pa_size', 27, 1, 1),
+(78, 63, 'pa_size', 27, 1, 1),
+(79, 63, 'pa_size', 27, 1, 1),
+(82, 64, 'pa_color', 22, 1, 1),
+(87, 64, 'pa_color', 22, 1, 1),
+(81, 64, 'pa_color', 23, 1, 1),
+(80, 64, 'pa_color', 24, 1, 1),
+(65, 65, 'pa_color', 22, 0, 1),
+(66, 66, 'pa_color', 28, 0, 1),
+(67, 67, 'pa_color', 24, 0, 1),
+(69, 69, 'pa_color', 29, 0, 1),
+(73, 73, 'pa_color', 23, 0, 1),
+(74, 74, 'pa_color', 22, 0, 1),
+(83, 83, 'pa_color', 28, 0, 1),
+(84, 84, 'pa_color', 24, 0, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `wp_wc_product_download_directories`
+--
+
+CREATE TABLE `wp_wc_product_download_directories` (
+  `url_id` bigint(20) UNSIGNED NOT NULL,
+  `url` varchar(256) NOT NULL,
+  `enabled` tinyint(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+--
+-- Volcado de datos para la tabla `wp_wc_product_download_directories`
+--
+
+INSERT INTO `wp_wc_product_download_directories` (`url_id`, `url`, `enabled`) VALUES
+(1, 'file://C:/xampp/htdocs/curso-woocomerce-wp/wp-content/uploads/woocommerce_uploads/', 1),
+(2, 'http://localhost/curso-woocomerce-wp/wp-content/uploads/woocommerce_uploads/', 1),
+(3, 'https://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2017/08/', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `wp_wc_product_meta_lookup`
+--
+
+CREATE TABLE `wp_wc_product_meta_lookup` (
+  `product_id` bigint(20) NOT NULL,
+  `sku` varchar(100) DEFAULT '',
+  `global_unique_id` varchar(100) DEFAULT '',
+  `virtual` tinyint(1) DEFAULT 0,
+  `downloadable` tinyint(1) DEFAULT 0,
+  `min_price` decimal(19,4) DEFAULT NULL,
+  `max_price` decimal(19,4) DEFAULT NULL,
+  `onsale` tinyint(1) DEFAULT 0,
+  `stock_quantity` double DEFAULT NULL,
+  `stock_status` varchar(100) DEFAULT 'instock',
+  `rating_count` bigint(20) DEFAULT 0,
+  `average_rating` decimal(3,2) DEFAULT 0.00,
+  `total_sales` bigint(20) DEFAULT 0,
+  `tax_status` varchar(100) DEFAULT 'taxable',
+  `tax_class` varchar(100) DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+--
+-- Volcado de datos para la tabla `wp_wc_product_meta_lookup`
+--
+
+INSERT INTO `wp_wc_product_meta_lookup` (`product_id`, `sku`, `global_unique_id`, `virtual`, `downloadable`, `min_price`, `max_price`, `onsale`, `stock_quantity`, `stock_status`, `rating_count`, `average_rating`, `total_sales`, `tax_status`, `tax_class`) VALUES
+(63, 'woo-vneck-tee', '', 0, 0, 15.0000, 20.0000, 0, NULL, 'instock', 0, 0.00, 0, 'taxable', ''),
+(64, 'woo-hoodie', '', 0, 0, 42.0000, 45.0000, 0, NULL, 'instock', 0, 0.00, 0, 'taxable', ''),
+(65, 'woo-hoodie-with-logo', '', 0, 0, 45.0000, 45.0000, 0, NULL, 'instock', 0, 0.00, 0, 'taxable', ''),
+(66, 'woo-tshirt', '', 0, 0, 18.0000, 18.0000, 0, NULL, 'instock', 0, 0.00, 0, 'taxable', ''),
+(67, 'woo-beanie', '', 0, 0, 18.0000, 18.0000, 1, NULL, 'instock', 0, 0.00, 0, 'taxable', ''),
+(68, 'woo-belt', '', 0, 0, 55.0000, 55.0000, 1, NULL, 'instock', 0, 0.00, 0, 'taxable', ''),
+(69, 'woo-cap', '', 0, 0, 16.0000, 16.0000, 1, NULL, 'instock', 0, 0.00, 0, 'taxable', ''),
+(70, 'woo-sunglasses', '', 0, 0, 90.0000, 90.0000, 0, NULL, 'instock', 0, 0.00, 0, 'taxable', ''),
+(71, 'woo-hoodie-with-pocket', '', 0, 0, 35.0000, 35.0000, 1, NULL, 'instock', 0, 0.00, 0, 'taxable', ''),
+(72, 'woo-hoodie-with-zipper', '', 0, 0, 45.0000, 45.0000, 0, NULL, 'instock', 0, 0.00, 0, 'taxable', ''),
+(73, 'woo-long-sleeve-tee', '', 0, 0, 25.0000, 25.0000, 0, NULL, 'instock', 0, 0.00, 0, 'taxable', ''),
+(74, 'woo-polo', '', 0, 0, 20.0000, 20.0000, 0, NULL, 'instock', 0, 0.00, 0, 'taxable', ''),
+(75, 'woo-album', '', 1, 1, 15.0000, 15.0000, 0, NULL, 'instock', 0, 0.00, 0, 'taxable', ''),
+(76, 'woo-single', '', 1, 1, 2.0000, 2.0000, 1, NULL, 'instock', 0, 0.00, 0, 'taxable', ''),
+(77, 'woo-vneck-tee-red', '', 0, 0, 20.0000, 20.0000, 0, NULL, 'instock', 0, 0.00, 0, 'taxable', ''),
+(78, 'woo-vneck-tee-green', '', 0, 0, 20.0000, 20.0000, 0, NULL, 'instock', 0, 0.00, 0, 'taxable', ''),
+(79, 'woo-vneck-tee-blue', '', 0, 0, 15.0000, 15.0000, 0, NULL, 'instock', 0, 0.00, 0, 'taxable', ''),
+(80, 'woo-hoodie-red', '', 0, 0, 42.0000, 42.0000, 1, NULL, 'instock', 0, 0.00, 0, 'taxable', ''),
+(81, 'woo-hoodie-green', '', 0, 0, 45.0000, 45.0000, 0, NULL, 'instock', 0, 0.00, 0, 'taxable', ''),
+(82, 'woo-hoodie-blue', '', 0, 0, 45.0000, 45.0000, 0, NULL, 'instock', 0, 0.00, 0, 'taxable', ''),
+(83, 'Woo-tshirt-logo', '', 0, 0, 18.0000, 18.0000, 0, NULL, 'instock', 0, 0.00, 0, 'taxable', ''),
+(84, 'Woo-beanie-logo', '', 0, 0, 18.0000, 18.0000, 1, NULL, 'instock', 0, 0.00, 0, 'taxable', ''),
+(85, 'logo-collection', '', 0, 0, 18.0000, 45.0000, 0, NULL, 'instock', 0, 0.00, 0, 'taxable', ''),
+(86, 'wp-pennant', '', 0, 0, 11.0500, 11.0500, 0, NULL, 'instock', 0, 0.00, 0, 'taxable', ''),
+(87, 'woo-hoodie-blue-logo', '', 0, 0, 45.0000, 45.0000, 0, NULL, 'instock', 0, 0.00, 0, 'taxable', '');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `wp_wc_rate_limits`
+--
+
+CREATE TABLE `wp_wc_rate_limits` (
+  `rate_limit_id` bigint(20) UNSIGNED NOT NULL,
+  `rate_limit_key` varchar(200) NOT NULL,
+  `rate_limit_expiry` bigint(20) UNSIGNED NOT NULL,
+  `rate_limit_remaining` smallint(10) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `wp_wc_reserved_stock`
+--
+
+CREATE TABLE `wp_wc_reserved_stock` (
+  `order_id` bigint(20) NOT NULL,
+  `product_id` bigint(20) NOT NULL,
+  `stock_quantity` double NOT NULL DEFAULT 0,
+  `timestamp` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `expires` datetime NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `wp_wc_tax_rate_classes`
+--
+
+CREATE TABLE `wp_wc_tax_rate_classes` (
+  `tax_rate_class_id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(200) NOT NULL DEFAULT '',
+  `slug` varchar(200) NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+--
+-- Volcado de datos para la tabla `wp_wc_tax_rate_classes`
+--
+
+INSERT INTO `wp_wc_tax_rate_classes` (`tax_rate_class_id`, `name`, `slug`) VALUES
+(1, 'Reduced rate', 'reduced-rate'),
+(2, 'Zero rate', 'zero-rate');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `wp_wc_webhooks`
+--
+
+CREATE TABLE `wp_wc_webhooks` (
+  `webhook_id` bigint(20) UNSIGNED NOT NULL,
+  `status` varchar(200) NOT NULL,
+  `name` text NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `delivery_url` text NOT NULL,
+  `secret` text NOT NULL,
+  `topic` varchar(200) NOT NULL,
+  `date_created` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `date_created_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `date_modified` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `date_modified_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `api_version` smallint(4) NOT NULL,
+  `failure_count` smallint(10) NOT NULL DEFAULT 0,
+  `pending_delivery` tinyint(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `wp_woocommerce_api_keys`
+--
+
+CREATE TABLE `wp_woocommerce_api_keys` (
+  `key_id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `description` varchar(200) DEFAULT NULL,
+  `permissions` varchar(10) NOT NULL,
+  `consumer_key` char(64) NOT NULL,
+  `consumer_secret` char(43) NOT NULL,
+  `nonces` longtext DEFAULT NULL,
+  `truncated_key` char(7) NOT NULL,
+  `last_access` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `wp_woocommerce_attribute_taxonomies`
+--
+
+CREATE TABLE `wp_woocommerce_attribute_taxonomies` (
+  `attribute_id` bigint(20) UNSIGNED NOT NULL,
+  `attribute_name` varchar(200) NOT NULL,
+  `attribute_label` varchar(200) DEFAULT NULL,
+  `attribute_type` varchar(20) NOT NULL,
+  `attribute_orderby` varchar(20) NOT NULL,
+  `attribute_public` int(1) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+--
+-- Volcado de datos para la tabla `wp_woocommerce_attribute_taxonomies`
+--
+
+INSERT INTO `wp_woocommerce_attribute_taxonomies` (`attribute_id`, `attribute_name`, `attribute_label`, `attribute_type`, `attribute_orderby`, `attribute_public`) VALUES
+(1, 'color', 'Color', 'select', 'menu_order', 0),
+(2, 'size', 'Size', 'select', 'menu_order', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `wp_woocommerce_downloadable_product_permissions`
+--
+
+CREATE TABLE `wp_woocommerce_downloadable_product_permissions` (
+  `permission_id` bigint(20) UNSIGNED NOT NULL,
+  `download_id` varchar(36) NOT NULL,
+  `product_id` bigint(20) UNSIGNED NOT NULL,
+  `order_id` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
+  `order_key` varchar(200) NOT NULL,
+  `user_email` varchar(200) NOT NULL,
+  `user_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `downloads_remaining` varchar(9) DEFAULT NULL,
+  `access_granted` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `access_expires` datetime DEFAULT NULL,
+  `download_count` bigint(20) UNSIGNED NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `wp_woocommerce_log`
+--
+
+CREATE TABLE `wp_woocommerce_log` (
+  `log_id` bigint(20) UNSIGNED NOT NULL,
+  `timestamp` datetime NOT NULL,
+  `level` smallint(4) NOT NULL,
+  `source` varchar(200) NOT NULL,
+  `message` longtext NOT NULL,
+  `context` longtext DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `wp_woocommerce_order_itemmeta`
+--
+
+CREATE TABLE `wp_woocommerce_order_itemmeta` (
+  `meta_id` bigint(20) UNSIGNED NOT NULL,
+  `order_item_id` bigint(20) UNSIGNED NOT NULL,
+  `meta_key` varchar(255) DEFAULT NULL,
+  `meta_value` longtext DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `wp_woocommerce_order_items`
+--
+
+CREATE TABLE `wp_woocommerce_order_items` (
+  `order_item_id` bigint(20) UNSIGNED NOT NULL,
+  `order_item_name` text NOT NULL,
+  `order_item_type` varchar(200) NOT NULL DEFAULT '',
+  `order_id` bigint(20) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `wp_woocommerce_payment_tokenmeta`
+--
+
+CREATE TABLE `wp_woocommerce_payment_tokenmeta` (
+  `meta_id` bigint(20) UNSIGNED NOT NULL,
+  `payment_token_id` bigint(20) UNSIGNED NOT NULL,
+  `meta_key` varchar(255) DEFAULT NULL,
+  `meta_value` longtext DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `wp_woocommerce_payment_tokens`
+--
+
+CREATE TABLE `wp_woocommerce_payment_tokens` (
+  `token_id` bigint(20) UNSIGNED NOT NULL,
+  `gateway_id` varchar(200) NOT NULL,
+  `token` text NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
+  `type` varchar(200) NOT NULL,
+  `is_default` tinyint(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `wp_woocommerce_sessions`
+--
+
+CREATE TABLE `wp_woocommerce_sessions` (
+  `session_id` bigint(20) UNSIGNED NOT NULL,
+  `session_key` char(32) NOT NULL,
+  `session_value` longtext NOT NULL,
+  `session_expiry` bigint(20) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+--
+-- Volcado de datos para la tabla `wp_woocommerce_sessions`
+--
+
+INSERT INTO `wp_woocommerce_sessions` (`session_id`, `session_key`, `session_value`, `session_expiry`) VALUES
+(1, '1', 'a:7:{s:4:\"cart\";s:6:\"a:0:{}\";s:11:\"cart_totals\";s:367:\"a:15:{s:8:\"subtotal\";i:0;s:12:\"subtotal_tax\";i:0;s:14:\"shipping_total\";i:0;s:12:\"shipping_tax\";i:0;s:14:\"shipping_taxes\";a:0:{}s:14:\"discount_total\";i:0;s:12:\"discount_tax\";i:0;s:19:\"cart_contents_total\";i:0;s:17:\"cart_contents_tax\";i:0;s:19:\"cart_contents_taxes\";a:0:{}s:9:\"fee_total\";i:0;s:7:\"fee_tax\";i:0;s:9:\"fee_taxes\";a:0:{}s:5:\"total\";i:0;s:9:\"total_tax\";i:0;}\";s:15:\"applied_coupons\";s:6:\"a:0:{}\";s:22:\"coupon_discount_totals\";s:6:\"a:0:{}\";s:26:\"coupon_discount_tax_totals\";s:6:\"a:0:{}\";s:21:\"removed_cart_contents\";s:6:\"a:0:{}\";s:8:\"customer\";s:786:\"a:28:{s:2:\"id\";s:1:\"1\";s:13:\"date_modified\";s:25:\"2024-11-27T02:19:41-03:00\";s:10:\"first_name\";s:0:\"\";s:9:\"last_name\";s:0:\"\";s:7:\"company\";s:0:\"\";s:5:\"phone\";s:0:\"\";s:5:\"email\";s:19:\"guilleac8@gmail.com\";s:7:\"address\";s:0:\"\";s:9:\"address_1\";s:0:\"\";s:9:\"address_2\";s:0:\"\";s:4:\"city\";s:0:\"\";s:5:\"state\";s:1:\"X\";s:8:\"postcode\";s:0:\"\";s:7:\"country\";s:2:\"AR\";s:19:\"shipping_first_name\";s:0:\"\";s:18:\"shipping_last_name\";s:0:\"\";s:16:\"shipping_company\";s:0:\"\";s:14:\"shipping_phone\";s:0:\"\";s:16:\"shipping_address\";s:0:\"\";s:18:\"shipping_address_1\";s:0:\"\";s:18:\"shipping_address_2\";s:0:\"\";s:13:\"shipping_city\";s:0:\"\";s:14:\"shipping_state\";s:1:\"X\";s:17:\"shipping_postcode\";s:0:\"\";s:16:\"shipping_country\";s:2:\"AR\";s:13:\"is_vat_exempt\";s:0:\"\";s:19:\"calculated_shipping\";s:0:\"\";s:9:\"meta_data\";a:0:{}}\";}', 1732857586);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `wp_woocommerce_shipping_zones`
+--
+
+CREATE TABLE `wp_woocommerce_shipping_zones` (
+  `zone_id` bigint(20) UNSIGNED NOT NULL,
+  `zone_name` varchar(200) NOT NULL,
+  `zone_order` bigint(20) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+--
+-- Volcado de datos para la tabla `wp_woocommerce_shipping_zones`
+--
+
+INSERT INTO `wp_woocommerce_shipping_zones` (`zone_id`, `zone_name`, `zone_order`) VALUES
+(1, 'Argentina', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `wp_woocommerce_shipping_zone_locations`
+--
+
+CREATE TABLE `wp_woocommerce_shipping_zone_locations` (
+  `location_id` bigint(20) UNSIGNED NOT NULL,
+  `zone_id` bigint(20) UNSIGNED NOT NULL,
+  `location_code` varchar(200) NOT NULL,
+  `location_type` varchar(40) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+--
+-- Volcado de datos para la tabla `wp_woocommerce_shipping_zone_locations`
+--
+
+INSERT INTO `wp_woocommerce_shipping_zone_locations` (`location_id`, `zone_id`, `location_code`, `location_type`) VALUES
+(1, 1, 'AR', 'country');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `wp_woocommerce_shipping_zone_methods`
+--
+
+CREATE TABLE `wp_woocommerce_shipping_zone_methods` (
+  `zone_id` bigint(20) UNSIGNED NOT NULL,
+  `instance_id` bigint(20) UNSIGNED NOT NULL,
+  `method_id` varchar(200) NOT NULL,
+  `method_order` bigint(20) UNSIGNED NOT NULL,
+  `is_enabled` tinyint(1) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+--
+-- Volcado de datos para la tabla `wp_woocommerce_shipping_zone_methods`
+--
+
+INSERT INTO `wp_woocommerce_shipping_zone_methods` (`zone_id`, `instance_id`, `method_id`, `method_order`, `is_enabled`) VALUES
+(1, 1, 'free_shipping', 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `wp_woocommerce_tax_rates`
+--
+
+CREATE TABLE `wp_woocommerce_tax_rates` (
+  `tax_rate_id` bigint(20) UNSIGNED NOT NULL,
+  `tax_rate_country` varchar(2) NOT NULL DEFAULT '',
+  `tax_rate_state` varchar(200) NOT NULL DEFAULT '',
+  `tax_rate` varchar(8) NOT NULL DEFAULT '',
+  `tax_rate_name` varchar(200) NOT NULL DEFAULT '',
+  `tax_rate_priority` bigint(20) UNSIGNED NOT NULL,
+  `tax_rate_compound` int(1) NOT NULL DEFAULT 0,
+  `tax_rate_shipping` int(1) NOT NULL DEFAULT 1,
+  `tax_rate_order` bigint(20) UNSIGNED NOT NULL,
+  `tax_rate_class` varchar(200) NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+--
+-- Volcado de datos para la tabla `wp_woocommerce_tax_rates`
+--
+
+INSERT INTO `wp_woocommerce_tax_rates` (`tax_rate_id`, `tax_rate_country`, `tax_rate_state`, `tax_rate`, `tax_rate_name`, `tax_rate_priority`, `tax_rate_compound`, `tax_rate_shipping`, `tax_rate_order`, `tax_rate_class`) VALUES
+(1, 'AR', '', '21.0000', 'IVA', 1, 0, 0, 0, '');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `wp_woocommerce_tax_rate_locations`
+--
+
+CREATE TABLE `wp_woocommerce_tax_rate_locations` (
+  `location_id` bigint(20) UNSIGNED NOT NULL,
+  `location_code` varchar(200) NOT NULL,
+  `tax_rate_id` bigint(20) UNSIGNED NOT NULL,
+  `location_type` varchar(40) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+--
+-- Volcado de datos para la tabla `wp_woocommerce_tax_rate_locations`
+--
+
+INSERT INTO `wp_woocommerce_tax_rate_locations` (`location_id`, `location_code`, `tax_rate_id`, `location_type`) VALUES
+(1, '6132', 1, 'postcode'),
+(2, 'GENERAL LEVALLE', 1, 'city');
+
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `wp_actionscheduler_actions`
+--
+ALTER TABLE `wp_actionscheduler_actions`
+  ADD PRIMARY KEY (`action_id`),
+  ADD KEY `hook_status_scheduled_date_gmt` (`hook`(163),`status`,`scheduled_date_gmt`),
+  ADD KEY `status_scheduled_date_gmt` (`status`,`scheduled_date_gmt`),
+  ADD KEY `scheduled_date_gmt` (`scheduled_date_gmt`),
+  ADD KEY `args` (`args`),
+  ADD KEY `group_id` (`group_id`),
+  ADD KEY `last_attempt_gmt` (`last_attempt_gmt`),
+  ADD KEY `claim_id_status_scheduled_date_gmt` (`claim_id`,`status`,`scheduled_date_gmt`);
+
+--
+-- Indices de la tabla `wp_actionscheduler_claims`
+--
+ALTER TABLE `wp_actionscheduler_claims`
+  ADD PRIMARY KEY (`claim_id`),
+  ADD KEY `date_created_gmt` (`date_created_gmt`);
+
+--
+-- Indices de la tabla `wp_actionscheduler_groups`
+--
+ALTER TABLE `wp_actionscheduler_groups`
+  ADD PRIMARY KEY (`group_id`),
+  ADD KEY `slug` (`slug`(191));
+
+--
+-- Indices de la tabla `wp_actionscheduler_logs`
+--
+ALTER TABLE `wp_actionscheduler_logs`
+  ADD PRIMARY KEY (`log_id`),
+  ADD KEY `action_id` (`action_id`),
+  ADD KEY `log_date_gmt` (`log_date_gmt`);
 
 --
 -- Indices de la tabla `wp_commentmeta`
@@ -1837,8 +3052,302 @@ ALTER TABLE `wp_users`
   ADD KEY `user_email` (`user_email`);
 
 --
+-- Indices de la tabla `wp_wc_admin_notes`
+--
+ALTER TABLE `wp_wc_admin_notes`
+  ADD PRIMARY KEY (`note_id`);
+
+--
+-- Indices de la tabla `wp_wc_admin_note_actions`
+--
+ALTER TABLE `wp_wc_admin_note_actions`
+  ADD PRIMARY KEY (`action_id`),
+  ADD KEY `note_id` (`note_id`);
+
+--
+-- Indices de la tabla `wp_wc_category_lookup`
+--
+ALTER TABLE `wp_wc_category_lookup`
+  ADD PRIMARY KEY (`category_tree_id`,`category_id`);
+
+--
+-- Indices de la tabla `wp_wc_customer_lookup`
+--
+ALTER TABLE `wp_wc_customer_lookup`
+  ADD PRIMARY KEY (`customer_id`),
+  ADD UNIQUE KEY `user_id` (`user_id`),
+  ADD KEY `email` (`email`);
+
+--
+-- Indices de la tabla `wp_wc_download_log`
+--
+ALTER TABLE `wp_wc_download_log`
+  ADD PRIMARY KEY (`download_log_id`),
+  ADD KEY `permission_id` (`permission_id`),
+  ADD KEY `timestamp` (`timestamp`);
+
+--
+-- Indices de la tabla `wp_wc_orders`
+--
+ALTER TABLE `wp_wc_orders`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `status` (`status`),
+  ADD KEY `date_created` (`date_created_gmt`),
+  ADD KEY `customer_id_billing_email` (`customer_id`,`billing_email`(171)),
+  ADD KEY `billing_email` (`billing_email`(191)),
+  ADD KEY `type_status_date` (`type`,`status`,`date_created_gmt`),
+  ADD KEY `parent_order_id` (`parent_order_id`),
+  ADD KEY `date_updated` (`date_updated_gmt`);
+
+--
+-- Indices de la tabla `wp_wc_orders_meta`
+--
+ALTER TABLE `wp_wc_orders_meta`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `meta_key_value` (`meta_key`(100),`meta_value`(82)),
+  ADD KEY `order_id_meta_key_meta_value` (`order_id`,`meta_key`(100),`meta_value`(82));
+
+--
+-- Indices de la tabla `wp_wc_order_addresses`
+--
+ALTER TABLE `wp_wc_order_addresses`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `address_type_order_id` (`address_type`,`order_id`),
+  ADD KEY `order_id` (`order_id`),
+  ADD KEY `email` (`email`(191)),
+  ADD KEY `phone` (`phone`);
+
+--
+-- Indices de la tabla `wp_wc_order_coupon_lookup`
+--
+ALTER TABLE `wp_wc_order_coupon_lookup`
+  ADD PRIMARY KEY (`order_id`,`coupon_id`),
+  ADD KEY `coupon_id` (`coupon_id`),
+  ADD KEY `date_created` (`date_created`);
+
+--
+-- Indices de la tabla `wp_wc_order_operational_data`
+--
+ALTER TABLE `wp_wc_order_operational_data`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `order_id` (`order_id`),
+  ADD KEY `order_key` (`order_key`);
+
+--
+-- Indices de la tabla `wp_wc_order_product_lookup`
+--
+ALTER TABLE `wp_wc_order_product_lookup`
+  ADD PRIMARY KEY (`order_item_id`),
+  ADD KEY `order_id` (`order_id`),
+  ADD KEY `product_id` (`product_id`),
+  ADD KEY `customer_id` (`customer_id`),
+  ADD KEY `date_created` (`date_created`);
+
+--
+-- Indices de la tabla `wp_wc_order_stats`
+--
+ALTER TABLE `wp_wc_order_stats`
+  ADD PRIMARY KEY (`order_id`),
+  ADD KEY `date_created` (`date_created`),
+  ADD KEY `customer_id` (`customer_id`),
+  ADD KEY `status` (`status`(191));
+
+--
+-- Indices de la tabla `wp_wc_order_tax_lookup`
+--
+ALTER TABLE `wp_wc_order_tax_lookup`
+  ADD PRIMARY KEY (`order_id`,`tax_rate_id`),
+  ADD KEY `tax_rate_id` (`tax_rate_id`),
+  ADD KEY `date_created` (`date_created`);
+
+--
+-- Indices de la tabla `wp_wc_product_attributes_lookup`
+--
+ALTER TABLE `wp_wc_product_attributes_lookup`
+  ADD PRIMARY KEY (`product_or_parent_id`,`term_id`,`product_id`,`taxonomy`),
+  ADD KEY `is_variation_attribute_term_id` (`is_variation_attribute`,`term_id`);
+
+--
+-- Indices de la tabla `wp_wc_product_download_directories`
+--
+ALTER TABLE `wp_wc_product_download_directories`
+  ADD PRIMARY KEY (`url_id`),
+  ADD KEY `url` (`url`(191));
+
+--
+-- Indices de la tabla `wp_wc_product_meta_lookup`
+--
+ALTER TABLE `wp_wc_product_meta_lookup`
+  ADD PRIMARY KEY (`product_id`),
+  ADD KEY `virtual` (`virtual`),
+  ADD KEY `downloadable` (`downloadable`),
+  ADD KEY `stock_status` (`stock_status`),
+  ADD KEY `stock_quantity` (`stock_quantity`),
+  ADD KEY `onsale` (`onsale`),
+  ADD KEY `min_max_price` (`min_price`,`max_price`),
+  ADD KEY `sku` (`sku`(50));
+
+--
+-- Indices de la tabla `wp_wc_rate_limits`
+--
+ALTER TABLE `wp_wc_rate_limits`
+  ADD PRIMARY KEY (`rate_limit_id`),
+  ADD UNIQUE KEY `rate_limit_key` (`rate_limit_key`(191));
+
+--
+-- Indices de la tabla `wp_wc_reserved_stock`
+--
+ALTER TABLE `wp_wc_reserved_stock`
+  ADD PRIMARY KEY (`order_id`,`product_id`);
+
+--
+-- Indices de la tabla `wp_wc_tax_rate_classes`
+--
+ALTER TABLE `wp_wc_tax_rate_classes`
+  ADD PRIMARY KEY (`tax_rate_class_id`),
+  ADD UNIQUE KEY `slug` (`slug`(191));
+
+--
+-- Indices de la tabla `wp_wc_webhooks`
+--
+ALTER TABLE `wp_wc_webhooks`
+  ADD PRIMARY KEY (`webhook_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indices de la tabla `wp_woocommerce_api_keys`
+--
+ALTER TABLE `wp_woocommerce_api_keys`
+  ADD PRIMARY KEY (`key_id`),
+  ADD KEY `consumer_key` (`consumer_key`),
+  ADD KEY `consumer_secret` (`consumer_secret`);
+
+--
+-- Indices de la tabla `wp_woocommerce_attribute_taxonomies`
+--
+ALTER TABLE `wp_woocommerce_attribute_taxonomies`
+  ADD PRIMARY KEY (`attribute_id`),
+  ADD KEY `attribute_name` (`attribute_name`(20));
+
+--
+-- Indices de la tabla `wp_woocommerce_downloadable_product_permissions`
+--
+ALTER TABLE `wp_woocommerce_downloadable_product_permissions`
+  ADD PRIMARY KEY (`permission_id`),
+  ADD KEY `download_order_key_product` (`product_id`,`order_id`,`order_key`(16),`download_id`),
+  ADD KEY `download_order_product` (`download_id`,`order_id`,`product_id`),
+  ADD KEY `order_id` (`order_id`),
+  ADD KEY `user_order_remaining_expires` (`user_id`,`order_id`,`downloads_remaining`,`access_expires`);
+
+--
+-- Indices de la tabla `wp_woocommerce_log`
+--
+ALTER TABLE `wp_woocommerce_log`
+  ADD PRIMARY KEY (`log_id`),
+  ADD KEY `level` (`level`);
+
+--
+-- Indices de la tabla `wp_woocommerce_order_itemmeta`
+--
+ALTER TABLE `wp_woocommerce_order_itemmeta`
+  ADD PRIMARY KEY (`meta_id`),
+  ADD KEY `order_item_id` (`order_item_id`),
+  ADD KEY `meta_key` (`meta_key`(32));
+
+--
+-- Indices de la tabla `wp_woocommerce_order_items`
+--
+ALTER TABLE `wp_woocommerce_order_items`
+  ADD PRIMARY KEY (`order_item_id`),
+  ADD KEY `order_id` (`order_id`);
+
+--
+-- Indices de la tabla `wp_woocommerce_payment_tokenmeta`
+--
+ALTER TABLE `wp_woocommerce_payment_tokenmeta`
+  ADD PRIMARY KEY (`meta_id`),
+  ADD KEY `payment_token_id` (`payment_token_id`),
+  ADD KEY `meta_key` (`meta_key`(32));
+
+--
+-- Indices de la tabla `wp_woocommerce_payment_tokens`
+--
+ALTER TABLE `wp_woocommerce_payment_tokens`
+  ADD PRIMARY KEY (`token_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indices de la tabla `wp_woocommerce_sessions`
+--
+ALTER TABLE `wp_woocommerce_sessions`
+  ADD PRIMARY KEY (`session_id`),
+  ADD UNIQUE KEY `session_key` (`session_key`);
+
+--
+-- Indices de la tabla `wp_woocommerce_shipping_zones`
+--
+ALTER TABLE `wp_woocommerce_shipping_zones`
+  ADD PRIMARY KEY (`zone_id`);
+
+--
+-- Indices de la tabla `wp_woocommerce_shipping_zone_locations`
+--
+ALTER TABLE `wp_woocommerce_shipping_zone_locations`
+  ADD PRIMARY KEY (`location_id`),
+  ADD KEY `zone_id` (`zone_id`),
+  ADD KEY `location_type_code` (`location_type`(10),`location_code`(20));
+
+--
+-- Indices de la tabla `wp_woocommerce_shipping_zone_methods`
+--
+ALTER TABLE `wp_woocommerce_shipping_zone_methods`
+  ADD PRIMARY KEY (`instance_id`);
+
+--
+-- Indices de la tabla `wp_woocommerce_tax_rates`
+--
+ALTER TABLE `wp_woocommerce_tax_rates`
+  ADD PRIMARY KEY (`tax_rate_id`),
+  ADD KEY `tax_rate_country` (`tax_rate_country`),
+  ADD KEY `tax_rate_state` (`tax_rate_state`(2)),
+  ADD KEY `tax_rate_class` (`tax_rate_class`(10)),
+  ADD KEY `tax_rate_priority` (`tax_rate_priority`);
+
+--
+-- Indices de la tabla `wp_woocommerce_tax_rate_locations`
+--
+ALTER TABLE `wp_woocommerce_tax_rate_locations`
+  ADD PRIMARY KEY (`location_id`),
+  ADD KEY `tax_rate_id` (`tax_rate_id`),
+  ADD KEY `location_type_code` (`location_type`(10),`location_code`(20));
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `wp_actionscheduler_actions`
+--
+ALTER TABLE `wp_actionscheduler_actions`
+  MODIFY `action_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+
+--
+-- AUTO_INCREMENT de la tabla `wp_actionscheduler_claims`
+--
+ALTER TABLE `wp_actionscheduler_claims`
+  MODIFY `claim_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
+
+--
+-- AUTO_INCREMENT de la tabla `wp_actionscheduler_groups`
+--
+ALTER TABLE `wp_actionscheduler_groups`
+  MODIFY `group_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `wp_actionscheduler_logs`
+--
+ALTER TABLE `wp_actionscheduler_logs`
+  MODIFY `log_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=152;
 
 --
 -- AUTO_INCREMENT de la tabla `wp_commentmeta`
@@ -1862,19 +3371,19 @@ ALTER TABLE `wp_links`
 -- AUTO_INCREMENT de la tabla `wp_options`
 --
 ALTER TABLE `wp_options`
-  MODIFY `option_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=734;
+  MODIFY `option_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=787;
 
 --
 -- AUTO_INCREMENT de la tabla `wp_postmeta`
 --
 ALTER TABLE `wp_postmeta`
-  MODIFY `meta_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=691;
+  MODIFY `meta_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=707;
 
 --
 -- AUTO_INCREMENT de la tabla `wp_posts`
 --
 ALTER TABLE `wp_posts`
-  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=119;
+  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
 
 --
 -- AUTO_INCREMENT de la tabla `wp_termmeta`
@@ -1898,13 +3407,163 @@ ALTER TABLE `wp_term_taxonomy`
 -- AUTO_INCREMENT de la tabla `wp_usermeta`
 --
 ALTER TABLE `wp_usermeta`
-  MODIFY `umeta_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `umeta_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT de la tabla `wp_users`
 --
 ALTER TABLE `wp_users`
   MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `wp_wc_admin_notes`
+--
+ALTER TABLE `wp_wc_admin_notes`
+  MODIFY `note_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+
+--
+-- AUTO_INCREMENT de la tabla `wp_wc_admin_note_actions`
+--
+ALTER TABLE `wp_wc_admin_note_actions`
+  MODIFY `action_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=165;
+
+--
+-- AUTO_INCREMENT de la tabla `wp_wc_customer_lookup`
+--
+ALTER TABLE `wp_wc_customer_lookup`
+  MODIFY `customer_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `wp_wc_download_log`
+--
+ALTER TABLE `wp_wc_download_log`
+  MODIFY `download_log_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `wp_wc_orders_meta`
+--
+ALTER TABLE `wp_wc_orders_meta`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `wp_wc_order_addresses`
+--
+ALTER TABLE `wp_wc_order_addresses`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `wp_wc_order_operational_data`
+--
+ALTER TABLE `wp_wc_order_operational_data`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `wp_wc_product_download_directories`
+--
+ALTER TABLE `wp_wc_product_download_directories`
+  MODIFY `url_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `wp_wc_rate_limits`
+--
+ALTER TABLE `wp_wc_rate_limits`
+  MODIFY `rate_limit_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `wp_wc_tax_rate_classes`
+--
+ALTER TABLE `wp_wc_tax_rate_classes`
+  MODIFY `tax_rate_class_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `wp_wc_webhooks`
+--
+ALTER TABLE `wp_wc_webhooks`
+  MODIFY `webhook_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `wp_woocommerce_api_keys`
+--
+ALTER TABLE `wp_woocommerce_api_keys`
+  MODIFY `key_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `wp_woocommerce_attribute_taxonomies`
+--
+ALTER TABLE `wp_woocommerce_attribute_taxonomies`
+  MODIFY `attribute_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `wp_woocommerce_downloadable_product_permissions`
+--
+ALTER TABLE `wp_woocommerce_downloadable_product_permissions`
+  MODIFY `permission_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `wp_woocommerce_log`
+--
+ALTER TABLE `wp_woocommerce_log`
+  MODIFY `log_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `wp_woocommerce_order_itemmeta`
+--
+ALTER TABLE `wp_woocommerce_order_itemmeta`
+  MODIFY `meta_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `wp_woocommerce_order_items`
+--
+ALTER TABLE `wp_woocommerce_order_items`
+  MODIFY `order_item_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `wp_woocommerce_payment_tokenmeta`
+--
+ALTER TABLE `wp_woocommerce_payment_tokenmeta`
+  MODIFY `meta_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `wp_woocommerce_payment_tokens`
+--
+ALTER TABLE `wp_woocommerce_payment_tokens`
+  MODIFY `token_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `wp_woocommerce_sessions`
+--
+ALTER TABLE `wp_woocommerce_sessions`
+  MODIFY `session_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT de la tabla `wp_woocommerce_shipping_zones`
+--
+ALTER TABLE `wp_woocommerce_shipping_zones`
+  MODIFY `zone_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `wp_woocommerce_shipping_zone_locations`
+--
+ALTER TABLE `wp_woocommerce_shipping_zone_locations`
+  MODIFY `location_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `wp_woocommerce_shipping_zone_methods`
+--
+ALTER TABLE `wp_woocommerce_shipping_zone_methods`
+  MODIFY `instance_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `wp_woocommerce_tax_rates`
+--
+ALTER TABLE `wp_woocommerce_tax_rates`
+  MODIFY `tax_rate_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `wp_woocommerce_tax_rate_locations`
+--
+ALTER TABLE `wp_woocommerce_tax_rate_locations`
+  MODIFY `location_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
